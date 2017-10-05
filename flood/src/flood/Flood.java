@@ -5,6 +5,8 @@
  */
 package flood;
 
+import byui.cit260.flood.model.Player;
+
 /**
  *
  * @author wyatt
@@ -15,7 +17,13 @@ public class Flood {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Player playerOne = new Player();
+        
+        playerOne.setName("Bob");
+        playerOne.setBestScore(0);
+        playerOne.setLastDatePlayed(null);
+        System.out.println(playerOne.toString());
+        
     }
     
 }
