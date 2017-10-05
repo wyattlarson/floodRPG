@@ -14,6 +14,7 @@ public class Item implements Serializable{
     
     private String description;
     private int itemId;
+    private Game game;
 
     public Item() {
     }
@@ -34,6 +35,16 @@ public class Item implements Serializable{
     public void setItemId(int itemId) {
         this.itemId = itemId;
     }
+
+    public Game getGame() {
+        return game;
+    }
+
+    public void setGame(Game game) {
+        this.game = game;
+    }
+    
+    
 
     @Override
     public int hashCode() {

@@ -10,6 +10,7 @@ import java.util.Objects;
  *
  * @author wyatt
  */
+import java.util.ArrayList;
 public class Game implements Serializable{
 
     private double amountSaved;
@@ -60,7 +61,12 @@ public class Game implements Serializable{
         return true;
     }
 
-   
+    private double amountSaved;
+    private String savedFile;
+    private ArrayList<Item> items = new ArrayList<Item>();
+    
+    public Game() {
+    }
 
     public double getAmountSaved() {
         return amountSaved;
@@ -77,5 +83,15 @@ public class Game implements Serializable{
     public void setSavedFile(String savedFile) {
         this.savedFile = savedFile;
     }
+
+    public ArrayList<Item> getItems() {
+        return items;
+    }
+
+    public void setItems(ArrayList<Item> items) {
+        this.items = items;
+    }
+    
+    
     
 }
