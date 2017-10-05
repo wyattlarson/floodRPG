@@ -14,7 +14,8 @@ public enum Character {
     //this is where we put a list of set characters to choose from
     Bob("Bob", "Something", new Point(1,1));
 
-    //this is three attributes about the characters
+//------------------------------Character Attributes------------------------------//
+
     private final Point locationId;
     private final String name;
     private final String description; 
@@ -25,7 +26,9 @@ public enum Character {
         this.description = description;
     }
 
-    //these are the Character classes public functions. There are only getters because there is a set amount of characters to choose.
+//------------------------------Public Funtions------------------------------//
+
+    //There are only getters because there is a set amount of characters to choose.
     public Point getLocationId() {
         return locationId;
     }
@@ -37,6 +40,8 @@ public enum Character {
     public String getDescription() {
         return description;
     }
+
+    //------------------------------Overrides------------------------------//
 
     @Override
     public String toString() {

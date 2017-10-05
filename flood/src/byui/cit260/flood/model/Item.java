@@ -12,9 +12,14 @@ import java.util.Objects;
  */
 public class Item implements Serializable{
     
+//------------------------------Item class Attributes------------------------------//
+
     private String description;
     private int itemId;
-    //this is the association between the Game and Item class
+    
+//------------------------------Associations------------------------------//
+
+    //this is the association between the Item and Game class
     private Game game;
                    //getter and setter for Game class and Item class association
                 public Game getGame() {
@@ -23,10 +28,13 @@ public class Item implements Serializable{
                public void setGame(Game game) {
                    this.game = game;
                }
+               
+//------------------------------Public Functions------------------------------//
+
     //this is the Item class constructor
     public Item() {
     }
-    //these are the Item class public functions
+    
     public String getDescription() {
         return description;
     }
@@ -43,7 +51,8 @@ public class Item implements Serializable{
         this.itemId = itemId;
     }         
 
-    //Overide functions
+ //------------------------------Overrides------------------------------//
+
     @Override
     public int hashCode() {
         int hash = 5;

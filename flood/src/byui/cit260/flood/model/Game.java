@@ -6,28 +6,32 @@
 package byui.cit260.flood.model;
 import java.io.Serializable;
 import java.util.Objects;
+import java.util.ArrayList;
 /**
  *
  * @author wyatt
  */
-import java.util.ArrayList;
+
 public class Game implements Serializable{
+
+//------------------------------Game Attributes------------------------------//
 
     private double amountSaved;
     private String savedFile;
     
+//------------------------------Associations------------------------------//
+
     //this is the association between the Game class and the Player class
     private Player player;
             //Player class getter and setter
             public Player getPlayer() {
               return player;
           }
-
           public void setPlayer(Player player) {
               this.player = player;
           }
     
-    //this is the association between the Game class and the Items class
+    //this is the association between the Game class and the Item class
      private ArrayList<Item> items = new ArrayList<Item>();
      
             //Item class getter and setter
@@ -37,8 +41,10 @@ public class Game implements Serializable{
             public void setItems(ArrayList<Item> items) {
                 this.items = items;
             }
-  
-            //this is the constructor
+            
+//------------------------------Public Functions------------------------------//
+
+   //this is the constructor
     public Game() {
     }
     
@@ -62,6 +68,8 @@ public class Game implements Serializable{
     public void setSavedFile(String savedFile) {
         this.savedFile = savedFile;
     }
+
+//------------------------------Overrides------------------------------//
 
     
     @Override

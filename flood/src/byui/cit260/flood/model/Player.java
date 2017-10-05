@@ -11,22 +11,33 @@ import java.util.Objects;
  *
  * @author wyatt
  */
+
+//------------------------------Player Attributes------------------------------//
 public class Player implements Serializable{
     private String name;
     private String lastDatePlayed;
-
-    
     private double bestScore;
+
+    //------------------------------Associations-----------------------------//
+    //Association between Game and Player
     private ArrayList<Game> games = new ArrayList<Game>();
-
-    public ArrayList<Game> getGames() {
-        return games;
-    }
-
-    public void setGames(ArrayList<Game> games) {
-        this.games = games;
-    }
-
+            public ArrayList<Game> getGames() {
+                return games;
+            }
+            public void setGames(ArrayList<Game> games) {
+                this.games = games;
+            }
+     //Assoiciation between Player and Character
+      private ArrayList<Character> characters = new ArrayList<Character>();
+            public ArrayList<Character> getCharacters() {
+                return characters;
+            }
+            public void setCharacters(ArrayList<Character> characters) {
+                this.characters = characters;
+            }
+            
+     //------------------------------Public Functions------------------------------//
+    //Constructor
     public Player() {
     }
 
@@ -53,7 +64,8 @@ public class Player implements Serializable{
     public void setBestScore(double bestScore) {
         this.bestScore = bestScore;
     }
-
+    
+//------------------------------Overrides------------------------------//
     @Override
     public int hashCode() {
         int hash = 5;
