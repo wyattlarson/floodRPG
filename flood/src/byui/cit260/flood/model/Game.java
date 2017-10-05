@@ -15,17 +15,54 @@ public class Game implements Serializable{
 
     private double amountSaved;
     private String savedFile;
+    
+    //this is the association between the Game class and the Player class
     private Player player;
+            //Player class getter and setter
+            public Player getPlayer() {
+              return player;
+          }
 
-    public Player getPlayer() {
-        return player;
-    }
-
-    public void setPlayer(Player player) {
-        this.player = player;
-    }
+          public void setPlayer(Player player) {
+              this.player = player;
+          }
+    
+    //this is the association between the Game class and the Items class
+     private ArrayList<Item> items = new ArrayList<Item>();
+     
+            //Item class getter and setter
+            public ArrayList<Item> getItems() {
+                return items;
+            }
+            public void setItems(ArrayList<Item> items) {
+                this.items = items;
+            }
+  
+            //this is the constructor
     public Game() {
     }
+    
+    
+   
+//amount saved getter
+    public double getAmountSaved() {
+        return amountSaved;
+    }
+
+   //amount saved setter
+    public void setAmountSaved(double amountSaved) {
+        this.amountSaved = amountSaved;
+    }
+
+    //savedFile getter
+    public String getSavedFile() {
+        return savedFile;
+    }
+    //savedFile setter
+    public void setSavedFile(String savedFile) {
+        this.savedFile = savedFile;
+    }
+
     
     @Override
     public int hashCode() {
@@ -60,38 +97,5 @@ public class Game implements Serializable{
         }
         return true;
     }
-
-    private double amountSaved;
-    private String savedFile;
-    private ArrayList<Item> items = new ArrayList<Item>();
-    
-    public Game() {
-    }
-
-    public double getAmountSaved() {
-        return amountSaved;
-    }
-
-    public void setAmountSaved(double amountSaved) {
-        this.amountSaved = amountSaved;
-    }
-
-    public String getSavedFile() {
-        return savedFile;
-    }
-
-    public void setSavedFile(String savedFile) {
-        this.savedFile = savedFile;
-    }
-
-    public ArrayList<Item> getItems() {
-        return items;
-    }
-
-    public void setItems(ArrayList<Item> items) {
-        this.items = items;
-    }
-    
-    
     
 }
