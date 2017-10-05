@@ -12,6 +12,20 @@ import java.util.Objects;
  */
 public class Game implements Serializable{
 
+    private double amountSaved;
+    private String savedFile;
+    private Player player;
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+    public Game() {
+    }
+    
     @Override
     public int hashCode() {
         int hash = 3;
@@ -46,10 +60,7 @@ public class Game implements Serializable{
         return true;
     }
 
-    private double amountSaved;
-    private String savedFile;
-    public Game() {
-    }
+   
 
     public double getAmountSaved() {
         return amountSaved;
