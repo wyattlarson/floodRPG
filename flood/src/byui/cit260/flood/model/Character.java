@@ -11,13 +11,13 @@ import java.awt.Point;
  * @author wyatt
  */
 public enum Character {
-    
+    //this is where we put a list of set characters to choose from
     Bob("Bob", "Something", new Point(1,1));
 
-    
-    private Point locationId;
-    private String name;
-    private String description; 
+    //this is three attributes about the characters
+    private final Point locationId;
+    private final String name;
+    private final String description; 
     
     Character(String name, String description, Point locationId) {
         this.locationId = locationId;
@@ -25,6 +25,7 @@ public enum Character {
         this.description = description;
     }
 
+    //these are the Character classes public functions. There are only getters because there is a set amount of characters to choose.
     public Point getLocationId() {
         return locationId;
     }
