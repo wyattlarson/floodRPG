@@ -10,6 +10,7 @@ import java.util.Objects;
  *
  * @author wyatt
  */
+import java.util.ArrayList;
 public class Game implements Serializable{
 
     @Override
@@ -48,6 +49,8 @@ public class Game implements Serializable{
 
     private double amountSaved;
     private String savedFile;
+    private ArrayList<Item> items = new ArrayList<Item>();
+    
     public Game() {
     }
 
@@ -66,5 +69,15 @@ public class Game implements Serializable{
     public void setSavedFile(String savedFile) {
         this.savedFile = savedFile;
     }
+
+    public ArrayList<Item> getItems() {
+        return items;
+    }
+
+    public void setItems(ArrayList<Item> items) {
+        this.items = items;
+    }
+    
+    
     
 }
