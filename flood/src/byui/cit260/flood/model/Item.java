@@ -14,12 +14,19 @@ public class Item implements Serializable{
     
     private String description;
     private int itemId;
+    //this is the association between the Game and Item class
     private Game game;
-
+                   //getter and setter for Game class and Item class association
+                public Game getGame() {
+                   return game;
+               }
+               public void setGame(Game game) {
+                   this.game = game;
+               }
+    //this is the Item class constructor
     public Item() {
     }
-    
-    
+    //these are the Item class public functions
     public String getDescription() {
         return description;
     }
@@ -34,18 +41,9 @@ public class Item implements Serializable{
 
     public void setItemId(int itemId) {
         this.itemId = itemId;
-    }
+    }         
 
-    public Game getGame() {
-        return game;
-    }
-
-    public void setGame(Game game) {
-        this.game = game;
-    }
-    
-    
-
+    //Overide functions
     @Override
     public int hashCode() {
         int hash = 5;
@@ -79,7 +77,5 @@ public class Item implements Serializable{
         }
         return true;
     }
-    
-    
-    
+       
 }
