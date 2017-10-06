@@ -19,18 +19,20 @@ public class Flood {
     public static void main(String[] args) {
         
         Player playerOne = new Player();
-        Game currentGame = new Game();
-        
+           
         playerOne.setName("Wyatt");
+        playerOne.getBestScore();
+        playerOne.setLastDatePlayed("10/2/2017");
         
-   
+        Game currentGame = new Game();
+
         currentGame.setAmountSaved(currentGame.getAmountSaved()+99);
         
         int newBestScore = currentGame.getAmountSaved();
+        
         playerOne.setBestScore(newBestScore);
     
-        playerOne.getBestScore();
-        playerOne.setLastDatePlayed("10/2/2017");
+
         System.out.println(playerOne.toString());
         System.out.println(currentGame.toString());
     }

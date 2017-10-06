@@ -12,7 +12,7 @@ import java.util.Objects;
  *
  * @author Ryan Call
  */
-public class QuestionScene implements Serializable {
+public class QuestionScene extends BuildingScene implements Serializable {
     
     //------------------------------QuestionScene Attributes------------------------------//
 
