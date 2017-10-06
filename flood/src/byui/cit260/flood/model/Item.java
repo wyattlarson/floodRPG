@@ -14,6 +14,7 @@ public class Item implements Serializable{
     
 //------------------------------Item class Attributes------------------------------//
 
+    private String name;
     private String description;
     private int itemId;
     
@@ -51,19 +52,24 @@ public class Item implements Serializable{
         this.itemId = itemId;
     }         
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
  //------------------------------Overrides------------------------------//
 
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 31 * hash + Objects.hashCode(this.description);
-        hash = 31 * hash + this.itemId;
+        hash = 83 * hash + Objects.hashCode(this.name);
+        hash = 83 * hash + Objects.hashCode(this.description);
+        hash = 83 * hash + this.itemId;
+        hash = 83 * hash + Objects.hashCode(this.game);
         return hash;
-    }
-
-    @Override
-    public String toString() {
-        return "Item{" + "description=" + description + ", itemId=" + itemId + '}';
     }
 
     @Override
@@ -81,10 +87,18 @@ public class Item implements Serializable{
         if (this.itemId != other.itemId) {
             return false;
         }
+        if (!Objects.equals(this.name, other.name)) {
+            return false;
+        }
         if (!Objects.equals(this.description, other.description)) {
+            return false;
+        }
+        if (!Objects.equals(this.game, other.game)) {
             return false;
         }
         return true;
     }
+
+   
        
 }
