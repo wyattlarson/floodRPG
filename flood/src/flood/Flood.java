@@ -7,7 +7,6 @@ package flood;
 
 import byui.cit260.flood.model.Game;
 import byui.cit260.flood.model.Player;
-
 /**
  *
  * @author wyatt
@@ -25,13 +24,13 @@ public class Flood {
         playerOne.setName("Wyatt");
         
    
-        currentGame.setAmountSaved(+1);
+        currentGame.setAmountSaved(currentGame.getAmountSaved()+99);
         
         int newBestScore = currentGame.getAmountSaved();
         playerOne.setBestScore(newBestScore);
     
         playerOne.getBestScore();
-        playerOne.setLastDatePlayed("10/5/2017 @ 6:11pm");
+        playerOne.setLastDatePlayed("10/2/2017");
         System.out.println(playerOne.toString());
         System.out.println(currentGame.toString());
     }
