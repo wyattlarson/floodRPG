@@ -13,7 +13,15 @@ import java.util.Objects;
  * @author Ryan Call
  */
 public class QuestionScene implements Serializable {
+    
+    //------------------------------QuestionScene Attributes------------------------------//
+
     private String questionPrompt;
+    
+    //------------------------------Associations------------------------------//
+
+
+    //------------------------------Public Fuctions------------------------------//
 
     public QuestionScene() {
     
@@ -26,6 +34,8 @@ public class QuestionScene implements Serializable {
     public void setQuestionPrompt(String questionPrompt) {
         this.questionPrompt = questionPrompt;
     }
+
+    //------------------------------Overrides------------------------------//
 
     @Override
     public int hashCode() {
