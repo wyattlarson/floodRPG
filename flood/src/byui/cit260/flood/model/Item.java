@@ -29,6 +29,15 @@ public class Item implements Serializable{
                    this.game = game;
                }
                
+      //this is the association between Item and Inventory
+       private Inventory inventory;
+                public Inventory getInventory() {
+                    return inventory;
+                }
+                public void setInventory(Inventory inventory) {
+                    this.inventory = inventory;
+                }
+       
 //------------------------------Public Functions------------------------------//
 
     //this is the Item class constructor

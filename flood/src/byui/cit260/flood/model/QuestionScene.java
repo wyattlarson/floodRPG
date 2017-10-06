@@ -13,12 +13,15 @@ import java.util.Objects;
  * @author Ryan Call
  */
 public class QuestionScene implements Serializable {
-//------------------------------Equation Attributes------------------------------//
-   
+    
+    //------------------------------QuestionScene Attributes------------------------------//
+
     private String questionPrompt;
-//------------------------------Associations------------------------------//
-// associatin between equation scene and question scene//
-    private Equation equation;
+    
+    //------------------------------Associations------------------------------//
+
+
+    //------------------------------Public Fuctions------------------------------//
 
                 public Equation getEquation() {
                     return equation;
@@ -41,7 +44,9 @@ public class QuestionScene implements Serializable {
     public void setQuestionPrompt(String questionPrompt) {
         this.questionPrompt = questionPrompt;
     }
-//------------------------------Overrides------------------------------//
+
+    //------------------------------Overrides------------------------------//
+
     @Override
     public int hashCode() {
         int hash = 5;
