@@ -6,6 +6,7 @@
 package byui.cit260.flood.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  *
@@ -19,9 +20,28 @@ public class Inventory implements Serializable{
     
  //------------------------------Associations------------------------------//
 
+//association between Inventory and Character
+    private Character character;
+                public Character getCharacter() {
+                    return character;
+                }
+                public void setCharacter(Character character) {
+                    this.character = character;
+                }
+    
+ //association between Inventory and Item
+    
+    private ArrayList<Item> items = new ArrayList<Item>();
+                public ArrayList<Item> getItems() {
+                    return items;
+                }
+                public void setItems(ArrayList<Item> items) {
+                    this.items = items;
+                }
     
 //------------------------------Public Functions------------------------------//
 
+    //contsructor function
     public Inventory() {
     }
 

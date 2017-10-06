@@ -42,6 +42,15 @@ public class Game implements Serializable{
                 this.items = items;
             }
             
+     //association between Game and Map class       
+      private Map map;
+                public Map getMap() {
+                    return map;
+                }
+                public void setMap(Map map) {
+                    this.map = map;
+                }
+      
 //------------------------------Public Functions------------------------------//
 
    //this is the constructor

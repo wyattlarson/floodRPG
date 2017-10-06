@@ -20,23 +20,24 @@ public class Flood {
     public static void main(String[] args) {
         
         Player playerOne = new Player();
-        Game currentGame = new Game();
-        Item flashlight = new Item();
-        
+           
         playerOne.setName("Wyatt");
+        playerOne.getBestScore();
+        playerOne.setLastDatePlayed("10/2/2017");
         
         flashlight.setName("flashlight");
         flashlight.setDescription("Allows you to see in the dark");
         flashlight.setItemId(1);
         
-   
+        Game currentGame = new Game();
+
         currentGame.setAmountSaved(currentGame.getAmountSaved()+99);
         
         int newBestScore = currentGame.getAmountSaved();
+        
         playerOne.setBestScore(newBestScore);
     
-        playerOne.getBestScore();
-        playerOne.setLastDatePlayed("10/2/2017");
+
         System.out.println(playerOne.toString());
         System.out.println(currentGame.toString());
         System.out.println(flashlight.toString());

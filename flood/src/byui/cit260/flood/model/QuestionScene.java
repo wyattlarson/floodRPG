@@ -12,17 +12,26 @@ import java.util.Objects;
  *
  * @author Ryan Call
  */
-public class QuestionScene implements Serializable {
+public class QuestionScene extends BuildingScene implements Serializable {
     
     //------------------------------QuestionScene Attributes------------------------------//
 
     private String questionPrompt;
     
     //------------------------------Associations------------------------------//
+    //Association between QuestionScene and Equation
+     private Equation equation;
+                public Equation getEquation() {
+                    return equation;
+                }
+                public void setEquation(Equation equation) {
+                    this.equation = equation;
+                }
 
-
-    //------------------------------Public Fuctions------------------------------//
-
+    
+    
+//------------------------------Public Functions------------------------------//
+//constructor function
     public QuestionScene() {
     
     }
