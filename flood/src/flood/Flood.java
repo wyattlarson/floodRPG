@@ -5,6 +5,7 @@
  */
 package flood;
 
+import byui.cit260.flood.model.Game;
 import byui.cit260.flood.model.Player;
 
 /**
@@ -17,13 +18,22 @@ public class Flood {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
         Player playerOne = new Player();
+        Game currentGame = new Game();
         
-        playerOne.setName("Bob");
-        playerOne.setBestScore(0);
-        playerOne.setLastDatePlayed(null);
+        playerOne.setName("Wyatt");
+        
+   
+        currentGame.setAmountSaved(+1);
+        
+        int newBestScore = currentGame.getAmountSaved();
+        playerOne.setBestScore(newBestScore);
+    
+        playerOne.getBestScore();
+        playerOne.setLastDatePlayed("10/5/2017 @ 6:11pm");
         System.out.println(playerOne.toString());
-        
+        System.out.println(currentGame.toString());
     }
     
 }

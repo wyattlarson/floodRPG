@@ -16,7 +16,7 @@ public class Game implements Serializable{
 
 //------------------------------Game Attributes------------------------------//
 
-    private double amountSaved;
+    private int amountSaved;
     private String savedFile;
     
 //------------------------------Associations------------------------------//
@@ -51,12 +51,12 @@ public class Game implements Serializable{
     
    
 //amount saved getter
-    public double getAmountSaved() {
+    public int getAmountSaved() {
         return amountSaved;
     }
 
    //amount saved setter
-    public void setAmountSaved(double amountSaved) {
+    public void setAmountSaved(int amountSaved) {
         this.amountSaved = amountSaved;
     }
 

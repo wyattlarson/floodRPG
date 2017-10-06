@@ -16,7 +16,7 @@ import java.util.Objects;
 public class Player implements Serializable{
     private String name;
     private String lastDatePlayed;
-    private double bestScore;
+    private int bestScore;
 
     //------------------------------Associations-----------------------------//
     //Association between Game and Player
@@ -57,11 +57,11 @@ public class Player implements Serializable{
         this.lastDatePlayed = lastDatePlayed;
     }
 
-    public double getBestScore() {
+    public int getBestScore() {
         return bestScore;
     }
 
-    public void setBestScore(double bestScore) {
+    public void setBestScore(int bestScore) {
         this.bestScore = bestScore;
     }
     
