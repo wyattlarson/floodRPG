@@ -19,20 +19,19 @@ public class QuestionScene implements Serializable {
     private String questionPrompt;
     
     //------------------------------Associations------------------------------//
-
-
-    //------------------------------Public Fuctions------------------------------//
-
+    //Association between QuestionScene and Equation
+     private Equation equation;
                 public Equation getEquation() {
                     return equation;
                 }
                 public void setEquation(Equation equation) {
                     this.equation = equation;
                 }
+
     
     
 //------------------------------Public Functions------------------------------//
-//------------------------------constructor function-------------------------//
+//constructor function
     public QuestionScene() {
     
     }
