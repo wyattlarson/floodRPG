@@ -23,6 +23,16 @@ public class QuestionScene implements Serializable {
 
     //------------------------------Public Fuctions------------------------------//
 
+                public Equation getEquation() {
+                    return equation;
+                }
+                public void setEquation(Equation equation) {
+                    this.equation = equation;
+                }
+    
+    
+//------------------------------Public Functions------------------------------//
+//------------------------------constructor function-------------------------//
     public QuestionScene() {
     
     }
