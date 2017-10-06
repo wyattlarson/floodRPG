@@ -63,6 +63,11 @@ public class Item implements Serializable{
  //------------------------------Overrides------------------------------//
 
     @Override
+    public String toString() {
+        return "Item{" + "name=" + name + ", description=" + description + ", itemId=" + itemId + ", game=" + game + '}';
+    }
+
+    @Override
     public int hashCode() {
         int hash = 5;
         hash = 83 * hash + Objects.hashCode(this.name);
