@@ -58,6 +58,11 @@ public class ItemScene implements Serializable {
     }
 
     @Override
+    public String toString() {
+        return "ItemScene{" + "location=" + location + ", itemPickup=" + itemPickup + '}';
+    }
+
+    @Override
     public boolean equals(Object obj) {
         if (this == obj) {
             return true;

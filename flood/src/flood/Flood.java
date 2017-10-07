@@ -10,6 +10,7 @@ import byui.cit260.flood.model.Player;
 import byui.cit260.flood.model.Item;
 import byui.cit260.flood.model.Inventory;
 import byui.cit260.flood.model.ItemScene;
+import java.awt.Point;
 /**
  *
  * @author wyatt
@@ -24,7 +25,6 @@ public class Flood {
         Player playerOne = new Player();
         Item flashlight = new Item();
         Inventory inventoryOne = new Inventory();
-        ItemScene sceneOne = new ItemScene();
            
         playerOne.setName("Wyatt");
         playerOne.getBestScore();
@@ -33,18 +33,23 @@ public class Flood {
         flashlight.setName("flashlight");
         flashlight.setDescription("Allows you to see in the dark");
         flashlight.setItemId(1);
+      
         
         inventoryOne.setItemQuantity(0);
         
-        sceneOne.setItemPickup("Yes");
-        
         Game currentGame = new Game();
+        currentGame.setSavedFile("tutorial.java");
 
         currentGame.setAmountSaved(currentGame.getAmountSaved()+99);
         
         int newBestScore = currentGame.getAmountSaved();
         
         playerOne.setBestScore(newBestScore);
+        
+        ItemScene sceneOne = new ItemScene();
+        sceneOne.setItemPickup("House 1");
+        Point p1 = new Point(2, 3);
+        sceneOne.setLocation(p1);
     
 
         System.out.println(playerOne.toString());
