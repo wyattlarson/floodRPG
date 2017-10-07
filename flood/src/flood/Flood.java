@@ -10,6 +10,7 @@ import byui.cit260.flood.model.Player;
 import byui.cit260.flood.model.Item;
 import byui.cit260.flood.model.Inventory;
 import byui.cit260.flood.model.ItemScene;
+import byui.cit260.flood.model.Character;
 import java.awt.Point;
 /**
  *
@@ -51,12 +52,15 @@ public class Flood {
         Point p1 = new Point(2, 3);
         itemScene.setLocation(p1);
     
+        Character character = Character.Bob;
+        
 
         System.out.println(playerOne.toString());
         System.out.println(currentGame.toString());
         System.out.println(flashlight.toString());
         System.out.println(inventoryOne.toString());
         System.out.println(itemScene.toString());
+        System.out.println(character.toString());
     }
     
 }
