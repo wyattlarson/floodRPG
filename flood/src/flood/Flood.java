@@ -47,7 +47,7 @@ public class Flood {
         playerOne.setBestScore(newBestScore);
         
         ItemScene itemScene = new ItemScene();
-        itemScene.setItemPickup("House 1");
+        itemScene.setItemPickup(flashlight.getName());
         Point p1 = new Point(2, 3);
         itemScene.setLocation(p1);
     
