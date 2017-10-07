@@ -20,6 +20,7 @@ public class Flood {
     public static void main(String[] args) {
         
         Player playerOne = new Player();
+        Item flashlight = new Item();
            
         playerOne.setName("Wyatt");
         playerOne.getBestScore();
