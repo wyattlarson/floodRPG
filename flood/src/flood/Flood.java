@@ -9,6 +9,7 @@ import byui.cit260.flood.model.Game;
 import byui.cit260.flood.model.Player;
 import byui.cit260.flood.model.Item;
 import byui.cit260.flood.model.Inventory;
+import byui.cit260.flood.model.ItemScene;
 /**
  *
  * @author wyatt
@@ -23,6 +24,7 @@ public class Flood {
         Player playerOne = new Player();
         Item flashlight = new Item();
         Inventory inventoryOne = new Inventory();
+        ItemScene sceneOne = new ItemScene();
            
         playerOne.setName("Wyatt");
         playerOne.getBestScore();
@@ -33,6 +35,8 @@ public class Flood {
         flashlight.setItemId(1);
         
         inventoryOne.setItemQuantity(0);
+        
+        sceneOne.setItemPickup("Yes");
         
         Game currentGame = new Game();
 
@@ -47,6 +51,7 @@ public class Flood {
         System.out.println(currentGame.toString());
         System.out.println(flashlight.toString());
         System.out.println(inventoryOne.toString());
+        System.out.println(sceneOne.toString());
     }
     
 }
