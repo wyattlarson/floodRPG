@@ -49,14 +49,14 @@ public class Flood {
         ItemScene itemScene = new ItemScene();
         itemScene.setItemPickup(flashlight.getName());
         Point p1 = new Point(2, 3);
-        sceneOne.setLocation(p1);
+        itemScene.setLocation(p1);
     
 
         System.out.println(playerOne.toString());
         System.out.println(currentGame.toString());
         System.out.println(flashlight.toString());
         System.out.println(inventoryOne.toString());
-        System.out.println(sceneOne.toString());
+        System.out.println(itemScene.toString());
     }
     
 }
