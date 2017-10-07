@@ -31,10 +31,12 @@ public class Flood {
         flashlight.setName("flashlight");
         flashlight.setDescription("Allows you to see in the dark");
         flashlight.setItemId(1);
+      
         
         inventoryOne.setItemQuantity(0);
         
         Game currentGame = new Game();
+        currentGame.setSavedFile("tutorial.java");
 
         currentGame.setAmountSaved(currentGame.getAmountSaved()+99);
         
