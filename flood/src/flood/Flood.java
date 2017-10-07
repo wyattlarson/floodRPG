@@ -13,7 +13,11 @@ import byui.cit260.flood.model.ItemScene;
 import byui.cit260.flood.model.Character;
 import byui.cit260.flood.model.Location;
 import byui.cit260.flood.model.Map;
+import byui.cit260.flood.model.BuildingScene;
+import byui.cit260.flood.model.QuestionScene;
+import byui.cit260.flood.model.Equation;
 import java.awt.Point;
+
 /**
  *
  * @author wyatt
@@ -69,7 +73,20 @@ public class Flood {
         dock.setAmountRemaining(49);
         dock.setVisited(true);
         
-
+        BuildingScene house = new BuildingScene();
+        house.setDescription("A small home partially submerged has a second story that appears to have people still living in it.");
+        house.setStatus("unsearched");
+        
+        QuestionScene question = new QuestionScene();
+        question.setQuestionPrompt("You must break the code to get through this locked door");
+        
+        Equation equation = new Equation();
+        equation.setQuestion("To find the number for this lock, find the area of the rectangle with a width of four and a height of five. What is the area of this rectangle?");
+        equation.setAnswer("20");
+        
+        System.out.println(equation.toString());
+        System.out.println(question.toString());
+        System.out.println(house.toString());
         System.out.println(playerOne.toString());
         System.out.println(currentGame.toString());
         System.out.println(flashlight.toString());
