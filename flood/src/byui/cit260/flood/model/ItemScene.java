@@ -42,6 +42,13 @@ public class ItemScene implements Serializable {
     }
 
     //--------------toString and Hashcode---------------//
+
+    @Override
+    public String toString() {
+        return "ItemScene{" + "location=" + location + ", itemPickup=" + itemPickup + '}';
+    }
+    
+    
     @Override
     public int hashCode() {
         int hash = 7;
