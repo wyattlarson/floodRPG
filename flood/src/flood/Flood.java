@@ -11,6 +11,7 @@ import byui.cit260.flood.model.Item;
 import byui.cit260.flood.model.Inventory;
 import byui.cit260.flood.model.ItemScene;
 import byui.cit260.flood.model.Character;
+import byui.cit260.flood.model.Map;
 import java.awt.Point;
 /**
  *
@@ -54,6 +55,14 @@ public class Flood {
     
         Character character = Character.Bob;
         
+        Map map = new Map();
+        map.setColumnCount(10);
+        map.setRowCount(10);
+        map.setCurrentColumn(2);
+        map.setCurrentRow(2);
+        map.setDescription("This is a locked house.");
+        map.getGames();
+        
 
         System.out.println(playerOne.toString());
         System.out.println(currentGame.toString());
@@ -61,6 +70,7 @@ public class Flood {
         System.out.println(inventoryOne.toString());
         System.out.println(itemScene.toString());
         System.out.println(character.toString());
+        System.out.println(map.toString());
     }
     
 }
