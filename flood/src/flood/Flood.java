@@ -9,6 +9,8 @@ import byui.cit260.flood.model.Game;
 import byui.cit260.flood.model.Player;
 import byui.cit260.flood.model.Item;
 import byui.cit260.flood.model.Inventory;
+import byui.cit260.flood.model.ItemScene;
+import java.awt.Point;
 /**
  *
  * @author wyatt
@@ -43,12 +45,18 @@ public class Flood {
         int newBestScore = currentGame.getAmountSaved();
         
         playerOne.setBestScore(newBestScore);
+        
+        ItemScene itemScene = new ItemScene();
+        itemScene.setItemPickup("House 1");
+        Point p1 = new Point(2, 3);
+        itemScene.setLocation(p1);
     
 
         System.out.println(playerOne.toString());
         System.out.println(currentGame.toString());
         System.out.println(flashlight.toString());
         System.out.println(inventoryOne.toString());
+        System.out.println(itemScene.toString());
     }
     
 }
