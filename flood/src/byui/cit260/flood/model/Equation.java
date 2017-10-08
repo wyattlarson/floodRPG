@@ -59,6 +59,11 @@ public class Equation implements Serializable {
     }
 //------------------------------Overrides------------------------------//
     @Override
+    public String toString() {
+        return "Equation{" + "question=" + question + ", Answer=" + Answer + ", questionScene=" + questionScene + '}';
+    }
+
+    @Override
     public boolean equals(Object obj) {
         if (this == obj) {
             return true;

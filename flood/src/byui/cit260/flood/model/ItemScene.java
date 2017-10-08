@@ -43,10 +43,7 @@ public class ItemScene implements Serializable {
 
     //--------------toString and Hashcode---------------//
 
-    @Override
-    public String toString() {
-        return "ItemScene{" + "location=" + location + ", itemPickup=" + itemPickup + '}';
-    }
+
     
     
     @Override
@@ -56,6 +53,12 @@ public class ItemScene implements Serializable {
         hash = 97 * hash + Objects.hashCode(this.itemPickup);
         return hash;
     }
+
+        @Override
+    public String toString() {
+        return "ItemScene{" + "location=" + location + ", itemPickup=" + itemPickup + '}';
+    }
+ 
 
     @Override
     public boolean equals(Object obj) {

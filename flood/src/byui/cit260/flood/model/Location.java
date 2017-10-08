@@ -97,5 +97,17 @@ public class Location implements Serializable{
         }
         return true;
     }
+
+    public void locationNumber(String string) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void amountVisited(String _have_been_visited) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void amountRemaining(String _locations_remain) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
