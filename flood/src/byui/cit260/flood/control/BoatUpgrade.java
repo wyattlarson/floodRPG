@@ -9,21 +9,19 @@ package byui.cit260.flood.control;
  *
  * @author wyatt
  */
-public class BoatUpgradeClass {
+public class BoatUpgrade {
     
- public static double calcBoatVolume(double length, double width, double depth) {
+ public static double calcBoatNumofPeople(double length, double width) {
     
-if (length < 0 || length > 100) {
+if (length < 2 || length > 50) {
 return -1;
  }
-if (width < 0 || width > 100) {
+if (width < 2 || width > 50) {
 return -1;
  }
-if (depth < 0 || depth > 100) {
-return -1;
-        }
-double volume = length * width * depth;
-return volume;
+int numberOfPeople = (int) Math.floor((length * width)/15);
+
+return numberOfPeople;
         }
 
     
