@@ -48,7 +48,7 @@ public class MiniGame1Test {
         double height = 10;
         double guess = 150;
         int expResult = 150;
-        int result = MiniGame1.miniGame1(base1, base2, height, guess, area);
+        int result = MiniGame1.miniGame1(base1, base2, height, guess);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
