@@ -26,16 +26,16 @@ public class BuildingControlTest {
         double a = 1;
         double b = 1;
         double c = 1;
-        double expResult = -1;
+        double expResult = 0;
         double result = BuildingControl.puzzle1(a, b, c);
         assertEquals(expResult, result, 0.0);
     }
         @Test
     public void testPuzzle2() {
         System.out.println("puzzle Test: 2");
-        double a = 1;
-        double b = 1;
-        double c = 1;
+        double a = 10;
+        double b = 0;
+        double c = 50;
         double expResult = -1;
         double result = BuildingControl.puzzle1(a, b, c);
         assertEquals(expResult, result, 0.0);
@@ -53,10 +53,10 @@ public class BuildingControlTest {
         @Test
     public void testPuzzle4() {
         System.out.println("puzzle Test: 4");
-        double a = 1;
+        double a = 2;
         double b = 1;
-        double c = 1;
-        double expResult = -1;
+        double c = 2;
+        double expResult = 0;
         double result = BuildingControl.puzzle1(a, b, c);
         assertEquals(expResult, result, 0.0);
     }
