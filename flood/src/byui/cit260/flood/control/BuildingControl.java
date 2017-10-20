@@ -27,7 +27,7 @@ public class BuildingControl {
            if (cSquared == check) {
                return cSquared;
            }
-           else return -1;
+           else return 0;
         
 }
 }
