@@ -29,49 +29,61 @@ public class BoatUpgradeTest {
         double result = BoatUpgrade.calcBoatNumofPeople(length, width);
         assertEquals(expResult, result, 0.0);
     
-    
-
+    }
+    @Test
+    public void testCalcBoatNumofPeople2() {
         System.out.println("calcBoatNumofPeople: Test 2");
-        length = -1;
-        width = 10;
-        expResult = -1;
-        result = BoatUpgrade.calcBoatNumofPeople(length, width);
+       double length = -1;
+        double width = 10;
+       double expResult = -1;
+       double result = BoatUpgrade.calcBoatNumofPeople(length, width);
         assertEquals(expResult, result, 0.0);
-        
+    }
+         @Test
+    public void testCalcBoatNumofPeople3() {   
         System.out.println("calcBoatNumofPeople: Test 3");
-        length = 10;
-        width = -1;
-        expResult = -1;
-        result = BoatUpgrade.calcBoatNumofPeople(length, width);
+       double length = 10;
+       double width = -1;
+       double expResult = -1;
+       double result = BoatUpgrade.calcBoatNumofPeople(length, width);
         assertEquals(expResult, result, 0.0);
-        
+    }
+        @Test
+    public void testCalcBoatNumofPeople4() {
         System.out.println("calcBoatNumofPeople: Test 4");
-        length = 2;
-        width = 10;
-        expResult = 1;
-        result = BoatUpgrade.calcBoatNumofPeople(length, width);
+       double length = 2;
+       double width = 10;
+       double expResult = 1;
+        double result = BoatUpgrade.calcBoatNumofPeople(length, width);
         assertEquals(expResult, result, 0.0);
-        
+    }
+        @Test
+    public void testCalcBoatNumofPeople5() {
         System.out.println("calcBoatNumofPeople: Test 5");
-        length = 10;
-        width = 2;
-        expResult = 1;
-        result = BoatUpgrade.calcBoatNumofPeople(length, width);
+        double length = 10;
+       double width = 2;
+       double expResult = 1;
+        double result = BoatUpgrade.calcBoatNumofPeople(length, width);
         assertEquals(expResult, result, 0.0);
-        
+    }
+        @Test
+    public void testCalcBoatNumofPeople6() {
         System.out.println("calcBoatNumofPeople: Test 6");
-        length = 50;
-        width = 10;
-        expResult = 33;
-        result = BoatUpgrade.calcBoatNumofPeople(length, width);
+       double length = 50;
+       double width = 10;
+       double expResult = 33;
+       double result = BoatUpgrade.calcBoatNumofPeople(length, width);
         assertEquals(expResult, result, 0.0);
-        
+    }
+        @Test
+    public void testCalcBoatNumofPeople7() {
         System.out.println("calcBoatNumofPeople: Test 7");
-        length = 10;
-        width = 50;
-        expResult = 33;
-        result = BoatUpgrade.calcBoatNumofPeople(length, width);
+       double length = 10;
+       double width = 50;
+       double expResult = 33;
+       double result = BoatUpgrade.calcBoatNumofPeople(length, width);
         assertEquals(expResult, result, 0.0);
+    
     }
 }
 
