@@ -11,30 +11,24 @@ package byui.cit260.flood.control;
  */
 public class MiniGameControl {
     
-public static String miniGame1(double base1, double base2, double height, double guess) {
-    
-        String message;
+public static double miniGame1(double base1, double base2, double height) {
 	
-        if (guess < 0 ) {
-		message = "Guess can't be negative";
-        }
-        
-	if (guess > 1000) {
-		message = "Guess can't be greater than 1,000";
-        }
+        if (base1 < 1 || base2 > 50) {
+            return -1;
+ }
+        if (base2 < 1 || base1 > 50) {
+            return -1;
+ }
+        if (height < 1 || height > 50) {
+            return -1;
+ }
         
 	double area = (base1 + base2 / 2) * height;
         
-	if (guess == area) {
-		message = "Correct!";
-        }
-	else {
-		message = "Incorrect, Try again";
-        }
-        
-        return message;    
+	return area;
         
 }
+
 /**
  * 
  *@author Ryan
