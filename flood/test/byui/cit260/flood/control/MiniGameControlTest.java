@@ -21,15 +21,62 @@ public class MiniGameControlTest {
      * Test of miniGame1 method, of class MiniGameControl.
      */
     @Test
-    public void testMiniGame1() {
-        System.out.println("miniGame1");
-        double base1 = 0.0;
-        double base2 = 0.0;
-        double height = 0.0;
-        double guess = 0.0;
-        String expResult = "";
-        String result = MiniGameControl.miniGame1(base1, base2, height, guess);
-     
+   public void testMiniGame1() {
+        System.out.println("miniGame1 Test 1");
+        double base1 = 10;
+        double base2 = 10;
+        double height = 10;
+        double expResult = 150;
+        double result = MiniGame1.miniGame1(base1, base2, height);
+        assertEquals(expResult, result, 0.0);
+        
+        System.out.println("miniGame1 Test 2");
+        base1 = -1;
+        base2 = 10;
+        height = 10;
+        expResult = -1;
+        result = MiniGame1.miniGame1(base1, base2, height);
+        assertEquals(expResult, result, 0.0);
+        
+        System.out.println("miniGame1 Test 3");
+        base1 = 10;
+        base2 = -1;
+        height = 10;
+        expResult = -1;
+        result = MiniGame1.miniGame1(base1, base2, height);
+        assertEquals(expResult, result, 0.0);
+        
+        System.out.println("miniGame1 Test 4");
+        base1 = 10;
+        base2 = 10;
+        height = -1;
+        expResult = -1;
+        result = MiniGame1.miniGame1(base1, base2, height);
+        assertEquals(expResult, result, 0.0);
+        
+        System.out.println("miniGame1 Test 5");
+        base1 = 1;
+        base2 = 50;
+        height = 10;
+        expResult = 260;
+        result = MiniGame1.miniGame1(base1, base2, height);
+        assertEquals(expResult, result, 0.0);
+        
+        System.out.println("miniGame1 Test 6");
+        base1 = 50;
+        base2 = 10;
+        height = 1;
+        expResult = 55;
+        result = MiniGame1.miniGame1(base1, base2, height);
+        assertEquals(expResult, result, 0.0);
+        
+        System.out.println("miniGame1 Test 7");
+        base1 = 10;
+        base2 = 1;
+        height = 50;
+        expResult = 525;
+        result = MiniGame1.miniGame1(base1, base2, height);
+        assertEquals(expResult, result, 0.0);
     }
 
     /**
