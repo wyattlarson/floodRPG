@@ -18,7 +18,7 @@ public class StartProgramView {
                return endView = doAction(inputs);
            } 
        }
-       while (endView != true);
+       while (endView == true);
        return false;
    
    }
