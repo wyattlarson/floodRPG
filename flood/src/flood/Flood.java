@@ -18,7 +18,7 @@ public class Flood {
      */
     public static void main(String[] args) {
         StartProgramView startProgramView = new StartProgramView();
-        startProgramView.display();
+        startProgramView.displayStartProgramView();
     }
     
 }
