@@ -6,6 +6,10 @@
 package byui.cit260.flood.viewLayer;
 
 import java.util.Scanner;
+import static jdk.nashorn.internal.objects.NativeString.trim;
+import byui.cit260.flood.control.GameControl;
+import byui.cit260.flood.control.MainMenuView;
+import byui.cit260.flood.model.Player;
 
 /**
  *
@@ -28,14 +32,16 @@ public class StartProgramView {
 
     private String[] getInputs() {
         String[] inputs = new String[1];
-        System.out.println("****Welcome****");
+        System.out.println("Welcome to Save Flood Victims! Thank you for your choice to come help save the flood victims.");
         boolean valid = false;
         while (valid == false) {
             System.out.println("Enter players name: ");
             Scanner inFile; 
             inFile = new Scanner(System.in);
             String name= inFile.nextLine();
-            if (name.length() < 2) {
+            String trimmedName = trim(name);
+            //*** changed trimmedName.length < 2 to < 1 for accurate test matrix***//
+                if (trimmedName.length() <1) {
                 System.out.println("You must enter a value.");
                 continue;
             }
@@ -46,11 +52,20 @@ public class StartProgramView {
     }
 
     private boolean doAction(String[] inputs) {
-        System.out.println("****called doAction****");
-        System.out.println("\tinputs = " + inputs[0]);
+        String playersName = inputs[0];
+        Player player = GameControl.savePlayer(playersName);
+        if (player == null){
+            System.out.println("Could not create player. " + "Enter a different name.");
+            return false;
+        }
+        System.out.println("================================================="
+        + "\n\tWelcome to the game " + playersName + "."
+        + "\n\tWe hope you have a lot of fun!"
+        + "\n=================================================");
+        MainMenuView mainMenuView = new MainMenuView();
+        mainMenuView.displayMainMenuView();
 
         return true;
-
     }
     
     

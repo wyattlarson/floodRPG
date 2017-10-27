@@ -5,6 +5,8 @@
  */
 package flood;
 
+import byui.cit260.flood.model.Game;
+import byui.cit260.flood.model.Player;
 import byui.cit260.flood.viewLayer.StartProgramView;
 
 /**
@@ -13,12 +15,27 @@ import byui.cit260.flood.viewLayer.StartProgramView;
  */
 public class Flood {
 
+    private static Game currentGame = null;
+    private static Player player = null;
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         StartProgramView startProgramView = new StartProgramView();
         startProgramView.displayStartProgramView();
+        
+        
     }
-    
+    public static Game getCurrentGame() {
+            return currentGame;
+        }
+        public static void setCurrentGame(Game currentGame) {
+            Flood.currentGame = currentGame;
+        }
+        public static Player getPlayer(){
+            return player;
+        } 
+        public static void setPlayer(Player player){
+            Flood.player = player;
+        }
 }
