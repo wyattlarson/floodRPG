@@ -21,5 +21,9 @@ public class GameControl {
         Player player = new Player();
         Flood.setPlayer(player);
         return player;
+        
+    }
+    public static void createNewGame(Player player) {
+         System.out.println("createNewGame called");
     }
 }
