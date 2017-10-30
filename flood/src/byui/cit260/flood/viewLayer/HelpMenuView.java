@@ -66,7 +66,8 @@ public class HelpMenuView {
             default: System.out.println("Invalid Menu Command.");
             break;
         }
-        return false;    }
+        return false;  
+    }
 
     private void displayResults() {
     System.out.println();
