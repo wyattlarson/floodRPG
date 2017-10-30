@@ -24,10 +24,10 @@ public class SeeInventoryView {
         private String[] getInputs() {
         String[] inputs = new String[8];
         System.out.println("Inventory" +  
-                        "1 Flashlight" + 
-                        "1 Hammer" +
-                        "2 Floaties" + 
-                        "Inventory is 4/10 full" +
+                        "\n 1 Flashlight" + 
+                        "\n 1 Hammer" +
+                        "\n 2 Floaties" + 
+                        "\n Inventory is 4/10 full" +
                         "\n E - Exit Inventory");
         boolean valid = false;
         while (valid == false) {
