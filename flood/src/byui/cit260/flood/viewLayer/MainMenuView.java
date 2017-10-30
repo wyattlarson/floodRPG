@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package byui.cit260.flood.control;
+package byui.cit260.flood.viewLayer;
 
 import byui.cit260.flood.model.Player;
 import java.util.Scanner;
 import static jdk.nashorn.internal.objects.NativeString.trim;
 import byui.cit260.flood.control.GameControl;
+import byui.cit260.flood.control.GameControl;
 import flood.Flood;
-import byui.cit260.flood.control.GameMenuView;
-import byui.cit260.flood.control.StartExistingGameView;
+import byui.cit260.flood.viewLayer.GameMenuView;
 /**
  *
  * @author Ryan Call

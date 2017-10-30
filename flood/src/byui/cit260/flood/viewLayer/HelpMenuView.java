@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package byui.cit260.flood.control;
+package byui.cit260.flood.viewLayer;
 
 import java.util.Scanner;
 import static jdk.nashorn.internal.objects.NativeString.trim;
@@ -20,8 +20,6 @@ public class HelpMenuView {
            endView = doAction(inputs);
          displayResults();
         } while (endView != true);
-        
-        System.out.println("*** displayHelpMenu () called **");
     }
         private String[] getInputs() {
         String[] inputs = new String[8];
