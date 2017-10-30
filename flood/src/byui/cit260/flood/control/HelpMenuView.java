@@ -75,7 +75,10 @@ public class HelpMenuView {
     }
 
     private void universalHelpMenu() {
-System.out.println("Universal Commands Help" + "\n Q - Quit, lets user promptly quit game." + "\n H - Help, lets you access this menu at anytime." + "\n I - Inventory, opens your inventory.");
+System.out.println("Universal Commands Help" +
+        "\n Q - Quit, lets user promptly quit game." +
+        "\n H - Help, lets you access this menu at anytime." + 
+        "\n I - Inventory, opens your inventory.");
     }
 
     private void dockHelpMenu() {
