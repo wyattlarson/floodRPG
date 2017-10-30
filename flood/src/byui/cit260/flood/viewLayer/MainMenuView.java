@@ -63,6 +63,8 @@ public class MainMenuView {
             break;
             case "H": getHelp();
             break;
+            case "T" : displayBuildingView();
+            break;
             case "E": return true;
             default: System.out.println("Invalid Menu Command.");
             break;
@@ -87,6 +89,11 @@ public class MainMenuView {
          HelpMenuView helpMenuView = new HelpMenuView();
          helpMenuView.displayHelpMenuView();
          
+    }
+
+    private void displayBuildingView() {
+        BuildingView buildingView = new BuildingView();
+        buildingView.displayBuildingView();
     }
 
 }

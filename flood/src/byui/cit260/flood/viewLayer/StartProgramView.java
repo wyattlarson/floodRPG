@@ -12,7 +12,7 @@ import byui.cit260.flood.model.Player;
 
 /**
  *
- * @author Ryan Call
+ * @author Ryan
  */
 public class StartProgramView {
 
