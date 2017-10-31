@@ -54,9 +54,9 @@ public class BuildingView {
             break;
             case "H": help();
             break;
-            case "4": readPaper();
+            case "READ PAPER": readPaper();
             break;       
-            case "5": openDoor();
+            case "OPEN DOOR": openDoor();
             break;
             case "E": return true;
             default: System.out.println("Invalid Menu Command.");
@@ -71,7 +71,7 @@ public class BuildingView {
 
     private void help() {
 System.out.println("Building Menu Commands" +
-        "\n L - Look around you." + 
+        "\n Look - Look around you." + 
         "\n H - List of available commands." +
         "\n B - Boat, access boat menu to upgrade boat." + 
         "\n E - Exit building." +
@@ -83,11 +83,12 @@ System.out.println("Building Menu Commands" +
     }
 
     private void readPaper() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("You read the piece of paper. It says: Find the other side lengths of a triangle with a hypotneus of 25.");
     }
 
     private void openDoor() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+          DoorView doorView = new DoorView();
+         doorView.displayDoorView();
     }
     
 }
