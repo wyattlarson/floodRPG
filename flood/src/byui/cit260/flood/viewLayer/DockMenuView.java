@@ -66,7 +66,7 @@ public class DockMenuView {
             break;
             case "Info": infoPage();
             break;
-            case "I": infoView();
+            case "I": InventoryMenuView();
             case "E": return true;
             default: System.out.println("Invalid Menu Command.");
             break;
@@ -89,8 +89,9 @@ public class DockMenuView {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    private void infoView() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private void InventoryMenuView() {
+        InventoryMenuView InventoryMenuView = new InventoryMenuView();
+        InventoryMenuView.displayInventoryMenuView();
     }
 
 
