@@ -13,6 +13,7 @@ import byui.cit260.flood.control.GameControl;
 import flood.Flood;
 import byui.cit260.flood.viewLayer.GameMenuView;
 import byui.cit260.flood.viewLayer.SeeInventoryView;
+import byui.cit260.flood.viewLayer.UseItemView;
 /**
  *
  * @author Ryan Call
@@ -73,29 +74,11 @@ public class InventoryMenuView {
             break;
         }
         return false;
-    }        
-
-    private void startNewGame() {
-       // creates new game with player 
-       GameControl.createNewGame(Flood.getPlayer());
-        GameMenuView gameMenuView = new GameMenuView();
-       gameMenuView.displayGameMenuView();
-       
-    }
-
-    private void restartGame() {
-        StartExistingGameView startExistingGameView = new StartExistingGameView();
-        startExistingGameView.displayStartExistingGameView();
-    }
-
-    private void getHelp() {
-         HelpMenuView helpMenuView = new HelpMenuView();
-         helpMenuView.displayHelpMenuView();
-         
     }
 
     private void useItem() {
-        System.out.println("Which item would you like to use?");
+        UseItemView useItemView = new UseItemView();
+        useItemView.displayUseItemView();
     }
 
     private void seeInventory() {
@@ -104,7 +87,8 @@ public class InventoryMenuView {
     }
 
     private void dropItem() {
-        System.out.println("Which item would you like to drop?");
+        DropItemView dropItemView = new DropItemView();
+         dropItemView.displayDropItemView();
     }
 
 }
