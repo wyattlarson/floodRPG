@@ -31,9 +31,13 @@ public class DockMenuView {
         String[] inputs = new String[8];
         System.out.println("Dock Menu" + 
                         "\n S or Save - Save game" +
+                        "\n D or Drop - Drop off passengers" +
                         "\n U or Upgrade - go to boat upgrade menu" + 
                         "\n G or Gas - fill up gas tank" +
-                        "\n Info - list boat level, passenger list, passengers saved, and current gas level");
+                        "\n E or Explore - Leave dock to explore map. Access Explore menu." +
+                        "\n Info - list boat level, passenger list, passengers saved, and current gas level"+
+                        "\n I - Inventory");
+        
         boolean valid = false;
         while (valid == false) {
             System.out.println("Enter a Command: ");
@@ -62,6 +66,7 @@ public class DockMenuView {
             break;
             case "Info": infoPage();
             break;
+            case "I": infoView();
             case "E": return true;
             default: System.out.println("Invalid Menu Command.");
             break;
@@ -81,6 +86,10 @@ public class DockMenuView {
 
 
     private void infoPage() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void infoView() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
