@@ -67,6 +67,9 @@ public class DockMenuView {
             case "Info": infoPage();
             break;
             case "I": InventoryMenuView();
+            break;
+            case "M": MiniGameView();
+            break;
             case "E": return true;
             default: System.out.println("Invalid Menu Command.");
             break;
@@ -92,6 +95,11 @@ public class DockMenuView {
     private void InventoryMenuView() {
         InventoryMenuView InventoryMenuView = new InventoryMenuView();
         InventoryMenuView.displayInventoryMenuView();
+    }
+
+    private void MiniGameView() {
+        MiniGameView miniGameView = new MiniGameView();
+        miniGameView.displayMiniGameView();
     }
 
 
