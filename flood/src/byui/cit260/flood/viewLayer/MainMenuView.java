@@ -12,6 +12,7 @@ import byui.cit260.flood.control.GameControl;
 import byui.cit260.flood.control.GameControl;
 import flood.Flood;
 import byui.cit260.flood.viewLayer.GameMenuView;
+import byui.cit260.flood.viewLayer.DockMenuView;
 /**
  *
  * @author Ryan Call
@@ -33,7 +34,7 @@ public class MainMenuView {
 
     private String[] getInputs() {
         String[] inputs = new String[4];
-        System.out.println("Main Menu" + "\n N - Start New Game" + "\n R - Restart Exsisting Game" + "\n H - Help Menu" + "\n E - Exit");
+        System.out.println("Main Menu" + "\n N - Start New Game" + "\n R - Restart Exsisting Game" + "\n H - Help Menu" + "\n D - Dock Menu" + "\n E - Exit");
         boolean valid = false;
         while (valid == false) {
             System.out.println("Enter a Command: ");
@@ -63,6 +64,7 @@ public class MainMenuView {
             break;
             case "H": getHelp();
             break;
+            case "D": dockMenuView();
             case "E": return true;
             default: System.out.println("Invalid Menu Command.");
             break;
@@ -87,6 +89,11 @@ public class MainMenuView {
          HelpMenuView helpMenuView = new HelpMenuView();
          helpMenuView.displayHelpMenuView();
          
+    }
+
+    private void dockMenuView() {
+        DockMenuView dockMenuView = new DockMenuView();
+        dockMenuView.displayDockMenuView();
     }
 
 }
