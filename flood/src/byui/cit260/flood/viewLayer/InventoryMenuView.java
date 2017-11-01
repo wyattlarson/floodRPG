@@ -74,25 +74,6 @@ public class InventoryMenuView {
             break;
         }
         return false;
-    }        
-
-    private void startNewGame() {
-       // creates new game with player 
-       GameControl.createNewGame(Flood.getPlayer());
-        GameMenuView gameMenuView = new GameMenuView();
-       gameMenuView.displayGameMenuView();
-       
-    }
-
-    private void restartGame() {
-        StartExistingGameView startExistingGameView = new StartExistingGameView();
-        startExistingGameView.displayStartExistingGameView();
-    }
-
-    private void getHelp() {
-         HelpMenuView helpMenuView = new HelpMenuView();
-         helpMenuView.displayHelpMenuView();
-         
     }
 
     private void useItem() {
@@ -106,7 +87,8 @@ public class InventoryMenuView {
     }
 
     private void dropItem() {
-        System.out.println("Which item would you like to drop?");
+        DropItemView dropItemView = new DropItemView();
+         dropItemView.displayDropItemView();
     }
 
 }
