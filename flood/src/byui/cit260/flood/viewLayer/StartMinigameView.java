@@ -9,6 +9,7 @@ import java.util.Scanner;
 import static jdk.nashorn.internal.objects.NativeString.trim;
 import byui.cit260.flood.control.GameControl;
 import byui.cit260.flood.model.Player;
+import byui.cit260.flood.viewLayer.StartProgramView;
 
 /**
  *
@@ -58,7 +59,7 @@ public class StartMinigameView {
             return false;
         }
         System.out.println("================================================="
-        + "\n\tWelcome to the game " + playersName + "."
+        + "\n\tWelcome to the game "  + "."
         + "\n\tWe hope you have a lot of fun!"
         + "\n=================================================");
         MainMenuView mainMenuView = new MainMenuView();
