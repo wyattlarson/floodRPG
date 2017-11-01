@@ -29,7 +29,8 @@ public class DockMenuView {
   
        private String[] getInputs() {
         String[] inputs = new String[8];
-        System.out.println("Dock Menu" +  
+        System.out.println("Dock Menu" + 
+                        "\n S or Save - Save game" +
                         "\n U or Upgrade - go to boat upgrade menu" + 
                         "\n G or Gas - fill up gas tank" +
                         "\n Info - list boat level, passenger list, passengers saved, and current gas level");
