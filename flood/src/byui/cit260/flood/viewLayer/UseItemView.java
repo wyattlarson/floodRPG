@@ -22,8 +22,8 @@ public class UseItemView {
         } while (endView != true);
     }
         private String[] getInputs() {
-        String[] inputs = new String[8];
-        System.out.println("Which item would you like to drop?" +  
+        String[] inputs = new String[4];
+        System.out.println("Which item would you like to use?" +  
                         "\n 1 - Flashlight" + 
                         "\n 2 - Hammer" +
                         "\n 3 - Floaties" + 
