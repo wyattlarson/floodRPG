@@ -13,6 +13,7 @@ import byui.cit260.flood.control.GameControl;
 import flood.Flood;
 import byui.cit260.flood.viewLayer.GameMenuView;
 import byui.cit260.flood.viewLayer.SeeInventoryView;
+import byui.cit260.flood.viewLayer.UseItemView;
 /**
  *
  * @author Ryan Call
@@ -95,7 +96,8 @@ public class InventoryMenuView {
     }
 
     private void useItem() {
-        System.out.println("Which item would you like to use?");
+        UseItemView useItemView = new UseItemView();
+        useItemView.displayUseItemView();
     }
 
     private void seeInventory() {
