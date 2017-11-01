@@ -97,6 +97,7 @@ public class MainMenuView {
     private void dockMenuView() {
         DockMenuView dockMenuView = new DockMenuView();
         dockMenuView.displayDockMenuView();
+    }
     private void displayBuildingView() {
         BuildingView buildingView = new BuildingView();
         buildingView.displayBuildingView();
