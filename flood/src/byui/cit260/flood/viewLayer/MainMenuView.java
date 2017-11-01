@@ -65,6 +65,7 @@ public class MainMenuView {
             case "H": getHelp();
             break;
             case "D": dockMenuView();
+            break;
             case "T" : displayBuildingView();
             break;
             case "E": return true;
