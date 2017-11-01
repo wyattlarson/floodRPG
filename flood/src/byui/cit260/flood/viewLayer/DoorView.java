@@ -7,6 +7,7 @@ package byui.cit260.flood.viewLayer;
 
 import java.util.Scanner;
 import static jdk.nashorn.internal.objects.NativeString.trim;
+import byui.cit260.flood.control.BuildingControl;
 
 /**
  *
@@ -42,7 +43,11 @@ public class DoorView {
                 System.out.println("You must enter a valid command.");
                 continue;
             }
+            valid = true;
             inputs[0] = trimmedFirstAnswer;
+        }
+            valid=false;
+            while (valid == false){
             System.out.println("Enter your answer for side b:");
             Scanner b;
             b = new Scanner(System.in);
@@ -55,11 +60,13 @@ public class DoorView {
             inputs[1] = trimmedSecondAnswer;
             valid = true;
         }
+            
         return inputs;
     }
 
     private boolean doAction(String[] inputs) {
-        String a = inputs[0];
+        
+       /* String a = inputs[0];
         switch (a) {
             case "3":
                 System.out.println("Side a is correct.");
@@ -80,9 +87,30 @@ public class DoorView {
             default:
                 System.out.println("Wrong answer, type 'e' tp give up.");
                 break;
+        } */
+        String a = inputs[0];
+        String b = inputs[1];
+        String c = "5";
+        double doubledA = Double.parseDouble(a);
+        double doubledB = Double.parseDouble(b);
+        double doubledC = Double.parseDouble(c);
+        double result = BuildingControl.puzzle1(doubledA, doubledB, doubledC);
+        if (result == -1){
+            System.out.println("Inputs not within parameters.");
         }
-
-        return false;
+        else if (result == 0) {
+             System.out.println("Your answers are WRONG!");
+        }
+        else{
+        System.out.println("You got the answer right! The door opens.");
+        }
+        return true;
     }
-
 }
+    
+
+
+
+
+
+
