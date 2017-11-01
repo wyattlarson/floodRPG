@@ -36,6 +36,7 @@ public class DockMenuView {
                         "\n G or Gas - fill up gas tank" +
                         "\n E or Explore - Leave dock to explore map. Access Explore menu." +
                         "\n Info - list boat level, passenger list, passengers saved, and current gas level"+
+                        "\n M - Enter the Minigames menu"+
                         "\n I - Inventory");
         
         boolean valid = false;
