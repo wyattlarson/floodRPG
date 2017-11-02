@@ -9,6 +9,7 @@ import java.util.Scanner;
 import static jdk.nashorn.internal.objects.NativeString.trim;
 import byui.cit260.flood.control.GameControl;
 import byui.cit260.flood.model.Player;
+import byui.cit260.flood.viewLayer.StartProgramView;
 
 /**
  *
@@ -38,14 +39,14 @@ public class StartMinigameView {
             System.out.println("Enter your guess: ");
             Scanner inFile; 
             inFile = new Scanner(System.in);
-            String name= inFile.nextLine();
-            String trimmedName = trim(name);
+            String guess = inFile.nextLine();
+            String trimmedGuess = trim(guess);
             //*** changed trimmedName.length < 2 to < 1 for accurate test matrix***//
-                if (trimmedName.length() <1) {
+                if (trimmedGuess.length() <1) {
                 System.out.println("You must enter a value.");
                 continue;
             }
-            inputs[0] = name;
+            inputs[0] = trimmedGuess;
            valid = true;
         }
         return inputs;
@@ -58,7 +59,7 @@ public class StartMinigameView {
             return false;
         }
         System.out.println("================================================="
-        + "\n\tWelcome to the game " + playersName + "."
+        + "\n\tWelcome to the game " + StartProgramView.playersName + "."
         + "\n\tWe hope you have a lot of fun!"
         + "\n=================================================");
         MainMenuView mainMenuView = new MainMenuView();
