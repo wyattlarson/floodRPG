@@ -59,7 +59,7 @@ public class StartMinigameView {
             return false;
         }
         System.out.println("================================================="
-        + "\n\tWelcome to the game " + StartProgramView.playersName + "."
+        + "\n\tWelcome to the game."
         + "\n\tWe hope you have a lot of fun!"
         + "\n=================================================");
         MainMenuView mainMenuView = new MainMenuView();
