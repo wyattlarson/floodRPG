@@ -76,8 +76,8 @@ System.out.println("Building Menu Commands" +
         "\n H - List of available commands." +
         "\n B - Boat, access boat menu to upgrade boat." + 
         "\n E - Exit building." +
-        "\n read paper - Read the piece of paper" +
-        "\n open door - try to open the door.");      }
+        "\n Read Paper - Read the piece of paper" +
+        "\n Open Door - Try to open the door.");      }
 
     private boolean exitBuilding() {
        return true;
