@@ -59,7 +59,7 @@ public class StartMinigameView {
         double height = 10;
         double doubledGuess = Double.parseDouble(playersGuess);
         double answer = MiniGameControl.miniGame1(base1, base2, height, doubledGuess);
-        if (doubledGuess == -1){
+        if (answer == -1){
             System.out.println("Guess is outside of parameters. Try again.");
             return false;
         }
