@@ -11,7 +11,7 @@ package byui.cit260.flood.control;
  */
 public class MiniGameControl {
     
-public static double miniGame1(double base1, double base2, double height) {
+public static double miniGame1(double base1, double base2, double height, double guess) {
 	
         if (base1 < 1 || base2 > 50) {
             return -1;
@@ -22,8 +22,11 @@ public static double miniGame1(double base1, double base2, double height) {
         if (height < 1 || height > 50) {
             return -1;
  }
+        if (guess < 1 || guess > 200) {
+            return -1;
+ }
         
-	double area = (base1 + base2 / 2) * height;
+	double area = ((base1 + base2) / 2) * height;
         
 	return area;
         
