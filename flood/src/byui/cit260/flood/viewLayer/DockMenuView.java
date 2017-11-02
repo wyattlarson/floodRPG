@@ -34,7 +34,7 @@ public class DockMenuView {
                         "\n D or Drop - Drop off passengers" +
                         "\n U or Upgrade - go to boat upgrade menu" + 
                         "\n G or Gas - fill up gas tank" +
-                        "\n E or Explore - Leave dock to explore map. Access Explore menu." +
+                        "\n X or Explore - Leave dock to explore map. Access Explore menu." +
                         "\n Info - list boat level, passenger list, passengers saved, and current gas level"+
                         "\n M - Enter the Minigames menu"+
                         "\n I - Inventory");
@@ -71,6 +71,8 @@ public class DockMenuView {
             break;
             case "M": MiniGameView();
             break;
+            case"X": explore();
+            break;
             case "E": return true;
             default: System.out.println("Invalid Menu Command.");
             break;
@@ -101,6 +103,11 @@ public class DockMenuView {
     private void MiniGameView() {
         MiniGameView miniGameView = new MiniGameView();
         miniGameView.displayMiniGameView();
+    }
+
+    private void explore() {
+        BuildingView buildingView = new BuildingView();
+        buildingView.displayBuildingView();
     }
 
 

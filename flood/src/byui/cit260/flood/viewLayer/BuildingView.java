@@ -7,6 +7,7 @@ package byui.cit260.flood.viewLayer;
 
 import java.util.Scanner;
 import static jdk.nashorn.internal.objects.NativeString.trim;
+import byui.cit260.flood.control.BuildingControl;
 
 /**
  *
