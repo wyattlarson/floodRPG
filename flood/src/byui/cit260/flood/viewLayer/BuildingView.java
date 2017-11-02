@@ -48,7 +48,7 @@ public class BuildingView {
         return inputs;
     }
      private boolean doAction(String[] inputs) {
-        String menuItem = inputs[0];
+        String menuItem = inputs[1];
        menuItem = menuItem.toUpperCase();
         switch(menuItem) {
             case "LOOK": look();

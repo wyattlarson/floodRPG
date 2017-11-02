@@ -29,7 +29,7 @@ public class DoorView {
     }
 
     private String[] getInputs() {
-        String[] inputs = new String[1];
+        String[] inputs = new String[2];
         System.out.println("There is a password on the door.");
         boolean valid = false;
         while (valid == false) {
