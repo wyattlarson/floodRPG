@@ -63,7 +63,8 @@ public class MiniGameView {
     }
 
     private void startMinigame() {
-        
+        StartMinigameView startMinigameView = new StartMinigameView();
+        startMinigameView.displayStartMinigameView();
     }
         
     }
