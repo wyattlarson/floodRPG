@@ -9,7 +9,7 @@ import java.util.Scanner;
 import static jdk.nashorn.internal.objects.NativeString.trim;
 import byui.cit260.flood.control.GameControl;
 import byui.cit260.flood.model.Player;
-import byui.cit260.flood.viewLayer.StartProgramView;
+import byui.cit260.flood.control.MiniGameControl;
 
 /**
  *
@@ -54,18 +54,23 @@ public class StartMinigameView {
 
     private boolean doAction(String[] inputs) {
         String playersGuess = inputs[0];
-        if (playersGuess == null){
-            System.out.println("Please enter your guess");
+        double base1 = 20;
+        double base2 = 15;
+        double height = 10;
+        double doubledGuess = Double.parseDouble(playersGuess);
+        double answer = MiniGameControl.miniGame1(base1, base2, height, doubledGuess);
+        if (doubledGuess == -1){
+            System.out.println("Guess is outside of parameters. Try again.");
             return false;
         }
-        System.out.println("================================================="
-        + "\n\tWelcome to the game "  + "PlayersName" + "."
-        + "\n\tWe hope you have a lot of fun!"
-        + "\n=================================================");
-        MainMenuView mainMenuView = new MainMenuView();
-        mainMenuView.displayMainMenuView();
-
-        return true;
+        else if (doubledGuess == answer){
+            System.out.println("You are correct!");
+            return true;
+        }
+        else {
+            System.out.println("You are wrong. Try again");
+            return false;
+        }
     }
     
     
