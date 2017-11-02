@@ -29,7 +29,7 @@ public class DoorView {
     }
 
     private String[] getInputs() {
-        String[] inputs = new String[2];
+        String[] inputs = new String[1];
         System.out.println("There is a password on the door.");
         boolean valid = false;
         while (valid == false) {
@@ -65,29 +65,6 @@ public class DoorView {
     }
 
     private boolean doAction(String[] inputs) {
-        
-       /* String a = inputs[0];
-        switch (a) {
-            case "3":
-                System.out.println("Side a is correct.");
-                break;
-            case "E":
-                return true;
-            default:
-                System.out.println("Wrong answer, type 'e' tp give up.");
-                break;
-        }
-        String b = inputs[1];
-        switch (b) {
-            case "4":
-                System.out.println("Side b is correct.");
-                return true;
-            case "E":
-                return true;
-            default:
-                System.out.println("Wrong answer, type 'e' tp give up.");
-                break;
-        } */
         String a = inputs[0];
         String b = inputs[1];
         String c = "5";

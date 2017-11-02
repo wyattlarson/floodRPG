@@ -28,7 +28,7 @@ public class BuildingView {
     }
         
         private String[] getInputs() {
-        String[] inputs = new String[1];
+        String[] inputs = new String[0];
         System.out.println("You have entered the red flooded building. Type H for a list of commands.");
         boolean valid = false;
         while (valid == false) {
