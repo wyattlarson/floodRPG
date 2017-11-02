@@ -39,14 +39,14 @@ public class StartMinigameView {
             System.out.println("Enter your guess: ");
             Scanner inFile; 
             inFile = new Scanner(System.in);
-            String name= inFile.nextLine();
-            String trimmedName = trim(name);
+            String guess = inFile.nextLine();
+            String trimmedGuess = trim(guess);
             //*** changed trimmedName.length < 2 to < 1 for accurate test matrix***//
-                if (trimmedName.length() <1) {
+                if (trimmedGuess.length() <1) {
                 System.out.println("You must enter a value.");
                 continue;
             }
-            inputs[0] = name;
+            inputs[0] = trimmedGuess;
            valid = true;
         }
         return inputs;
