@@ -16,6 +16,7 @@ import byui.cit260.flood.control.BuildingControl;
 public class BuildingView {
         public void displayBuildingView() {
         boolean endView = false;
+         System.out.println("You have entered the red flooded building. Type H for a list of commands.");
         do {
             String[] inputs = getInputs(); 
             if (inputs.length < 1 || inputs[0].toUpperCase().equals("Q")) {
@@ -29,10 +30,9 @@ public class BuildingView {
         
         private String[] getInputs() {
         String[] inputs = new String[1];
-        System.out.println("You have entered the red flooded building. Type H for a list of commands.");
         boolean valid = false;
         while (valid == false) {
-            System.out.println("Enter a command ");
+            System.out.println("Enter a command: ");
             Scanner inFile; 
             inFile = new Scanner(System.in);
             String command= inFile.nextLine();
@@ -76,15 +76,15 @@ System.out.println("Building Menu Commands" +
         "\n H - List of available commands." +
         "\n B - Boat, access boat menu to upgrade boat." + 
         "\n E - Exit building." +
-        "\n read paper - Read the piece of paper" +
-        "\n open door - try to open the door.");      }
+        "\n Read Paper - Read the piece of paper" +
+        "\n Open Door - Try to open the door.");      }
 
     private boolean exitBuilding() {
        return true;
     }
 
     private void readPaper() {
-        System.out.println("You read the piece of paper. It says: Find the other side lengths of a triangle with a hypotneus of 25.");
+        System.out.println("You read the piece of paper. It says: Find the other side lengths of a triangle with a hypotneus of 25. Remember a^2 + b^2 = c^2. You are finding a and b.");
     }
 
     private void openDoor() {
