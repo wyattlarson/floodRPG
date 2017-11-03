@@ -57,10 +57,6 @@ public class StartMinigameView {
         double base1 = 20;
         double base2 = 15;
         double height = 10;
-        if (isNum(playersGuess)){
-            System.out.println("Guess must be a number. Try again");
-            return false;
-        }
         double doubledGuess = Double.parseDouble(playersGuess);
         double answer = MiniGameControl.miniGame1(base1, base2, height, doubledGuess);
         if (answer == -1){
