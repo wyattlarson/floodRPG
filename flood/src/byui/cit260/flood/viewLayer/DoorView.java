@@ -67,7 +67,7 @@ public class DoorView {
     private boolean doAction(String[] inputs) {
         String a = inputs[0];
         String b = inputs[1];
-        String c = "5";
+        String c = "20";
         double doubledA = Double.parseDouble(a);
         double doubledB = Double.parseDouble(b);
         double doubledC = Double.parseDouble(c);
