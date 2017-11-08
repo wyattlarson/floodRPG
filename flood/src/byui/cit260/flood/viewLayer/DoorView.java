@@ -79,7 +79,7 @@ public class DoorView {
              System.out.println("Your answers are WRONG!");
         }
         else{
-        System.out.println("You got the answer right! The door opens.");
+        System.out.println("Your answer equates to:" +result +"You got the answer right! The door opens.");
         }
         return true;
     }
