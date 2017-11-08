@@ -60,7 +60,7 @@ public class DockMenuView  extends View {
 
     private void upgradeBoatMenu() {
         UpgradeBoatMenuView upgradeBoatMenuView = new UpgradeBoatMenuView();
-        upgradeBoatMenuView.displayUpgradeBoatMenuView();
+        upgradeBoatMenuView.display();
          
     }
 
