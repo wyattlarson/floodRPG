@@ -59,8 +59,8 @@ public class MainMenuView extends View{
     private void startNewGame() {
        // creates new game with player 
        GameControl.createNewGame(Flood.getPlayer());
-        GameMenuView gameMenuView = new GameMenuView();
-       gameMenuView.displayGameMenuView();
+        GameMenuView gameMenuView = new GameMenuView() {};
+       gameMenuView.display();
        
     }
 
@@ -77,7 +77,7 @@ public class MainMenuView extends View{
 
     private void dockMenuView() {
         DockMenuView dockMenuView = new DockMenuView();
-        dockMenuView.displayDockMenuView();
+        dockMenuView.display();
     }
     private void displayBuildingView() {
         BuildingView buildingView = new BuildingView();
