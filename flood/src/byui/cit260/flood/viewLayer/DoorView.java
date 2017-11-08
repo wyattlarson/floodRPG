@@ -5,66 +5,28 @@
  */
 package byui.cit260.flood.viewLayer;
 
-import java.util.Scanner;
-import static jdk.nashorn.internal.objects.NativeString.trim;
 import byui.cit260.flood.control.BuildingControl;
 
 /**
  *
  * @author wyatt
  */
-public class DoorView {
+public class DoorView extends View{
 
-    public void displayDoorView() {
-        boolean endView = false;
-        do {
-            String[] inputs = getInputs();
-            if (inputs.length < 1 || inputs[0].toUpperCase().equals("Q")) {
-                return;
-            }
-            endView = doAction(inputs);
 
-        } while (endView != true);
-
-    }
-
-    private String[] getInputs() {
+    public String[] getInputs() {
         String[] inputs = new String[2];
         System.out.println("There is a password on the door.");
-        boolean valid = false;
-        while (valid == false) {
-            System.out.println("Enter your answer for side a:");
-            Scanner a;
-            a = new Scanner(System.in);
-            String firstAnswer = a.nextLine();
-            String trimmedFirstAnswer = trim(firstAnswer);
-            //*** changed trimmedName.length < 2 to < 1 for accurate test matrix***//
-            if (trimmedFirstAnswer.length() < 1) {
-                System.out.println("You must enter a valid command.");
-                continue;
-            }
-            valid = true;
-            inputs[0] = trimmedFirstAnswer;
-        }
-            valid=false;
-            while (valid == false){
-            System.out.println("Enter your answer for side b:");
-            Scanner b;
-            b = new Scanner(System.in);
-            String secondAnswer = b.nextLine();
-            String trimmedSecondAnswer = trim(secondAnswer);
-            if (trimmedSecondAnswer.length() < 1) {
-                System.out.println("You must enter a valid command.");
-                continue;
-            }
-            inputs[1] = trimmedSecondAnswer;
-            valid = true;
-        }
+        String sideA = this.getInput("Enter your answer for side a:");
+        inputs[0] = sideA;
+        String sideB = this.getInput("Enter your answer for side b:");
+        inputs[1] = sideB;
+       
             
         return inputs;
     }
 
-    private boolean doAction(String[] inputs) {
+    public boolean doAction(String[] inputs) {
         String a = inputs[0];
         String b = inputs[1];
         String c = "20";
