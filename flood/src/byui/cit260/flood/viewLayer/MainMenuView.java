@@ -22,7 +22,7 @@ public class MainMenuView extends View{
 
     public String[] getInputs() {
         String[] inputs = new String[4];
-        System.out.println("Main Menu" + 
+        System.out.println("========="+"MAIN MENU" +"=========" + 
                                             "\n N - Start New Game" + 
                                             "\n R - Restart Exsisting Game" +
                                             "\n H - Help Menu" +
@@ -70,7 +70,7 @@ public class MainMenuView extends View{
 
     private void getHelp() {
          HelpMenuView helpMenuView = new HelpMenuView();
-         helpMenuView.displayHelpMenuView();
+         helpMenuView.display();
          
     }
 
@@ -80,7 +80,7 @@ public class MainMenuView extends View{
     }
     private void displayBuildingView() {
         BuildingView buildingView = new BuildingView();
-        buildingView.displayBuildingView();
+        buildingView.display();
     }
 
 }

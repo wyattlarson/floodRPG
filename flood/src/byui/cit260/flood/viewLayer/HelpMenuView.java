@@ -12,18 +12,11 @@ import static jdk.nashorn.internal.objects.NativeString.trim;
  *
  * @author Ryan Call
  */
-public class HelpMenuView {
-    public void displayHelpMenuView(){
-        boolean endView = false;
-        do {
-            String[] inputs = getInputs(); 
-           endView = doAction(inputs);
-         displayResults();
-        } while (endView != true);
-    }
-        private String[] getInputs() {
+public class HelpMenuView extends View {
+        public String[] getInputs() {
         String[] inputs = new String[8];
-        System.out.println("Help Menu" +  
+        System.out.println("==========" +"\bHELP MENU" +
+                        "=========="+
                         "\n 1 - Universal Command Help" + 
                         "\n 2 - Dock Menu Help" +
                         "\n 3 - Boat Menu Help" + 
@@ -48,7 +41,7 @@ public class HelpMenuView {
         return inputs;
     }
 
-    private boolean doAction(String[] inputs) {
+    public boolean doAction(String[] inputs) {
         String menuItem = inputs[0];
        menuItem = menuItem.toUpperCase();
         switch(menuItem) {
