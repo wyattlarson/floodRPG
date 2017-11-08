@@ -13,41 +13,17 @@ import byui.cit260.flood.control.BuildingControl;
  *
  * @author wyatt
  */
-public class BuildingView {
-        public void displayBuildingView() {
-        boolean endView = false;
-         System.out.println("You have entered the red flooded building. Type H for a list of commands.");
-        do {
-            String[] inputs = getInputs(); 
-            if (inputs.length < 1 || inputs[0].toUpperCase().equals("Q")) {
-                return;
-            }
-             endView = doAction(inputs);
-         
-        } while (endView != true);
+public class BuildingView extends View {
 
-    }
         
-        private String[] getInputs() {
+        public String[] getInputs() {
         String[] inputs = new String[1];
-        boolean valid = false;
-        while (valid == false) {
-            System.out.println("Enter a command: ");
-            Scanner inFile; 
-            inFile = new Scanner(System.in);
-            String command= inFile.nextLine();
-            String trimmedCommand = trim(command);
-            //*** changed trimmedName.length < 2 to < 1 for accurate test matrix***//
-                if (trimmedCommand.length() <1) {
-                System.out.println("You must enter a valid command.");
-                continue;
-            }
-            inputs[0] = command;
-           valid = true;
-        }
+        System.out.println("You have entered the red flooded building. Type H for a list of commands.");
+        String command = this.getInput("Enter a command:");
+        inputs[0] = command;
         return inputs;
-    }
-     private boolean doAction(String[] inputs) {
+        }
+     public boolean doAction(String[] inputs) {
         String menuItem = inputs[0];
        menuItem = menuItem.toUpperCase();
         switch(menuItem) {
@@ -89,7 +65,7 @@ System.out.println("Building Menu Commands" +
 
     private void openDoor() {
           DoorView doorView = new DoorView();
-         doorView.displayDoorView();
+         doorView.display();
     }
     
 }

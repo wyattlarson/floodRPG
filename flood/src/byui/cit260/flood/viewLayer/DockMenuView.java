@@ -85,7 +85,7 @@ public class DockMenuView  extends View {
 
     private void explore() {
         BuildingView buildingView = new BuildingView();
-        buildingView.displayBuildingView();
+        buildingView.display();
     }
 
 
