@@ -63,7 +63,7 @@ public class InventoryMenuView extends View{
 
     private void dropItem() {
         DropItemView dropItemView = new DropItemView();
-         dropItemView.displayDropItemView();
+         dropItemView.display();
     }
 
 }
