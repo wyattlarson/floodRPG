@@ -81,7 +81,7 @@ public class MainMenuView extends View{
     }
     private void displayBuildingView() {
         BuildingView buildingView = new BuildingView();
-        buildingView.displayBuildingView();
+        buildingView.display();
     }
 
 }
