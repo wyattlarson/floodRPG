@@ -17,43 +17,24 @@ import byui.cit260.flood.viewLayer.DockMenuView;
  *
  * @author Ryan Call
  */
-public class MainMenuView {
-    public void displayMainMenuView() {
-        boolean endView = false;
-        do {
-            String[] inputs = getInputs(); 
-            if (inputs.length < 1 || inputs[0].toUpperCase().equals("Q")) {
-                return;
-            }
-             endView = doAction(inputs);
-         
-        } while (endView != true);
-        
-        System.out.println("*** displayMainMenuView () called **");
-    }
+public class MainMenuView extends View{
+    
 
-    private String[] getInputs() {
+    public String[] getInputs() {
         String[] inputs = new String[4];
-        System.out.println("Main Menu" + "\n N - Start New Game" + "\n R - Restart Exsisting Game" + "\n H - Help Menu" + "\n D - Dock Menu" + "\n E - Exit");
-        boolean valid = false;
-        while (valid == false) {
-            System.out.println("Enter a Command: ");
-            Scanner inFile; 
-            inFile = new Scanner(System.in);
-            String name= inFile.nextLine();
-            String trimmedName = trim(name);
-            //*** changed trimmedName.length < 2 to < 1 for accurate test matrix***//
-                if (trimmedName.length() <1) {
-                System.out.println("You must enter a valid value.");
-                continue;
-            }
-            inputs[0] = name;
-           valid = true;
-        }
+        System.out.println("Main Menu" + 
+                                            "\n N - Start New Game" + 
+                                            "\n R - Restart Exsisting Game" +
+                                            "\n H - Help Menu" +
+                                            "\n D - Dock Menu" + 
+                                            "\n E - Exit");
+        String menuItem = this.getInput("Enter a menu item:");
+            inputs[0] = menuItem;
+
         return inputs;
     }
 
-    private boolean doAction(String[] inputs) {
+    public boolean doAction(String[] inputs) {
         
         String menuItem = inputs[0];
        menuItem = menuItem.toUpperCase();
