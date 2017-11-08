@@ -78,7 +78,7 @@ public class InventoryMenuView {
 
     private void useItem() {
         UseItemView useItemView = new UseItemView();
-        useItemView.displayUseItemView();
+        useItemView.display();
     }
 
     private void seeInventory() {

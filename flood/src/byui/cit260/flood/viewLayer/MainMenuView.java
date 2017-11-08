@@ -30,7 +30,6 @@ public class MainMenuView extends View{
                                             "\n E - Exit");
         String menuItem = this.getInput("Enter a menu item:");
             inputs[0] = menuItem;
-
         return inputs;
     }
 
