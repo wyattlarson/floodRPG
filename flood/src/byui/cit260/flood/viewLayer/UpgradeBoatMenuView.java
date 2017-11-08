@@ -40,7 +40,12 @@ public class UpgradeBoatMenuView extends View {
              System.out.println("Your answers are WRONG!");
         }
         else{
-        System.out.println("You have a new boat! it can hold " + result + " people.");
+        System.out.println("=================================================" 
+                + "\n\tYou have a new boat! "
+                + "\n\tIt can now hold " 
+                + result 
+                + " people." 
+                + "\n=================================================");
         }
         return true;
     }
