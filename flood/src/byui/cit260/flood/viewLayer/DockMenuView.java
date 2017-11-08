@@ -75,7 +75,7 @@ public class DockMenuView  extends View {
 
     private void InventoryMenuView() {
         InventoryMenuView InventoryMenuView = new InventoryMenuView();
-        InventoryMenuView.displayInventoryMenuView();
+        InventoryMenuView.display();
     }
 
     private void MiniGameView() {
