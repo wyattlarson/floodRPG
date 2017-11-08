@@ -53,7 +53,7 @@ public class InventoryMenuView extends View{
 
     private void useItem() {
         UseItemView useItemView = new UseItemView();
-        useItemView.displayUseItemView();
+        useItemView.display();
     }
 
     private void seeInventory() {
