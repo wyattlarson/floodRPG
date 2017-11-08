@@ -58,12 +58,12 @@ public class InventoryMenuView extends View{
 
     private void seeInventory() {
         SeeInventoryView seeInventoryView = new SeeInventoryView();
-        seeInventoryView.displaySeeInventoryView();
+        seeInventoryView.display();
     }
 
     private void dropItem() {
         DropItemView dropItemView = new DropItemView();
-         dropItemView.displayDropItemView();
+         dropItemView.display();
     }
 
 }

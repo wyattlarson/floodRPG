@@ -16,14 +16,13 @@ public class UseItemView extends View {
 
         public String[] getInputs() {
         String[] inputs = new String[4];
-        System.out.println("Which item would you like to use?" +  
+        System.out.println(
                         "\n 1 - Flashlight" + 
                         "\n 2 - Hammer" +
                         "\n 3 - Floaties" + 
                         "\n E - Exit Inventory");
-
-            String name = this.getInput("Enter a Command: ");
-            inputs[0] = name;
+        String name = this.getInput("Which item would you like to use?");
+        inputs[0] = name;
         return inputs;
     }
 

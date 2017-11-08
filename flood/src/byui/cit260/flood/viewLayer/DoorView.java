@@ -11,9 +11,9 @@ import byui.cit260.flood.control.BuildingControl;
  *
  * @author wyatt
  */
-public class DoorView extends View{
+public class DoorView extends View {
 
-
+    @Override
     public String[] getInputs() {
         String[] inputs = new String[2];
         System.out.println("There is a password on the door.");
@@ -21,35 +21,25 @@ public class DoorView extends View{
         inputs[0] = sideA;
         String sideB = this.getInput("Enter your answer for side b:");
         inputs[1] = sideB;
-       
-            
         return inputs;
     }
 
+    @Override
     public boolean doAction(String[] inputs) {
         String a = inputs[0];
         String b = inputs[1];
-        String c = "20";
+        String c = "5";
         double doubledA = Double.parseDouble(a);
         double doubledB = Double.parseDouble(b);
         double doubledC = Double.parseDouble(c);
         double result = BuildingControl.puzzle1(doubledA, doubledB, doubledC);
-        if (result == -1){
+        if (result == -1) {
             System.out.println("Inputs not within parameters.");
-        }
-        else if (result == 0) {
-             System.out.println("Your answers are WRONG!");
-        }
-        else{
-        System.out.println("Your answer equates to:" +result +"You got the answer right! The door opens.");
+        } else if (result == 0) {
+            System.out.println("Your answers are WRONG!");
+        } else {
+            System.out.println("Your answer equates to:" + result +".  " + "You got the answer right! The door opens.");
         }
         return true;
     }
 }
-    
-
-
-
-
-
-

@@ -38,10 +38,5 @@ public abstract class GameMenuView extends View{
         return false;
     }       
 
-        private void dockMenuView() {
-        DockMenuView dockMenuView = new DockMenuView();
-        dockMenuView.display();
-    }
-
 }
 

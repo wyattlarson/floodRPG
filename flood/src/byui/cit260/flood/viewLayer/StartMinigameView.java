@@ -15,44 +15,17 @@ import byui.cit260.flood.control.MiniGameControl;
  *
  * @author Ryan
  */
-public class StartMinigameView {
+public class StartMinigameView extends View{
 
-    public void displayStartMinigameView() {
-        boolean endView = false;
-        do {
-            String[] inputs = getInputs(); 
-            if (inputs.length < 1 || inputs[0].toUpperCase().equals("Q")) {
-                return;
-            }
-             endView = doAction(inputs);
-         
-        } while (endView != true);
-
-    }
-
-    private String[] getInputs() {
+    public String[] getInputs() {
         String[] inputs = new String[1];
         System.out.println("For the first minigame you must find the area of a trapezoid."
                 + " Base 1 = 20, Base 2 = 15, and Height = 10. What is the area?");
-        boolean valid = false;
-        while (valid == false) {
-            System.out.println("Enter your guess: ");
-            Scanner inFile; 
-            inFile = new Scanner(System.in);
-            String guess = inFile.nextLine();
-            String trimmedGuess = trim(guess);
-            //*** changed trimmedName.length < 2 to < 1 for accurate test matrix***//
-                if (trimmedGuess.length() <1) {
-                System.out.println("You must enter a value.");
-                continue;
-            }
-            inputs[0] = trimmedGuess;
-           valid = true;
-        }
+        String name = this.getInput("Enter your guess:");
         return inputs;
     }
 
-    private boolean doAction(String[] inputs) {
+    public boolean doAction(String[] inputs) {
         String playersGuess = inputs[0];
         double base1 = 20;
         double base2 = 15;
