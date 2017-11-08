@@ -13,7 +13,7 @@ import byui.cit260.flood.control.BoatUpgrade;
  *
  * @author Ryan Call
  */
-public class UpgradeBoatMenuView {
+public class UpgradeBoatMenuView extends View {
 
     public void displayUpgradeBoatMenuView() {
         boolean endView = false;
@@ -26,7 +26,7 @@ public class UpgradeBoatMenuView {
         } while (endView !=true);
     }
     
-    private String[] getInputs() {
+    public String[] getInputs() {
         String[] inputs = new String[2];
         System.out.println("Upgrade your boat, what is the length and width of your boat?");
         boolean valid = false;
@@ -61,7 +61,7 @@ public class UpgradeBoatMenuView {
             
         return inputs;
     }
-        private boolean doAction(String[] inputs) {
+        public boolean doAction(String[] inputs) {
         String length = inputs[0];
         String width = inputs[1];
         double doubledLength = Double.parseDouble(length);
