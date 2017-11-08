@@ -9,9 +9,34 @@ package byui.cit260.flood.viewLayer;
  *
  * @author Ryan Call
  */
-public class StartExistingGameView {
-        public void displayStartExistingGameView() {
-        System.out.println("displayStartExistingGameView called");
-}
+public class StartExistingGameView extends View{
 
+ 
+       public String[] getInputs() {
+        String[] inputs = new String[8];
+        System.out.println("=========="+"Saved Games"+ "==========" + 
+                        "\n File 1 - Saved Game");
+        
+          String menuItem = this.getInput("Load Saved Game:");
+            inputs[0] = menuItem;
+
+        return inputs;
+    }
+
+     public boolean doAction(String[] inputs) {
+        String menuItem = inputs[0];
+       menuItem = menuItem.toUpperCase();
+        switch(menuItem) {
+            case "1": loadGame();
+            break;
+            case "E": return true;
+            default: System.out.println("Invalid Menu Command.");
+            break;
+        }
+        return false;  
+    }
+
+    private void loadGame() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

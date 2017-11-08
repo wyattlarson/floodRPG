@@ -17,7 +17,7 @@ public abstract class GameMenuView extends View{
        public String[] getInputs() {
         String[] inputs = new String[4];
         System.out.println("Welcome to your new game" );
-        String name = this.getInput("Enter your  player name: ");
+        String name = this.getInput("Enter your player name: ");
             inputs[0] = name;
 
         return inputs;

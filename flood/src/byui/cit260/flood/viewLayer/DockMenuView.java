@@ -19,7 +19,7 @@ public class DockMenuView  extends View {
  
        public String[] getInputs() {
         String[] inputs = new String[8];
-        System.out.println("Dock Menu" + 
+        System.out.println("=========="+"Dock Menu"+ "==========" + 
                         "\n S or Save - Save game" +
                         "\n D or Drop - Drop off passengers" +
                         "\n U or Upgrade - go to boat upgrade menu" + 
@@ -39,6 +39,8 @@ public class DockMenuView  extends View {
         String menuItem = inputs[0];
        menuItem = menuItem.toUpperCase();
         switch(menuItem) {
+            case "S": saveGameMenu();
+            break;
             case "U": upgradeBoatMenu();
             break;
             case "G": gasFillUp();
@@ -86,6 +88,10 @@ public class DockMenuView  extends View {
     private void explore() {
         BuildingView buildingView = new BuildingView();
         buildingView.display();
+    }
+
+    private void saveGameMenu() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 

@@ -22,8 +22,8 @@ public class MainMenuView extends View {
 
     public String[] getInputs() {
         String[] inputs = new String[4];
-        System.out.println("Main Menu"
-                + "\n N - Start New Game"
+        System.out.println("========="+"Main Menu" +"=========="
+                + "\n N - Start New Game" 
                 + "\n R - Start Existing Game"
                 + "\n H - Help Menu"
                 + "\n E - Exit");
@@ -68,7 +68,7 @@ public class MainMenuView extends View {
 
     private void restartGame() {
         StartExistingGameView startExistingGameView = new StartExistingGameView();
-        startExistingGameView.displayStartExistingGameView();
+        startExistingGameView.display();
     }
 
     private void getHelp() {
