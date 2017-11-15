@@ -30,6 +30,14 @@ public class Game implements Serializable{
           public void setPlayer(Player player) {
               this.player = player;
           }
+     //this is the association between Game class and the Character class
+          private Character character;
+                public Character getCharacter(){
+                    return character;
+                }
+                public void setCharacter(Character character) {
+                    this.character=character;
+                }
     
     //this is the association between the Game class and the Item class
      private ArrayList<Item> items = new ArrayList<Item>();

@@ -5,6 +5,7 @@
  */
 package byui.cit260.flood.control;
 
+import byui.cit260.flood.model.Game;
 import byui.cit260.flood.model.Player;
 import byui.cit260.flood.viewLayer.StartProgramView;
 import flood.Flood;
@@ -23,6 +24,14 @@ public class GameControl {
         return player;
         
     }
-    public static void createNewGame(Player player) {
+    public static int createNewGame(Player player) {
+        if (player == null) {
+            return -1;
+        }
+        Game game = new Game();
+        game.setPlayer(player);
+        Flood.setCurrentGame(game);
+        
     }
+
 }
