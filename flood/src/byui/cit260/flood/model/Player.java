@@ -28,12 +28,12 @@ public class Player implements Serializable{
                 this.games = games;
             }
      //Assoiciation between Player and Character
-      private ArrayList<Character> characters = new ArrayList<Character>();
-            public ArrayList<Character> getCharacters() {
-                return characters;
+      private ArrayList<Character> character = new ArrayList<Character>();
+            public ArrayList<Character> getCharacter() {
+                return character;
             }
-            public void setCharacters(ArrayList<Character> characters) {
-                this.characters = characters;
+            public void setCharacter(ArrayList<Character> character) {
+                this.character = character;
             }
             
      //------------------------------Public Functions------------------------------//
