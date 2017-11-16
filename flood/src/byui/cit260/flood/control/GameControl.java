@@ -12,6 +12,7 @@ import byui.cit260.flood.viewLayer.StartProgramView;
 import flood.Flood;
 import java.util.ArrayList;
 import byui.cit260.flood.model.Character;
+import byui.cit260.flood.model.Location;
 import byui.cit260.flood.model.Map;
 
 /**
@@ -52,11 +53,41 @@ public class GameControl {
     }
 
     private static Item[] createItems() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("create items called");
+        Item[] items = new Item[2];
+        
+        Item engine = new Item();
+        engine.setName("Engine Parts");
+        engine.setDescription("Parts for an engine");
+        engine.setItemId(1);
+        return items;
     }
 
-    private static Map createMap(int i, int i0, Item[] items) {
-        
+    private static Map createMap(int noOfRows, int noOfColumns, Item[] items) {
+                System.out.println("create map called");
+                if (noOfRows < 0 || noOfColumns < 0) {
+                    return null;
+                }
+                if (items == null ||  items.length < 1) {
+                    return null;
+                }
+                Map map = new Map();
+                map.setRowCount(noOfRows);
+                map.setColumnCount(noOfColumns);
+                
+                Location location = createLocations (noOfRows, noOfColumns);
+                
+                Scenes scenes = MapControl.createScenes();
+                Questions questions = MapControl.createQuestions();
+                
+                MapControl.assignQuestionsToScenes();
+                MapControl.assignItemsToScenes();
+                
+                return null;
+    }
+
+    private static Location createLocations(int noOfRows, int noOfColumns) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     
