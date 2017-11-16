@@ -7,6 +7,7 @@ package byui.cit260.flood.model;
 import java.io.Serializable;
 import java.util.Objects;
 import java.util.ArrayList;
+import byui.cit260.flood.model.Character;
 /**
  *
  * @author wyatt
@@ -18,6 +19,7 @@ public class Game implements Serializable{
 
     private int amountSaved;
     private String savedFile;
+    private Item[] items;
     
 //------------------------------Associations------------------------------//
 
@@ -31,22 +33,21 @@ public class Game implements Serializable{
               this.player = player;
           }
      //this is the association between Game class and the Character class
-          private ArrayList<Character> character;
-                public ArrayList<Character> getCharacter(){
+          private Character character;
+                public Character getCharacter(){
                     return character;
                 }
-                public void setCharacter(ArrayList<Character> character) {
+                public void setCharacter(Character character) {
                     this.character=character;
                 }
     
     //this is the association between the Game class and the Item class
-     private ArrayList<Item> items = new ArrayList<Item>();
      
             //Item class getter and setter
-            public ArrayList<Item> getItems() {
+            public Item[] getItems() {
                 return items;
             }
-            public void setItems(ArrayList<Item> items) {
+            public void setItems(Item[] items) {
                 this.items = items;
             }
             

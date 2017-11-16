@@ -11,6 +11,8 @@ import byui.cit260.flood.model.Player;
 import byui.cit260.flood.viewLayer.StartProgramView;
 import flood.Flood;
 import java.util.ArrayList;
+import byui.cit260.flood.model.Character;
+import byui.cit260.flood.model.Map;
 
 /**
  *
@@ -34,23 +36,30 @@ public class GameControl {
         game.setPlayer(player);
         Flood.setCurrentGame(game);
         
-       ArrayList<Character>characters = createCharacters();
-       game.setCharacter(characters);
+
        player.setCharacter(Character.Bob);
        
-       ArrayList<Item>items = createItems();
+       Item[] items = GameControl.createItems();
        game.setItems(items);
        
+       Map map = GameControl.createMap(5, 5, items); 
+         if (map == null) {
+             return -1;
+         }
+         game.setMap(map);
+   
+        return 1;
+    }
+
+    private static Item[] createItems() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private static Map createMap(int i, int i0, Item[] items) {
         
     }
 
-    private static ArrayList<Character>createCharacters() {
-        System.out.println("Create Characters called.");
-    }
-
-    private static ArrayList<Item> createItems() {
-        System.out.println("Create Items called.");
-    }
+    
 
 
 }
