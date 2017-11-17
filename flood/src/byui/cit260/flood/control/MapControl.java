@@ -5,6 +5,8 @@
  */
 package byui.cit260.flood.control;
 
+import byui.cit260.flood.model.Location;
+
 /**
  *
  * @author wyatt
@@ -12,12 +14,28 @@ package byui.cit260.flood.control;
 public class MapControl {
     private static Location[] [] createLocations(int rows, int columns){
          System.out.println("createLocations called");
+         if (rows < 1 || columns < 1){
+             return null;
+         }
+         Location[] [] locations = new Location [rows] [columns];
+           
+         for (int i = 0; i < locations.length; i++){
+             for (int j = 0; j < locations[0].length; j++){
+                 Location[][] location = new Location[0][0];
+                 location.setRow(i);
+                 location.setColumn(j);
+                 location.setVisited(false);
+                 rows =i;
+                 columns = j;
+                 locations += locations[rows][columns];
+             }
+         }
          return locations;
     }
     
     private static Scene[] createScenes(){
         System.out.println("createScenes called");
-         return null;
+        return null;
     }
     
     private static Question[] createQuestions() {
