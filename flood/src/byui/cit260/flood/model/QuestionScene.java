@@ -20,11 +20,11 @@ public class QuestionScene extends BuildingScene implements Serializable {
     
     //------------------------------Associations------------------------------//
     //Association between QuestionScene and Equation
-     private Equation equation;
-                public Equation getEquation() {
+     private Equation[] equation;
+                public Equation[] getEquation() {
                     return equation;
                 }
-                public void setEquation(Equation equation) {
+                public void setEquation(Equation[] equation) {
                     this.equation = equation;
                 }
 

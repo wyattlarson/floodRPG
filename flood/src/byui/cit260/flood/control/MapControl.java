@@ -5,14 +5,19 @@
  */
 package byui.cit260.flood.control;
 
+import byui.cit260.flood.model.BuildingScene;
+import byui.cit260.flood.model.Equation;
+import byui.cit260.flood.model.EquationType;
 import byui.cit260.flood.model.Location;
+import byui.cit260.flood.model.QuestionScene;
+import byui.cit260.flood.model.SceneType;
 
 /**
  *
  * @author wyatt
  */
 public class MapControl {
-    private static Location[] [] createLocations(int rows, int columns){
+    public static Location[] [] createLocations(int rows, int columns){
          System.out.println("createLocations called");
          if (rows < 1 || columns < 1){
              return null;
@@ -21,30 +26,57 @@ public class MapControl {
            
          for (int i = 0; i < locations.length; i++){
              for (int j = 0; j < locations[0].length; j++){
-                 Location[][] location = new Location[0][0];
+                 Location location = new Location();
                  location.setRow(i);
                  location.setColumn(j);
                  location.setVisited(false);
                  rows =i;
                  columns = j;
-                 locations += locations[rows][columns];
+                 location=locations[rows][columns];
              }
          }
          return locations;
     }
     
-    private static Scene[] createScenes(){
-        System.out.println("createScenes called");
-        return null;
+    public static BuildingScene[] createScenes(){
+        BuildingScene[] scenes = new BuildingScene[5];
+         
+        BuildingScene water = scenes[SceneType.water.ordinal()];
+        water.setDescription("An empty flooded area.");
+        
+        BuildingScene building = scenes[SceneType.building.ordinal()];
+        building.setDescription("A flooded building.");
+        
+        BuildingScene dock = scenes[SceneType.dock.ordinal()];
+        dock.setDescription("The base of operations.");
+        
+        BuildingScene minigame = scenes[SceneType.minigame.ordinal()];
+        minigame.setDescription("A mini game to find upgrades.");
+        
+        return scenes;
     }
     
-    private static Question[] createQuestions() {
-     System.out.println("createQuestions called");
-      return null;
+    private static Equation[] createQuestions() {
+         System.out.println("createQuestions called");
+        Equation[] questions = new Equation[5];
+        
+        Equation trapArea = questions[EquationType.trapArea.ordinal()];
+        trapArea.setQuestion("For the first minigame you must find the area of a trapezoid. Base 1 = 20, Base 2 = 15, and Height = 10. WHat is the area?");
+        trapArea.setAnswer("175");
+        
+        return questions;
 }
     
-    private static void assignQuestionsToScenes(Question[] questions, Scene[] scenes){
+    private static void assignQuestionsToScenes(Equation[] questions, BuildingScene[] scenes){
          System.out.println("assignQuestionsToScenes called");
+         QuestionScene miniGame = (QuestionScene) scenes[SceneType.minigame.ordinal()];
+         Equation[] miniGameQuestions = new Equation[3];
+         miniGameQuestions[0] = questions[EquationType.trapArea.ordinal()];
+         miniGame.setEquation(miniGameQuestions);
+         
+         BuildingScene pythag = scenes[SceneType.building.ordinal()];
+         Equation[] pythag = new Equation[2];
+         questionsInScene[0] = questions[EquationType.trapArea.ordinal()];
     }
     
     private static void assignItemsToScenes(Item[] items, Scene[] scenes){
