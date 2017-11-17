@@ -12,6 +12,7 @@ import byui.cit260.flood.viewLayer.StartProgramView;
 import flood.Flood;
 import java.util.ArrayList;
 import byui.cit260.flood.model.Character;
+import byui.cit260.flood.model.ItemType;
 import byui.cit260.flood.model.Location;
 import byui.cit260.flood.model.Map;
 
@@ -52,18 +53,28 @@ public class GameControl {
         return 1;
     }
 
-    private static Item[] createItems() {
+    public static Item[] createItems() {
         System.out.println("create items called");
-        Item[] items = new Item[2];
-        
-        Item engine = new Item();
+        Item[] items = new Item[8];
+
+        Item engine = items[ItemType.engine.ordinal()];
         engine.setName("Engine Parts");
         engine.setDescription("Parts for an engine");
         engine.setItemId(1);
+        
+         Item wood = items[ItemType.wood.ordinal()];
+         wood.setName("Wood");
+         wood.setDescription("Planks and driftwood that can be used to upgrade your boat.");
+         wood.setItemId(2);
+         
+         Item survivor = items[ItemType.survivor.ordinal()];
+         survivor.setName("Survivors");
+         survivor.setDescription("A stranded survivor of the flood. Get them to safety.");
+         survivor.setItemId(3);
         return items;
     }
 
-    private static Map createMap(int noOfRows, int noOfColumns, Item[] items) {
+    public static Map createMap(int noOfRows, int noOfColumns, Item[] items) {
                 System.out.println("create map called");
                 if (noOfRows < 0 || noOfColumns < 0) {
                     return null;
@@ -75,7 +86,7 @@ public class GameControl {
                 map.setRowCount(noOfRows);
                 map.setColumnCount(noOfColumns);
                 
-                Location location = createLocations (noOfRows, noOfColumns);
+                Location location = createLocations(noOfRows, noOfColumns);
                 
                 Scenes scenes = MapControl.createScenes();
                 Questions questions = MapControl.createQuestions();

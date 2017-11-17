@@ -14,7 +14,8 @@ import java.io.Serializable;
 public class Location implements Serializable{
     
 //------------------------------Location Attributes------------------------------//
-    private int locationNumber;
+    private int row;
+    private int column;
     private boolean visited;
     private int amountRemaining;
     
@@ -35,14 +36,18 @@ public class Location implements Serializable{
     }
 
 //------------------------------Public Functions------------------------------//
-    public int getLocationNumber() {
-        return locationNumber;
+    public int getRow(){
+    return row;
+}
+    public void setRow(int row){
+        this.row = row;
     }
-
-    public void setLocationNumber(int locationNumber) {
-        this.locationNumber = locationNumber;
+    public int getColumn(){
+        return column;
     }
-
+    public void setColumn(int column){
+        this.column = column;
+    }
     public boolean isVisited() {
         return visited;
     }
