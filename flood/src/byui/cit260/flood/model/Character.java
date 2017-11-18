@@ -12,7 +12,12 @@ import java.awt.Point;
  */
 public enum Character {
     //this is where we put a list of set characters to choose from
-    Bob("Bob", "A short fat man.", new Point(1,1));
+    Bob("Bob", "A short fat man.", new Point(1,1)),
+    Jackson("Jackson", "What he lacks in strength, he makes up for it with his brain.", new Point(1,1)),
+    Mark("Mark", "Short, but extremely strong.", new Point(1,1)),
+    Emily("Emily", "Kind and has the spirit of a champion.", new Point(1,1));
+    
+    
 
 //------------------------------Character Attributes------------------------------//
 
