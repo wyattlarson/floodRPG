@@ -59,13 +59,13 @@ public class MainMenuView extends View {
 
     private void startNewGame() {
         // creates new game with player 
+        GameMenuView gameMenuView = new GameMenuView() {
+        };
+        gameMenuView.display();
         int returnValue = GameControl.createNewGame(Flood.getPlayer());
         if (returnValue < 0) {
             System.out.println("ERROR - Failed to create a new game.");
         }
-        GameMenuView gameMenuView = new GameMenuView() {
-        };
-        gameMenuView.display();
 
     }
 

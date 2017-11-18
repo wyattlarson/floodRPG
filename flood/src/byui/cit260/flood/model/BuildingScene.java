@@ -32,6 +32,13 @@ private Location location;
 //Association between BuildingScene class and QuestionScene class
 
 //Association between BuildingScene class and ItemScene class
+private ItemScene itemScene;
+                public ItemScene getItemScene(){
+                    return itemScene;
+                }
+                public void setItemScene(ItemScene itemScene){
+                    this.itemScene = itemScene;
+                }
 
 //------------------------------Public Functions------------------------------//
 

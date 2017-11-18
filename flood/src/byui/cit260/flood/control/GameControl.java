@@ -15,6 +15,8 @@ import byui.cit260.flood.model.Character;
 import byui.cit260.flood.model.ItemType;
 import byui.cit260.flood.model.Location;
 import byui.cit260.flood.model.Map;
+import byui.cit260.flood.model.BuildingScene;
+import byui.cit260.flood.model.Equation;
 
 /**
  *
@@ -53,17 +55,17 @@ public class GameControl {
         return 1;
     }
 
-    public static Item[] createItems() {
+        public static Item[] createItems() {
         System.out.println("create items called");
         Item[] items = new Item[8];
 
-        Item engine = items[ItemType.engine.ordinal()];
+        Item engine = new Item();
         engine.setName("Engine Parts");
         engine.setDescription("Parts for an engine");
         engine.setItemId(1);
         
          Item wood = items[ItemType.wood.ordinal()];
-         wood.setName("Wood");
+          wood.setName("Wood");
          wood.setDescription("Planks and driftwood that can be used to upgrade your boat.");
          wood.setItemId(2);
          
@@ -88,13 +90,14 @@ public class GameControl {
                 
                 Location location = createLocations(noOfRows, noOfColumns);
                 
-                Scenes scenes = MapControl.createScenes();
-                Questions questions = MapControl.createQuestions();
+                BuildingScene[] scenes = MapControl.createScenes();
+                Equation[] questions = MapControl.createQuestions();
                 
-                MapControl.assignQuestionsToScenes();
+                /* MapControl.assignQuestionsToScenes();
                 MapControl.assignItemsToScenes();
+                MapControl.assignSceneToLocations();*/
                 
-                return null;
+                return map;
     }
 
     private static Location createLocations(int noOfRows, int noOfColumns) {

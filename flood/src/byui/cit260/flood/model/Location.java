@@ -68,7 +68,6 @@ public class Location implements Serializable{
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 19 * hash + this.locationNumber;
         hash = 19 * hash + (this.visited ? 1 : 0);
         hash = 19 * hash + this.amountRemaining;
         return hash;
@@ -76,7 +75,7 @@ public class Location implements Serializable{
 
     @Override
     public String toString() {
-        return "Location{" + "locationNumber=" + locationNumber + ", visited=" + visited + ", amountRemaining=" + amountRemaining + '}';
+        return "Location{" + " visited=" + visited + ", amountRemaining=" + amountRemaining + '}';
     }
 
     @Override
@@ -88,16 +87,6 @@ public class Location implements Serializable{
             return false;
         }
         if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Location other = (Location) obj;
-        if (this.locationNumber != other.locationNumber) {
-            return false;
-        }
-        if (this.visited != other.visited) {
-            return false;
-        }
-        if (this.amountRemaining != other.amountRemaining) {
             return false;
         }
         return true;

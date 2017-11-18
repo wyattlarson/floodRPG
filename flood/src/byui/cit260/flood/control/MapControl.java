@@ -8,7 +8,11 @@ package byui.cit260.flood.control;
 import byui.cit260.flood.model.BuildingScene;
 import byui.cit260.flood.model.Equation;
 import byui.cit260.flood.model.EquationType;
+import byui.cit260.flood.model.Item;
+import byui.cit260.flood.model.ItemScene;
+import byui.cit260.flood.model.ItemType;
 import byui.cit260.flood.model.Location;
+import byui.cit260.flood.model.Map;
 import byui.cit260.flood.model.QuestionScene;
 import byui.cit260.flood.model.SceneType;
 
@@ -56,8 +60,8 @@ public class MapControl {
         return scenes;
     }
     
-    private static Equation[] createQuestions() {
-         System.out.println("createQuestions called");
+    public static Equation[] createQuestions() {
+        System.out.println("createQuestions called");
         Equation[] questions = new Equation[5];
         
         Equation trapArea = questions[EquationType.trapArea.ordinal()];
@@ -67,24 +71,31 @@ public class MapControl {
         return questions;
 }
     
-    private static void assignQuestionsToScenes(Equation[] questions, BuildingScene[] scenes){
+         private static void assignQuestionsToScenes(Equation[] questions, BuildingScene[] scenes){
          System.out.println("assignQuestionsToScenes called");
          QuestionScene miniGame = (QuestionScene) scenes[SceneType.minigame.ordinal()];
          Equation[] miniGameQuestions = new Equation[3];
          miniGameQuestions[0] = questions[EquationType.trapArea.ordinal()];
          miniGame.setEquation(miniGameQuestions);
          
-         BuildingScene pythag = scenes[SceneType.building.ordinal()];
-         Equation[] pythag = new Equation[2];
-         questionsInScene[0] = questions[EquationType.trapArea.ordinal()];
+         QuestionScene pythag = (QuestionScene) scenes[SceneType.building.ordinal()];
+         Equation[] pythagQuestion = new Equation[1];
+         pythagQuestion[0] = questions[EquationType.trapArea.ordinal()];
+         pythag.setEquation(miniGameQuestions);
     }
     
-    private static void assignItemsToScenes(Item[] items, Scene[] scenes){
+         private static void assignItemsToScenes(Item[] items, BuildingScene[] scenes){
          System.out.println("assignItemsToScene called");
+         ItemScene building = (ItemScene) scenes[SceneType.building.ordinal()];
+         Item[] buildingItems = new Item[3];
+         buildingItems[0] = items[ItemType.hammer.ordinal()];
+         building.setItems(buildingItems);
     }
     
-    private static void assignSceneToLocations(Scene[] scenes, Location [] [] location){
+         private static void assignSceneToLocations(Map[] map, BuildingScene [] [] scenes){
          System.out.println("assignSceneToLoctions called");
+        // Location[][] locations = map.getLocations();
     }
+
     
 }

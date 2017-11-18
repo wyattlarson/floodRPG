@@ -13,25 +13,33 @@ import java.util.Objects;
  *
  * @author Brandon
  */
-public class ItemScene implements Serializable {
+public class ItemScene extends BuildingScene implements Serializable {
     
     //-------------Item Scene Attributes-------------//
     
     private Point location;
     private String itemPickup;
+    private Item[] items;
     
     //-----------------Associations--------------------//
     
     
     //---------------Functions---------------//
-
-    public Point getLocation() {
-        return location;
+    public void setItems(Item items[]){
+        this.items = items;
     }
-
+    
+    public Item[] getItems(Item items[]) {
+        return items;
+    }
+    
+    /*    public Point getLocation() {
+    return location;
+    }
+    
     public void setLocation(Point location) {
-        this.location = location;
-    }
+    this.location = location;
+    }*/
 
     public String getItemPickup() {
         return itemPickup;

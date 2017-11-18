@@ -20,7 +20,7 @@ public class QuestionScene extends BuildingScene implements Serializable {
     
     //------------------------------Associations------------------------------//
     //Association between QuestionScene and Equation
-     private Equation[] equation;
+                 private Equation[] equation;
                 public Equation[] getEquation() {
                     return equation;
                 }

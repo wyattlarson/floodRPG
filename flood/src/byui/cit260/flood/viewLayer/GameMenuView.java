@@ -22,6 +22,7 @@ public abstract class GameMenuView extends View{
 
         return inputs;
     }
+       @Override
            public boolean doAction(String[] inputs) {
         String playersName = inputs[0];
         Player player = GameControl.savePlayer(playersName);
@@ -33,9 +34,9 @@ public abstract class GameMenuView extends View{
                 + "\n\tWelcome to the game " + playersName + "."
                 + "\n\tGood Luck!"
                 + "\n=================================================");
-       DockMenuView dockMenuView = new DockMenuView();
-        dockMenuView.display();
-        return false;
+        /*  DockMenuView dockMenuView = new DockMenuView();
+        dockMenuView.display();*/
+        return true;
     }       
 
 }
