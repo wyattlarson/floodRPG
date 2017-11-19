@@ -17,6 +17,7 @@ import byui.cit260.flood.model.Location;
 import byui.cit260.flood.model.Map;
 import byui.cit260.flood.model.BuildingScene;
 import byui.cit260.flood.model.Equation;
+import byui.cit260.flood.model.Inventory;
 
 /**
  *
@@ -75,6 +76,14 @@ public class GameControl {
          survivor.setItemId(3);
         return items;
     }
+        public static Inventory[] createInventory(Item[] items) {
+            System.out.println("Create Inventory Called");
+            
+            if (items == null){
+                return null;
+            }
+            Inventory[] inventory = new Inventory[];
+    }
 
     public static Map createMap(int noOfRows, int noOfColumns, Item[] items) {
                 System.out.println("create map called");
@@ -99,6 +108,7 @@ public class GameControl {
                 
                 return map;
     }
+
 
     private static Location createLocations(int noOfRows, int noOfColumns) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
