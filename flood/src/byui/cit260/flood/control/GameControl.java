@@ -87,9 +87,9 @@ public class GameControl {
             }
         
            
-            Inventory inventory = new Inventory();
+            Item[] inventory = new Item[8];
             for (int i = 0; i < items.length; i++){
-            inventory = items[i];
+            inventory = items.setInventory(i);
             }    
         return null;
             
