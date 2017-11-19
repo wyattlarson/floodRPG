@@ -6,10 +6,14 @@
 package byui.cit260.flood.viewLayer;
 
 import byui.cit260.flood.control.GameControl;
+import byui.cit260.flood.model.Game;
+import byui.cit260.flood.model.Location;
+import byui.cit260.flood.model.Map;
 import byui.cit260.flood.model.Player;
 import java.util.Scanner;
 import static jdk.nashorn.internal.objects.NativeString.trim;
 import byui.cit260.flood.viewLayer.UpgradeBoatMenuView;
+import flood.Flood;
 /**
  *
  * @author Ryan Call
@@ -85,9 +89,24 @@ public class DockMenuView  extends View {
         miniGameView.displayMiniGameView();
     }
 
-    private void explore() {
-        BuildingView buildingView = new BuildingView();
-        buildingView.display();
+    public void explore() {
+        Game game = Flood.getCurrentGame();
+        Map map = game.getMap();
+        System.out.println("\tMAP OF FLOODED CITY.");
+        System.out.println("1"+"\t2"+"\t3"+"\t4"+"\t5");
+        System.out.println("-------------------------------------");
+        for (int i =0; i < map.getRowCount()+1; i++){
+            System.out.println(i+1);
+            System.out.print("\r|");             
+            for (int j = 0; j < map.getColumnCount(); j++){
+                System.out.println("|");
+                Location[][] location = new Location[i][j];
+               System.out.println("??");
+            }
+            System.out.println("|");
+        }             
+        /*BuildingView buildingView = new BuildingView();
+        buildingView.display();*/
     }
 
     private void saveGameMenu() {

@@ -34,8 +34,7 @@ public abstract class GameMenuView extends View{
                 + "\n\tWelcome to the game " + playersName + "."
                 + "\n\tGood Luck!"
                 + "\n=================================================");
-        /*  DockMenuView dockMenuView = new DockMenuView();
-        dockMenuView.display();*/
+        
         return true;
     }       
 

@@ -66,7 +66,8 @@ public class MainMenuView extends View {
         if (returnValue < 0) {
             System.out.println("ERROR - Failed to create a new game.");
         }
-
+         DockMenuView dockMenuView = new DockMenuView();
+        dockMenuView.display();
     }
 
     private void restartGame() {

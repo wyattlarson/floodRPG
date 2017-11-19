@@ -24,7 +24,7 @@ private int currentColumn;
 //------------------------------Associations-----------------------------//
 
 //Association between Map Class and Game Class
-private  ArrayList<Game> games = new ArrayList<Game>();
+public  ArrayList<Game> games = new ArrayList<Game>();
                 public ArrayList<Game> getGames() {
                     return games;
                 }
@@ -33,11 +33,11 @@ private  ArrayList<Game> games = new ArrayList<Game>();
                 }
   
 //Association between Map Class and Location Class
-private Location location = new Location();
-                public Location getLocations(){
+public Location[][] location;
+                public Location[][] getLocations(){
                     return location;
                 }
-                public void setLocations(Location location){
+                public void setLocations(Location[][] location){
                     this.location = location;
                 }
 

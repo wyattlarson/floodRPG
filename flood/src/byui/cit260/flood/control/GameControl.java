@@ -97,7 +97,7 @@ public class GameControl {
                 Equation[] questions = MapControl.createQuestions();
                 
                 MapControl.assignQuestionsToScenes(questions, scenes);
-                MapControl.assignItemsToScenes(items, scenes);
+                /* MapControl.assignItemsToScenes(items, scenes);*/
                 /*MapControl.assignSceneToLocations(map, scenes);*/
                 
                 return map;

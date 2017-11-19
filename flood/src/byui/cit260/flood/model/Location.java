@@ -30,7 +30,13 @@ public class Location implements Serializable{
                 }
           
       //this is the association between Location and BuildingScene
-                
+                private BuildingScene buildingScene;
+                public BuildingScene getBuildingScene() {
+                    return buildingScene;
+                }
+                public void setBuildingScene(BuildingScene buildingScene) {
+                    this.buildingScene = buildingScene;
+                }
     //Constructor
     public Location() {
     }
