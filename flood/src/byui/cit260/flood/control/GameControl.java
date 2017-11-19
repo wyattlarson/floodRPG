@@ -58,22 +58,25 @@ public class GameControl {
 
         public static Item[] createItems() {
         System.out.println("create items called");
-        Item[] items = new Item[8];
+        Item[] items = new Item[3];
 
         Item engine = new Item();
         engine.setName("Engine Parts");
         engine.setDescription("Parts for an engine");
         engine.setItemId(1);
+        items[ItemType.engine.ordinal()] = engine;
         
-         Item wood = items[ItemType.wood.ordinal()];
-          wood.setName("Wood");
+         Item wood = new Item();
+         wood.setName("Wood");
          wood.setDescription("Planks and driftwood that can be used to upgrade your boat.");
          wood.setItemId(2);
+         items[ItemType.wood.ordinal()] = wood;
          
-         Item survivor = items[ItemType.survivor.ordinal()];
+         Item survivor = new Item();
          survivor.setName("Survivors");
          survivor.setDescription("A stranded survivor of the flood. Get them to safety.");
          survivor.setItemId(3);
+         items[ItemType.survivor.ordinal()] = survivor;
         return items;
     }
         public static Inventory createInventory(Item[] items) {
@@ -104,14 +107,14 @@ public class GameControl {
                 map.setRowCount(noOfRows);
                 map.setColumnCount(noOfColumns);
                 
-                Location location = createLocations(noOfRows, noOfColumns);
+                Location[][] location = MapControl.createLocations(noOfRows, noOfColumns);
                 
                 BuildingScene[] scenes = MapControl.createScenes();
                 Equation[] questions = MapControl.createQuestions();
                 
-                /* MapControl.assignQuestionsToScenes();
-                MapControl.assignItemsToScenes();
-                MapControl.assignSceneToLocations();*/
+                MapControl.assignQuestionsToScenes(questions, scenes);
+                MapControl.assignItemsToScenes(items, scenes);
+                /*MapControl.assignSceneToLocations(map, scenes);*/
                 
                 return map;
     }
