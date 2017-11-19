@@ -76,13 +76,20 @@ public class GameControl {
          survivor.setItemId(3);
         return items;
     }
-        public static Inventory[] createInventory(Item[] items) {
+        public static Inventory createInventory(Item[] items) {
             System.out.println("Create Inventory Called");
             
             if (items == null){
                 return null;
             }
-            Inventory[] inventory = new Inventory[];
+        
+           
+            Inventory inventory = new Inventory();
+            for (int i = 0; i < items.length; i++){
+            inventory = items[i];
+            }    
+        return null;
+            
     }
 
     public static Map createMap(int noOfRows, int noOfColumns, Item[] items) {
