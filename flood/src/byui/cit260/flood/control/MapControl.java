@@ -36,7 +36,7 @@ public class MapControl {
                  location.setVisited(false);
                  rows =i;
                  columns = j;
-                 location=locations[rows][columns];
+                 locations[rows][columns] = location;
              }
          }
          return locations;
@@ -45,17 +45,21 @@ public class MapControl {
     public static BuildingScene[] createScenes(){
         BuildingScene[] scenes = new BuildingScene[5];
          
-        BuildingScene water = scenes[SceneType.water.ordinal()];
+        BuildingScene water = new BuildingScene();
         water.setDescription("An empty flooded area.");
+        scenes[SceneType.water.ordinal()] = water;
         
-        BuildingScene building = scenes[SceneType.building.ordinal()];
+        BuildingScene building = new BuildingScene();
         building.setDescription("A flooded building.");
+        scenes[SceneType.building.ordinal()] = building;
         
-        BuildingScene dock = scenes[SceneType.dock.ordinal()];
+        BuildingScene dock = new BuildingScene();
         dock.setDescription("The base of operations.");
+        scenes[SceneType.dock.ordinal()] = dock;
         
-        BuildingScene minigame = scenes[SceneType.minigame.ordinal()];
+        BuildingScene minigame = new BuildingScene();
         minigame.setDescription("A mini game to find upgrades.");
+        scenes[SceneType.minigame.ordinal()] = minigame;
         
         return scenes;
     }
@@ -64,27 +68,32 @@ public class MapControl {
         System.out.println("createQuestions called");
         Equation[] questions = new Equation[5];
         
-        Equation trapArea = questions[EquationType.trapArea.ordinal()];
+        Equation trapArea = new Equation();
         trapArea.setQuestion("For the first minigame you must find the area of a trapezoid. Base 1 = 20, Base 2 = 15, and Height = 10. WHat is the area?");
         trapArea.setAnswer("175");
+        questions[EquationType.trapArea.ordinal()] = trapArea;
         
         return questions;
 }
     
-         private static void assignQuestionsToScenes(Equation[] questions, BuildingScene[] scenes){
+         public static void assignQuestionsToScenes(Equation[] questions, BuildingScene[] scenes){
          System.out.println("assignQuestionsToScenes called");
-         QuestionScene miniGame = (QuestionScene) scenes[SceneType.minigame.ordinal()];
+         
+         QuestionScene miniGame = (QuestionScene) new QuestionScene();
          Equation[] miniGameQuestions = new Equation[3];
          miniGameQuestions[0] = questions[EquationType.trapArea.ordinal()];
          miniGame.setEquation(miniGameQuestions);
+         miniGameQuestions[SceneType.minigame.ordinal()] = miniGame;
          
-         QuestionScene pythag = (QuestionScene) scenes[SceneType.building.ordinal()];
+         
+         QuestionScene door = (QuestionScene) new QuestionScene();
          Equation[] pythagQuestion = new Equation[1];
-         pythagQuestion[0] = questions[EquationType.trapArea.ordinal()];
-         pythag.setEquation(miniGameQuestions);
+         pythagQuestion[0] = questions[EquationType.pythag.ordinal()];
+         door.setEquation(pythagQuestion);
+         scenes[SceneType.building.ordinal()] = door;
     }
     
-         private static void assignItemsToScenes(Item[] items, BuildingScene[] scenes){
+         public static void assignItemsToScenes(Item[] items, BuildingScene[] scenes){
          System.out.println("assignItemsToScene called");
          ItemScene building = (ItemScene) scenes[SceneType.building.ordinal()];
          Item[] buildingItems = new Item[3];
@@ -92,7 +101,7 @@ public class MapControl {
          building.setItems(buildingItems);
     }
     
-         private static void assignSceneToLocations(Map[] map, BuildingScene [] [] scenes){
+         public static void assignSceneToLocations(Map[] map, BuildingScene [] [] scenes){
          System.out.println("assignSceneToLoctions called");
         // Location[][] locations = map.getLocations();
     }
