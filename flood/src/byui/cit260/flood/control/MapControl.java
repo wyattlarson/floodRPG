@@ -15,6 +15,7 @@ import byui.cit260.flood.model.Location;
 import byui.cit260.flood.model.Map;
 import byui.cit260.flood.model.QuestionScene;
 import byui.cit260.flood.model.SceneType;
+import java.util.ArrayList;
 
 /**
  *
@@ -83,7 +84,7 @@ public class MapControl {
          Equation[] miniGameQuestions = new Equation[3];
          miniGameQuestions[0] = questions[EquationType.trapArea.ordinal()];
          miniGame.setEquation(miniGameQuestions);
-         miniGameQuestions[SceneType.minigame.ordinal()] = miniGame;
+         scenes[SceneType.minigame.ordinal()] = miniGame;
          
          
          QuestionScene door = (QuestionScene) new QuestionScene();
@@ -95,9 +96,10 @@ public class MapControl {
     
          public static void assignItemsToScenes(Item[] items, BuildingScene[] scenes){
          System.out.println("assignItemsToScene called");
+         
          ItemScene building = (ItemScene) scenes[SceneType.building.ordinal()];
-         Item[] buildingItems = new Item[3];
-         buildingItems[0] = items[ItemType.hammer.ordinal()];
+         ArrayList<Item>  buildingItems = new ArrayList();
+         buildingItems.add(items[ItemType.hammer.ordinal()]);
          building.setItems(buildingItems);
     }
     

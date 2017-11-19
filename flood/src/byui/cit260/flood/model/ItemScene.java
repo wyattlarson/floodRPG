@@ -8,6 +8,8 @@ package byui.cit260.flood.model;
 import java.awt.Point;
 import java.io.Serializable;
 import java.util.Objects;
+import byui.cit260.flood.model.Item;
+import java.util.ArrayList;
 
 /**
  *
@@ -19,19 +21,23 @@ public class ItemScene extends BuildingScene implements Serializable {
     
     private Point location;
     private String itemPickup;
-    private Item[] items;
+    private ArrayList<Item> items = new ArrayList();
     
     //-----------------Associations--------------------//
+
+    public ArrayList<Item> getItems() {
+        return items;
+    }
+
+    public void setItems(ArrayList<Item> items) {
+        this.items = items;
+    }
+
+
     
     
     //---------------Functions---------------//
-    public void setItems(Item items[]){
-        this.items = items;
-    }
-    
-    public Item[] getItems(Item items[]) {
-        return items;
-    }
+
     
     /*    public Point getLocation() {
     return location;
@@ -59,12 +65,13 @@ public class ItemScene extends BuildingScene implements Serializable {
         int hash = 7;
         hash = 97 * hash + Objects.hashCode(this.location);
         hash = 97 * hash + Objects.hashCode(this.itemPickup);
+        hash = 97 * hash + Objects.hashCode(this.items);
         return hash;
     }
 
         @Override
     public String toString() {
-        return "ItemScene{" + "location=" + location + ", itemPickup=" + itemPickup + '}';
+        return "ItemScene{" + "location=" + location + ", itemPickup=" + itemPickup + "items=" + items + '}';
     }
  
 
@@ -84,6 +91,9 @@ public class ItemScene extends BuildingScene implements Serializable {
             return false;
         }
         if (!Objects.equals(this.location, other.location)) {
+            return false;
+        }
+        if (!Objects.equals(this.items, other.items)) {
             return false;
         }
         return true;
