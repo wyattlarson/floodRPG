@@ -89,7 +89,7 @@ public class GameControl {
            
             Item[] inventory = new Item[8];
             for (int i = 0; i < items.length; i++){
-            inventory = items.setInventory(i);
+            inventory = items.setName(i);
             }    
         return null;
             
