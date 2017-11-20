@@ -6,6 +6,7 @@
 package byui.cit260.flood.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -17,34 +18,22 @@ public class BuildingScene implements Serializable{
 //------------------------------BuildingScene Attributes------------------------------//
 private String description;
 private String status;
-
-//------------------------------Associations------------------------------//
-
-//Association between BuildingScene class and Location class
-private Location location;
-                public Location getLocation() {
-                    return location;
-                }
-                public void setLocation(Location location) {
-                    this.location = location;
-                }
-
-//Association between BuildingScene class and QuestionScene class
-
-//Association between BuildingScene class and ItemScene class
-private ItemScene itemScene;
-                public ItemScene getItemScene(){
-                    return itemScene;
-                }
-                public void setItemScene(ItemScene itemScene){
-                    this.itemScene = itemScene;
-                }
+private ArrayList <Item> items = new ArrayList<>();
 
 //------------------------------Public Functions------------------------------//
 
     //constructor
     public BuildingScene() {
     }
+
+    public ArrayList<Item> getItems() {
+        return items;
+    }
+
+    public void setItems(ArrayList<Item> items) {
+        this.items = items;
+    }
+    
 
     public String getDescription() {
         return description;

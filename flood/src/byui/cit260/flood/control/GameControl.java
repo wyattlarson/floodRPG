@@ -58,7 +58,7 @@ public class GameControl {
 
         public static Item[] createItems() {
         System.out.println("create items called");
-        Item[] items = new Item[3];
+        Item[] items = new Item[8];
 
         Item engine = new Item();
         engine.setName("Engine Parts");
@@ -87,10 +87,10 @@ public class GameControl {
             }
         
            
-            Item[] inventory = new Item[8];
+            /*            Item[] inventory = new Item[8];
             for (int i = 0; i < items.length; i++){
             inventory = items.setInventory(i);
-            }    
+            }    */
         return null;
             
     }
@@ -107,24 +107,17 @@ public class GameControl {
                 map.setRowCount(noOfRows);
                 map.setColumnCount(noOfColumns);
                 
-                Location[][] location = MapControl.createLocations(noOfRows, noOfColumns);
+                Location[][] locations = MapControl.createLocations(noOfRows, noOfColumns);
+                map.setLocations(locations);
                 
                 BuildingScene[] scenes = MapControl.createScenes();
                 Equation[] questions = MapControl.createQuestions();
                 
                 MapControl.assignQuestionsToScenes(questions, scenes);
-                /* MapControl.assignItemsToScenes(items, scenes);*/
-                /*MapControl.assignSceneToLocations(map, scenes);*/
+                MapControl.assignItemsToScenes(items, scenes);
+                MapControl.assignSceneToLocations(map, scenes);
                 
                 return map;
     }
-
-
-    private static Location createLocations(int noOfRows, int noOfColumns) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    
-
 
 }

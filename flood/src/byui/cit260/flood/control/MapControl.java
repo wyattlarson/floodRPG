@@ -59,7 +59,7 @@ public class MapControl {
         dock.setDescription("The base of operations.");
         scenes[SceneType.dock.ordinal()] = dock;
 
-        BuildingScene minigame = new BuildingScene();
+        QuestionScene minigame = new QuestionScene();
         minigame.setDescription("A mini game to find upgrades.");
         scenes[SceneType.minigame.ordinal()] = minigame;
 
@@ -81,12 +81,11 @@ public class MapControl {
     public static void assignQuestionsToScenes(Equation[] questions, BuildingScene[] scenes) {
         System.out.println("assignQuestionsToScenes called");
 
-        QuestionScene miniGame = (QuestionScene) new QuestionScene();
+        QuestionScene miniGame = (QuestionScene)scenes[SceneType.minigame.ordinal()];
         Equation[] miniGameQuestions = new Equation[3];
         miniGameQuestions[0] = questions[EquationType.trapArea.ordinal()];
         miniGame.setEquation(miniGameQuestions);
-        scenes[SceneType.minigame.ordinal()] = miniGame;
-
+        
         QuestionScene door = (QuestionScene) new QuestionScene();
         Equation[] pythagQuestion = new Equation[1];
         pythagQuestion[0] = questions[EquationType.pythag.ordinal()];
@@ -94,15 +93,14 @@ public class MapControl {
         scenes[SceneType.building.ordinal()] = door;
     }
 
-    /*    public static void assignItemsToScenes(Item[] items, BuildingScene[] scenes) {
+    public static void assignItemsToScenes(Item[] items, BuildingScene[] scenes) {
     System.out.println("assignItemsToScene called");
     
-    ItemScene building = (ItemScene) new ItemScene();
-    ArrayList<Item> buildingItems = new ArrayList();
+    BuildingScene building = (BuildingScene) scenes[SceneType.building.ordinal()];
+    ArrayList<Item>buildingItems = building.getItems();
     buildingItems.add(items[ItemType.hammer.ordinal()]);
     building.setItems(buildingItems);
-    scenes[SceneType.building.ordinal()] = building;
-    }*/
+    }
 
     public static void assignSceneToLocations(Map map, BuildingScene[] scenes) {
         System.out.println("assignSceneToLoctions called");
