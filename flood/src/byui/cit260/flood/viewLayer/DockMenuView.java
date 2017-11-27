@@ -116,9 +116,9 @@ public class DockMenuView  extends View {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public void calculateSaved() {
-        System.out.println(Arrays.toString(GameControl.calculateSaved(survivors)));
-    }
+    /*public void calculateSaved() {
+    System.out.println(Arrays.toString(GameControl.calculateSaved(survivors)));
+    }*/
 
 
 
