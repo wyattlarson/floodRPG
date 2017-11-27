@@ -18,6 +18,8 @@ import byui.cit260.flood.model.Map;
 import byui.cit260.flood.model.BuildingScene;
 import byui.cit260.flood.model.Equation;
 import byui.cit260.flood.model.Inventory;
+import static byui.cit260.flood.model.ItemType.survivor;
+import java.util.Arrays;
 
 /**
  *
@@ -52,6 +54,11 @@ public class GameControl {
              return -1;
          }
          game.setMap(map);
+         
+         ArrayList<Item> survivors = new ArrayList<>();
+         //GameControl.calculateSaved(survivors, items);
+         
+        
    
         return 1;
     }
@@ -119,5 +126,11 @@ public class GameControl {
                 
                 return map;
     }
+
+    /*  public static ArrayList<Item> calculateSaved(ArrayList<Item> survivors, Item[] items) {
+    for (Item items : items){
+    
+    }
+    }*/
 
 }

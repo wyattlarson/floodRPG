@@ -7,6 +7,7 @@ package byui.cit260.flood.viewLayer;
 
 import byui.cit260.flood.control.GameControl;
 import byui.cit260.flood.model.Game;
+import byui.cit260.flood.model.Item;
 import byui.cit260.flood.model.Location;
 import byui.cit260.flood.model.Map;
 import byui.cit260.flood.model.Player;
@@ -14,6 +15,7 @@ import java.util.Scanner;
 import static jdk.nashorn.internal.objects.NativeString.trim;
 import byui.cit260.flood.viewLayer.UpgradeBoatMenuView;
 import flood.Flood;
+import java.util.Arrays;
 /**
  *
  * @author Ryan Call
@@ -56,6 +58,8 @@ public class DockMenuView  extends View {
             case "M": MiniGameView();
             break;
             case"X": explore();
+            break;
+            case"C":calculateSaved();
             break;
             case "E": return true;
             default: System.out.println("Invalid Menu Command.");
@@ -110,6 +114,10 @@ public class DockMenuView  extends View {
 
     private void saveGameMenu() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void calculateSaved() {
+        System.out.println(Arrays.toString(GameControl.calculateSaved(survivors)));
     }
 
 
