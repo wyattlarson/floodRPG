@@ -26,6 +26,7 @@ public abstract class GameMenuView extends View{
            public boolean doAction(String[] inputs) {
         String playersName = inputs[0];
         Player player = GameControl.savePlayer(playersName);
+        player.setName(playersName);
         if (player == null) {
             System.out.println("Could not create player. " + "Enter a different name.");
             return false;

@@ -17,6 +17,15 @@ public class Inventory implements Serializable{
 //------------------------------Inventory Attributes------------------------------//
 
     private int itemQuantity;
+    private ArrayList<Item> inventory;
+
+    public ArrayList<Item> getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(ArrayList<Item> inventory) {
+        this.inventory = inventory;
+    }
     
  //------------------------------Associations------------------------------//
 

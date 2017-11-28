@@ -20,6 +20,16 @@ public class Game implements Serializable{
     private int amountSaved;
     private String savedFile;
     private Item[] items;
+    private ArrayList<Item> listOfSurvivors;
+    private ArrayList<Item> inventory;
+
+    public ArrayList<Item> getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(ArrayList<Item> inventory) {
+        this.inventory = inventory;
+    }
     
 //------------------------------Associations------------------------------//
 
@@ -85,6 +95,14 @@ public class Game implements Serializable{
     //savedFile setter
     public void setSavedFile(String savedFile) {
         this.savedFile = savedFile;
+    }
+    
+    public ArrayList<Item> getListOfSurvivors(){
+        return listOfSurvivors;
+    }
+    
+    public void setListOfSurvivors(ArrayList<Item> listOfSurvivors){
+        this.listOfSurvivors = listOfSurvivors;
     }
 
 //------------------------------Overrides------------------------------//
