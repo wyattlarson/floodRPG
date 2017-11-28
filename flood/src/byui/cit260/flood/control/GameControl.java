@@ -5,6 +5,7 @@
  */
 package byui.cit260.flood.control;
 
+import byui.cit260.flood.exceptions.GameControlException;
 import byui.cit260.flood.model.Game;
 import byui.cit260.flood.model.Item;
 import byui.cit260.flood.model.Player;
@@ -25,20 +26,22 @@ import java.util.Arrays;
  * @author wyatt
  */
 public class GameControl {
-
-    public static Player savePlayer(String name) {
-        if (name == null || name.length() < 1) {
-            return null;
+    public static Player savePlayer(String name) 
+            throws GameControlException {
+        
+        if(name == null || name.length() < 1){
+            throw new GameControlException("name not right.");
         }
         Player player = new Player();
         Flood.setPlayer(player);
         return player;
 
     }
-
-    public static int createNewGame(Player player) {
+    public static int createNewGame(Player player) 
+            throws GameControlException {
+        
         if (player == null) {
-            return -1;
+            throw new GameControlException("player?");
         }
         Game game = new Game();
         game.setPlayer(player);
@@ -119,45 +122,46 @@ public class GameControl {
         items[ItemType.fred.ordinal()] = fred;
         return items;
     }
-
-    public static Inventory createInventory(Item[] items) {
-        System.out.println("Create Inventory Called");
-
-        if (items == null) {
-            return null;
-        }
-
-        /*            Item[] inventory = new Item[8];
+        public static Inventory createInventory(Item[] items) 
+                throws GameControlException {
+            
+            System.out.println("Create Inventory Called");
+            
+            throw new GameControlException("inventory error.");
+        
+           
+            /*            Item[] inventory = new Item[8];
             for (int i = 0; i < items.length; i++){
             inventory = items.setName(i);
             }    */
-        return null;
-
+       
     }
 
-    public static Map createMap(int noOfRows, int noOfColumns, Item[] items) {
-        System.out.println("create map called");
-        if (noOfRows < 0 || noOfColumns < 0) {
-            return null;
-        }
-        if (items == null || items.length < 1) {
-            return null;
-        }
-        Map map = new Map();
-        map.setRowCount(noOfRows);
-        map.setColumnCount(noOfColumns);
-
-        Location[][] locations = MapControl.createLocations(noOfRows, noOfColumns);
-        map.setLocations(locations);
-
-        BuildingScene[] scenes = MapControl.createScenes();
-        Equation[] questions = MapControl.createQuestions();
-
-        MapControl.assignQuestionsToScenes(questions, scenes);
-        MapControl.assignItemsToScenes(items, scenes);
-        MapControl.assignSceneToLocations(map, scenes);
-
-        return map;
+    public static Map createMap(int noOfRows, int noOfColumns, Item[] items) 
+            throws GameControlException {
+            
+            System.out.println("create map called");
+                if (noOfRows < 0 || noOfColumns < 0) {
+                    throw new GameControlException("map issue.");
+                }
+                if (items == null ||  items.length < 1) {
+                    throw new GameControlException("other map problem.");
+                }
+                Map map = new Map();
+                map.setRowCount(noOfRows);
+                map.setColumnCount(noOfColumns);
+                
+                Location[][] locations = MapControl.createLocations(noOfRows, noOfColumns);
+                map.setLocations(locations);
+                
+                BuildingScene[] scenes = MapControl.createScenes();
+                Equation[] questions = MapControl.createQuestions();
+                
+                MapControl.assignQuestionsToScenes(questions, scenes);
+                MapControl.assignItemsToScenes(items, scenes);
+                MapControl.assignSceneToLocations(map, scenes);
+                
+                return map;
     }
 
     public static ArrayList<Item> getSurvivors(Item[] items) {
