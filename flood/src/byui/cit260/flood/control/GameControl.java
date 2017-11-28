@@ -19,7 +19,6 @@ import byui.cit260.flood.model.Map;
 import byui.cit260.flood.model.BuildingScene;
 import byui.cit260.flood.model.Equation;
 import byui.cit260.flood.model.Inventory;
-import static byui.cit260.flood.model.ItemType.survivor;
 import java.util.Arrays;
 
 /**
@@ -36,7 +35,7 @@ public class GameControl {
         Player player = new Player();
         Flood.setPlayer(player);
         return player;
-        
+
     }
     public static int createNewGame(Player player) 
             throws GameControlException {
@@ -47,28 +46,26 @@ public class GameControl {
         Game game = new Game();
         game.setPlayer(player);
         Flood.setCurrentGame(game);
-        
 
-       player.setCharacter(Character.Bob);
-       
-       Item[] items = GameControl.createItems();
-       game.setItems(items);
-       
-       Map map = GameControl.createMap(5, 5, items); 
-         if (map == null) {
-             throw new GameControlException("Map wrong!");
-         }
-         game.setMap(map);
-         
-         ArrayList<Item> survivors = new ArrayList<>();
-         //GameControl.calculateSaved(survivors, items);
-         
-        
-   
+        player.setCharacter(Character.Bob);
+
+        Item[] items = GameControl.createItems();
+        game.setItems(items);
+
+        Map map = GameControl.createMap(5, 5, items);
+        if (map == null) {
+            return -1;
+        }
+        game.setMap(map);
+
+        ArrayList<Item> survivors = new ArrayList<>();
+        survivors = GameControl.getSurvivors(items);
+        game.setListOfSurvivors(survivors);
+
         return 1;
     }
 
-        public static Item[] createItems() {
+    public static Item[] createItems() {
         System.out.println("create items called");
         Item[] items = new Item[8];
 
@@ -77,18 +74,48 @@ public class GameControl {
         engine.setDescription("Parts for an engine");
         engine.setItemId(1);
         items[ItemType.engine.ordinal()] = engine;
+
+        Item wood = new Item();
+        wood.setName("Wood");
+        wood.setDescription("Planks and driftwood that can be used to upgrade your boat.");
+        wood.setItemId(2);
+        items[ItemType.wood.ordinal()] = wood;
+
+        Item paper = new Item();
+        paper.setName("Paper");
+        paper.setDescription("A piece of paper.");
+        paper.setItemId(4);
+        items[ItemType.paper.ordinal()] = paper;
         
-         Item wood = new Item();
-         wood.setName("Wood");
-         wood.setDescription("Planks and driftwood that can be used to upgrade your boat.");
-         wood.setItemId(2);
-         items[ItemType.wood.ordinal()] = wood;
-         
-         Item survivor = new Item();
-         survivor.setName("Survivors");
-         survivor.setDescription("A stranded survivor of the flood. Get them to safety.");
-         survivor.setItemId(3);
-         items[ItemType.survivor.ordinal()] = survivor;
+        Item hammer = new Item();
+        hammer.setName("Hammer");
+        hammer.setDescription("A hammer used for hitting.");
+        hammer.setItemId(5);
+        items[ItemType.hammer.ordinal()] = hammer;
+        
+        Item rope = new Item();
+        rope.setName("Rope");
+        rope.setDescription("A long piece of rope.");
+        rope.setItemId(6);
+        items[ItemType.rope.ordinal()] = rope;
+        
+        Item nails = new Item();
+        nails.setName("Nails");
+        nails.setDescription("Used for upgrading boat.");
+        nails.setItemId(7);
+        items[ItemType.nails.ordinal()] = nails;
+        
+        Item gasoline = new Item();
+        gasoline.setName("Gasoline");
+        gasoline.setDescription("Used to upgrade your boat.");
+        gasoline.setItemId(8);
+        items[ItemType.gasoline.ordinal()] = gasoline;
+        
+        Item fred = new Item();
+        fred.setName("Fred");
+        fred.setDescription("A stranded survivor of the flood. Get them to safety.");
+        fred.setItemId(3);
+        items[ItemType.fred.ordinal()] = fred;
         return items;
     }
         public static Inventory createInventory(Item[] items) 
@@ -133,10 +160,15 @@ public class GameControl {
                 return map;
     }
 
-    /*  public static ArrayList<Item> calculateSaved(ArrayList<Item> survivors, Item[] items) {
-    for (Item items : items){
-    
+    public static ArrayList<Item> getSurvivors(Item[] items) {
+        ArrayList<Item> survivors = new ArrayList<>();
+        for (Item item : items) {
+            if (item.getItemId() == 3) {
+                survivors.add(item);
+            }
+        }
+        return survivors;
     }
-    }*/
+
 
 }

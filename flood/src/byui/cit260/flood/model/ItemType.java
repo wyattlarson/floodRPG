@@ -12,10 +12,10 @@ package byui.cit260.flood.model;
 public enum ItemType {
     engine,
     wood,
-    survivor,
     paper,
     hammer,
     rope,
     nails,
-    gasoline;
+    gasoline,
+    fred;
 }

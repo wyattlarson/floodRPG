@@ -20,6 +20,7 @@ public class Game implements Serializable{
     private int amountSaved;
     private String savedFile;
     private Item[] items;
+    private ArrayList<Item> listOfSurvivors;
     
 //------------------------------Associations------------------------------//
 
@@ -85,6 +86,14 @@ public class Game implements Serializable{
     //savedFile setter
     public void setSavedFile(String savedFile) {
         this.savedFile = savedFile;
+    }
+    
+    public ArrayList<Item> getListOfSurvivors(){
+        return listOfSurvivors;
+    }
+    
+    public void setListOfSurvivors(ArrayList<Item> listOfSurvivors){
+        this.listOfSurvivors = listOfSurvivors;
     }
 
 //------------------------------Overrides------------------------------//
