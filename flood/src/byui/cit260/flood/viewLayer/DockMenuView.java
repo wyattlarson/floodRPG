@@ -32,6 +32,7 @@ public class DockMenuView  extends View {
                         "\n U or Upgrade - go to boat upgrade menu" + 
                         "\n G or Gas - fill up gas tank" +
                         "\n X or Explore - Leave dock to explore map. Access Explore menu." +
+                        "\n P - Print a list of people who need to be saved." +
                         "\n Info - list boat level, passenger list, passengers saved, and current gas level"+
                         "\n M - Enter the Minigames menu"+
                         "\n I - Inventory");
