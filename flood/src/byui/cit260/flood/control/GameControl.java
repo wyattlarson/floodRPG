@@ -5,6 +5,7 @@
  */
 package byui.cit260.flood.control;
 
+import byui.cit260.flood.exceptions.GameControlException;
 import byui.cit260.flood.model.Game;
 import byui.cit260.flood.model.Item;
 import byui.cit260.flood.model.Player;
@@ -24,18 +25,22 @@ import byui.cit260.flood.model.Inventory;
  * @author wyatt
  */
 public class GameControl {
-    public static Player savePlayer(String name) {
+    public static Player savePlayer(String name) 
+            throws GameControlException {
+        
         if(name == null || name.length() < 1){
-            return null;
+            throw new GameControlException("name not right.");
         }
         Player player = new Player();
         Flood.setPlayer(player);
         return player;
         
     }
-    public static int createNewGame(Player player) {
+    public static int createNewGame(Player player) 
+            throws GameControlException {
+        
         if (player == null) {
-            return -1;
+            throw new GameControlException("player?");
         }
         Game game = new Game();
         game.setPlayer(player);
@@ -49,7 +54,7 @@ public class GameControl {
        
        Map map = GameControl.createMap(5, 5, items); 
          if (map == null) {
-             return -1;
+             throw new GameControlException("Map wrong!");
          }
          game.setMap(map);
    
@@ -79,29 +84,30 @@ public class GameControl {
          items[ItemType.survivor.ordinal()] = survivor;
         return items;
     }
-        public static Inventory createInventory(Item[] items) {
+        public static Inventory createInventory(Item[] items) 
+                throws GameControlException {
+            
             System.out.println("Create Inventory Called");
             
-            if (items == null){
-                return null;
-            }
+            throw new GameControlException("inventory error.");
         
            
             /*            Item[] inventory = new Item[8];
             for (int i = 0; i < items.length; i++){
             inventory = items.setName(i);
             }    */
-        return null;
-            
+       
     }
 
-    public static Map createMap(int noOfRows, int noOfColumns, Item[] items) {
-                System.out.println("create map called");
+    public static Map createMap(int noOfRows, int noOfColumns, Item[] items) 
+            throws GameControlException {
+            
+            System.out.println("create map called");
                 if (noOfRows < 0 || noOfColumns < 0) {
-                    return null;
+                    throw new GameControlException("map issue.");
                 }
                 if (items == null ||  items.length < 1) {
-                    return null;
+                    throw new GameControlException("other map problem.");
                 }
                 Map map = new Map();
                 map.setRowCount(noOfRows);
