@@ -58,8 +58,11 @@ public class GameControl {
          ArrayList<Item> survivors = new ArrayList<>();
          //GameControl.calculateSaved(survivors, items);
          
+        ArrayList<Item> inventory = new ArrayList<>();
+        /*Item.getName(inventory, items);
+        s
         
-   
+        */
         return 1;
     }
 
