@@ -15,6 +15,7 @@ import java.util.Scanner;
 import static jdk.nashorn.internal.objects.NativeString.trim;
 import byui.cit260.flood.viewLayer.UpgradeBoatMenuView;
 import flood.Flood;
+import java.util.ArrayList;
 import java.util.Arrays;
 /**
  *
@@ -59,7 +60,7 @@ public class DockMenuView  extends View {
             break;
             case"X": explore();
             break;
-            case"C":calculateSaved();
+            case"P":printSaved();
             break;
             case "E": return true;
             default: System.out.println("Invalid Menu Command.");
@@ -116,12 +117,8 @@ public class DockMenuView  extends View {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public void calculateSaved() {
-        //System.out.println(Arrays.toString(GameControl.calculateSaved(survivors)));
-    }
-
-
-
-    
-
+    public void printSaved() {
+        Game game = Flood.getCurrentGame();
+        System.out.println(game.getListOfSurvivors());
+    }    
 }
