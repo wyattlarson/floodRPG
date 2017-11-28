@@ -6,8 +6,11 @@
 package byui.cit260.flood.viewLayer;
 
 import byui.cit260.flood.control.GameControl;
+import byui.cit260.flood.exceptions.GameControlException;
 import byui.cit260.flood.model.Player;
 import byui.cit260.flood.viewLayer.DockMenuView;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -25,10 +28,13 @@ public abstract class GameMenuView extends View{
        @Override
            public boolean doAction(String[] inputs) {
         String playersName = inputs[0];
-        Player player = GameControl.savePlayer(playersName);
-        if (player == null) {
+        Player player;
+           try {
+               player = GameControl.savePlayer(playersName);
+           } catch (GameControlException ex) {
+               
             System.out.println("Could not create player. " + "Enter a different name.");
-            return false;
+            
         }
         System.out.println("================================================="
                 + "\n\tWelcome to the game " + playersName + "."

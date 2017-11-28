@@ -204,4 +204,14 @@ public class MiniGameControlTest {
        
  
     }
+
+    private static class MiniGame1 {
+
+        private static double miniGame1(double base1, double base2, double height) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        public MiniGame1() {
+        }
+    }
 }

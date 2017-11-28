@@ -10,9 +10,12 @@ import java.util.Scanner;
 import static jdk.nashorn.internal.objects.NativeString.trim;
 import byui.cit260.flood.control.GameControl;
 import byui.cit260.flood.control.GameControl;
+import byui.cit260.flood.exceptions.GameControlException;
 import flood.Flood;
 import byui.cit260.flood.viewLayer.GameMenuView;
 import byui.cit260.flood.viewLayer.DockMenuView;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -36,28 +39,33 @@ public class MainMenuView extends View {
 
     public boolean doAction(String[] inputs) {
 
-        String menuItem = inputs[0];
-        menuItem = menuItem.toUpperCase();
-        switch (menuItem) {
-            case "N":
-                startNewGame();
-                break;
-            case "R":
-                restartGame();
-                break;
-            case "H":
-                getHelp();
-                break;
-            case "E":
-                return true;
-            default:
-                System.out.println("Invalid Menu Command.");
-                break;
+        try {
+            String menuItem = inputs[0];
+            menuItem = menuItem.toUpperCase();
+            switch (menuItem) {
+                case "N":
+                    startNewGame();
+                    break;
+                case "R":
+                    restartGame();
+                    break;
+                case "H":
+                    getHelp();
+                    break;
+                case "E":
+                    return true;
+                default:
+                    System.out.println("Invalid Menu Command.");
+                    break;
+            }
+            return false;
+        } catch (GameControlException ex) {
+            System.out.println("Invalid Menu Command.");
         }
         return false;
     }
 
-    private void startNewGame() {
+    private void startNewGame() throws GameControlException {
         // creates new game with player 
         GameMenuView gameMenuView = new GameMenuView() {
         };

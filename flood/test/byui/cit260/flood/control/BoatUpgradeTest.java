@@ -5,6 +5,7 @@
  */
 package byui.cit260.flood.control;
 
+import byui.cit260.flood.exceptions.BoatUpgradeException;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -21,7 +22,7 @@ public class BoatUpgradeTest {
      * Test of calcBoatNumofPeople method, of class BoatUpgrade.
      */
     @Test
-    public void testCalcBoatNumofPeople() {
+    public void testCalcBoatNumofPeople() throws BoatUpgradeException {
         System.out.println("calcBoatNumofPeople: Test 1");
         double length = 10;
         double width = 10;
@@ -31,7 +32,7 @@ public class BoatUpgradeTest {
     
     }
     @Test
-    public void testCalcBoatNumofPeople2() {
+    public void testCalcBoatNumofPeople2() throws BoatUpgradeException {
         System.out.println("calcBoatNumofPeople: Test 2");
        double length = -1;
         double width = 10;
@@ -40,7 +41,7 @@ public class BoatUpgradeTest {
         assertEquals(expResult, result, 0.0);
     }
          @Test
-    public void testCalcBoatNumofPeople3() {   
+    public void testCalcBoatNumofPeople3() throws BoatUpgradeException {   
         System.out.println("calcBoatNumofPeople: Test 3");
        double length = 10;
        double width = -1;
@@ -49,7 +50,7 @@ public class BoatUpgradeTest {
         assertEquals(expResult, result, 0.0);
     }
         @Test
-    public void testCalcBoatNumofPeople4() {
+    public void testCalcBoatNumofPeople4() throws BoatUpgradeException {
         System.out.println("calcBoatNumofPeople: Test 4");
        double length = 2;
        double width = 10;
@@ -58,7 +59,7 @@ public class BoatUpgradeTest {
         assertEquals(expResult, result, 0.0);
     }
         @Test
-    public void testCalcBoatNumofPeople5() {
+    public void testCalcBoatNumofPeople5() throws BoatUpgradeException {
         System.out.println("calcBoatNumofPeople: Test 5");
         double length = 10;
        double width = 2;
@@ -67,7 +68,7 @@ public class BoatUpgradeTest {
         assertEquals(expResult, result, 0.0);
     }
         @Test
-    public void testCalcBoatNumofPeople6() {
+    public void testCalcBoatNumofPeople6() throws BoatUpgradeException {
         System.out.println("calcBoatNumofPeople: Test 6");
        double length = 50;
        double width = 10;
@@ -76,7 +77,7 @@ public class BoatUpgradeTest {
         assertEquals(expResult, result, 0.0);
     }
         @Test
-    public void testCalcBoatNumofPeople7() {
+    public void testCalcBoatNumofPeople7() throws BoatUpgradeException {
         System.out.println("calcBoatNumofPeople: Test 7");
        double length = 10;
        double width = 50;
