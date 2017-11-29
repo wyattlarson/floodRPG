@@ -38,20 +38,11 @@ public class StartMinigameView extends View {
                         double answer;
                         try {
                             answer = MiniGameControl.miniGame1(base1, base2, height, doubledGuess);
-                        } catch (MiniGameControlException message) {
-                            System.out.println(message.getMessage());
+                        } catch (MiniGameControlException e) {
+                            System.out.println(e.getMessage());
                             return false;
                         }
-                        if (answer == -1) {
-                            System.out.println("Guess is outside of parameters. Try again.");
-                            return false;
-                        } else if (doubledGuess == answer) {
-                            System.out.println("You are correct!");
-                            return true;
-                        } else {
-                            System.out.println("You are wrong. Try again");
-                            return false;
-                        }
+                       return true;
                     }
 
         }
