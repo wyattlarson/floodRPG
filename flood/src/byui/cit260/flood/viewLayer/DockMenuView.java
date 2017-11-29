@@ -61,6 +61,7 @@ public class DockMenuView  extends View {
             break;
             case"X": explore();
             break;
+            case"Z": testDoor();
             case"P":printSaved();
             break;
             case "E": return true;
@@ -122,4 +123,9 @@ public class DockMenuView  extends View {
         Game game = Flood.getCurrentGame();
         System.out.println(game.getListOfSurvivors());
     }    
+
+    private void testDoor() {
+        BuildingView buildingView = new BuildingView();
+        buildingView.display();
+    }
 }
