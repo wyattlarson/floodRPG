@@ -29,6 +29,7 @@ public class DoorView extends View {
 
     @Override
     public boolean doAction(String[] inputs) {
+       
         String a = inputs[0];
         String b = inputs[1];
         String c = "5";
@@ -36,19 +37,19 @@ public class DoorView extends View {
         double doubledB = Double.parseDouble(b);
         double doubledC = Double.parseDouble(c);
         double result;
-        try {
+        try{
             result = BuildingControl.puzzle1(doubledA, doubledB, doubledC);
         } catch (BuildingControlException e) {
             System.out.println(e.getMessage());
             return false;
         }
-     /*   if (result == -1) {
+        if (result == -1) {
             System.out.println("Inputs not within parameters.");
         } else if (result == 0) {
             System.out.println("Your answers are WRONG!");
         } else {
             System.out.println("Your answer equates to:" + result +".  " + "You got the answer right! The door opens.");
         }
-        */return true;
+        return true;
     }
 }
