@@ -18,7 +18,7 @@ import java.util.logging.Logger;
  *
  * @author Ryan
  */
-public class StartMinigameView extends View{
+public class StartMinigameView extends View {
 
     public String[] getInputs() {
         String[] inputs = new String[1];
@@ -44,16 +44,13 @@ public class StartMinigameView extends View{
         if (answer == -1){
             System.out.println("Guess is outside of parameters. Try again.");
             return false;
-        }
-        else if (doubledGuess == answer){
+        } else if (doubledGuess == answer) {
             System.out.println("You are correct!");
             return true;
-        }
-        else {
+        } else {
             System.out.println("You are wrong. Try again");
             return false;
         }
     }
-    
-    
+
 }

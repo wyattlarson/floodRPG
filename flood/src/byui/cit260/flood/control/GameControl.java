@@ -63,6 +63,10 @@ public class GameControl {
         ArrayList<Item> survivors = new ArrayList<>();
         survivors = GameControl.getSurvivors(items);
         game.setListOfSurvivors(survivors);
+        
+        ArrayList<Item> inventory = new ArrayList<>();
+        inventory = GameControl.getInventoryItems(items);
+        game.setInventory(inventory);
 
         return 1;
     }
@@ -170,6 +174,16 @@ public class GameControl {
             }
         }
         return survivors;
+    }
+    
+        public static ArrayList<Item> getInventoryItems(Item[] items) {
+        ArrayList<Item> inventory = new ArrayList<>();
+        for (Item item : items) {
+            if (item.getItemId() == 10) {
+                inventory.add(item);
+            }
+        }
+        return inventory;
     }
 
 
