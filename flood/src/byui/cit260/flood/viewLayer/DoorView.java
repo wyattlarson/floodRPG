@@ -32,23 +32,21 @@ public class DoorView extends View {
         String a = inputs[0];
         String b = inputs[1];
         String c = "5";
-        double doubledA = Double.parseDouble(a);
-        double doubledB = Double.parseDouble(b);
-        double doubledC = Double.parseDouble(c);
-        double result;
+        try{
+            double doubledA = Double.parseDouble(a);
+            double doubledB = Double.parseDouble(b);
+            double doubledC = Double.parseDouble(c);
         try {
-            result = BuildingControl.puzzle1(doubledA, doubledB, doubledC);
+            double result = BuildingControl.puzzle1(doubledA, doubledB, doubledC);
+            System.out.println("Your answer equates to:" + result +".  " + "You got the answer right! The door opens.");       
         } catch (BuildingControlException e) {
             System.out.println(e.getMessage());
             return false;
         }
-     /*   if (result == -1) {
-            System.out.println("Inputs not within parameters.");
-        } else if (result == 0) {
-            System.out.println("Your answers are WRONG!");
-        } else {
-            System.out.println("Your answer equates to:" + result +".  " + "You got the answer right! The door opens.");
+        } catch(NumberFormatException e){
+            System.out.println("Invalid Inputs, use numbers.");
         }
-        */return true;
+       
+        return true;
     }
 }

@@ -21,8 +21,14 @@ public class Flood {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        try{
         StartProgramView startProgramView = new StartProgramView();
         startProgramView.display();
+        } catch(Throwable te){
+            System.out.println("Something went wrong. Game error.");
+            StartProgramView startProgramView = new StartProgramView();
+            startProgramView.display();
+        }
         
         
     }
