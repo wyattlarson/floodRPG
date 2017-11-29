@@ -5,6 +5,7 @@
  */
 package byui.cit260.flood.control;
 
+import byui.cit260.flood.exceptions.MapControlException;
 import byui.cit260.flood.model.BuildingScene;
 import byui.cit260.flood.model.Equation;
 import byui.cit260.flood.model.EquationType;
@@ -23,10 +24,11 @@ import java.util.ArrayList;
  */
 public class MapControl {
 
-    public static Location[][] createLocations(int rows, int columns) {
+    public static Location[][] createLocations(int rows, int columns)
+        throws MapControlException {
         System.out.println("createLocations called");
         if (rows < 1 || columns < 1) {
-            return null;
+            throw new MapControlException ("Map Control Error");
         }
         Location[][] locations = new Location[rows][columns];
 

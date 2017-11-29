@@ -6,6 +6,9 @@
 package byui.cit260.flood.viewLayer;
 
 import byui.cit260.flood.control.BuildingControl;
+import byui.cit260.flood.exceptions.BuildingControlException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -32,14 +35,20 @@ public class DoorView extends View {
         double doubledA = Double.parseDouble(a);
         double doubledB = Double.parseDouble(b);
         double doubledC = Double.parseDouble(c);
-        double result = BuildingControl.puzzle1(doubledA, doubledB, doubledC);
-        if (result == -1) {
+        double result;
+        try {
+            result = BuildingControl.puzzle1(doubledA, doubledB, doubledC);
+        } catch (BuildingControlException e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
+     /*   if (result == -1) {
             System.out.println("Inputs not within parameters.");
         } else if (result == 0) {
             System.out.println("Your answers are WRONG!");
         } else {
             System.out.println("Your answer equates to:" + result +".  " + "You got the answer right! The door opens.");
         }
-        return true;
+        */return true;
     }
 }

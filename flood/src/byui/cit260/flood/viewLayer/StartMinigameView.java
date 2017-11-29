@@ -10,6 +10,9 @@ import static jdk.nashorn.internal.objects.NativeString.trim;
 import byui.cit260.flood.control.GameControl;
 import byui.cit260.flood.model.Player;
 import byui.cit260.flood.control.MiniGameControl;
+import byui.cit260.flood.exceptions.MiniGameControlException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -31,7 +34,13 @@ public class StartMinigameView extends View{
         double base2 = 15;
         double height = 10;
         double doubledGuess = Double.parseDouble(playersGuess);
-        double answer = MiniGameControl.miniGame1(base1, base2, height, doubledGuess);
+        double answer;
+        try {
+            answer = MiniGameControl.miniGame1(base1, base2, height, doubledGuess);
+        } catch (MiniGameControlException e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
         if (answer == -1){
             System.out.println("Guess is outside of parameters. Try again.");
             return false;

@@ -6,6 +6,7 @@
 package byui.cit260.flood.control;
 
 import byui.cit260.flood.exceptions.GameControlException;
+import byui.cit260.flood.exceptions.MapControlException;
 import byui.cit260.flood.model.Game;
 import byui.cit260.flood.model.Item;
 import byui.cit260.flood.model.Player;
@@ -32,13 +33,14 @@ public class GameControl {
         if(name == null || name.length() < 1){
             throw new GameControlException("name not right.");
         }
+       
         Player player = new Player();
         Flood.setPlayer(player);
         return player;
 
     }
     public static int createNewGame(Player player) 
-            throws GameControlException {
+            throws GameControlException, MapControlException {
         
         if (player == null) {
             throw new GameControlException("player?");
@@ -54,7 +56,7 @@ public class GameControl {
 
         Map map = GameControl.createMap(5, 5, items);
         if (map == null) {
-            return -1;
+            throw new MapControlException ("map error.");
         }
         game.setMap(map);
 
@@ -134,7 +136,7 @@ public class GameControl {
     }
 
     public static Map createMap(int noOfRows, int noOfColumns, Item[] items) 
-            throws GameControlException {
+            throws GameControlException, MapControlException {
             
             System.out.println("create map called");
                 if (noOfRows < 0 || noOfColumns < 0) {
