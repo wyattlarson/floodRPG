@@ -26,10 +26,11 @@ import java.util.Arrays;
  * @author wyatt
  */
 public class GameControl {
-    public static Player savePlayer(String name) 
+
+    public static Player savePlayer(String name)
             throws GameControlException {
-        
-        if(name == null || name.length() < 1){
+
+        if (name == null || name.length() < 1) {
             throw new GameControlException("name not right.");
         }
         Player player = new Player();
@@ -37,9 +38,10 @@ public class GameControl {
         return player;
 
     }
-    public static int createNewGame(Player player) 
+
+    public static int createNewGame(Player player)
             throws GameControlException {
-        
+
         if (player == null) {
             throw new GameControlException("player?");
         }
@@ -86,31 +88,31 @@ public class GameControl {
         paper.setDescription("A piece of paper.");
         paper.setItemId(4);
         items[ItemType.paper.ordinal()] = paper;
-        
+
         Item hammer = new Item();
         hammer.setName("Hammer");
         hammer.setDescription("A hammer used for hitting.");
         hammer.setItemId(5);
         items[ItemType.hammer.ordinal()] = hammer;
-        
+
         Item rope = new Item();
         rope.setName("Rope");
         rope.setDescription("A long piece of rope.");
         rope.setItemId(6);
         items[ItemType.rope.ordinal()] = rope;
-        
+
         Item nails = new Item();
         nails.setName("Nails");
         nails.setDescription("Used for upgrading boat.");
         nails.setItemId(7);
         items[ItemType.nails.ordinal()] = nails;
-        
+
         Item gasoline = new Item();
         gasoline.setName("Gasoline");
         gasoline.setDescription("Used to upgrade your boat.");
         gasoline.setItemId(8);
         items[ItemType.gasoline.ordinal()] = gasoline;
-        
+
         Item fred = new Item();
         fred.setName("Fred");
         fred.setDescription("A stranded survivor of the flood. Get them to safety.");
@@ -118,46 +120,45 @@ public class GameControl {
         items[ItemType.fred.ordinal()] = fred;
         return items;
     }
-        public static Inventory createInventory(Item[] items) 
-                throws GameControlException {
-            
-            System.out.println("Create Inventory Called");
-            
-            throw new GameControlException("inventory error.");
-        
-           
-            /*            Item[] inventory = new Item[8];
+
+    public static Inventory createInventory(Item[] items)
+            throws GameControlException {
+
+        System.out.println("Create Inventory Called");
+
+        throw new GameControlException("inventory error.");
+
+        /*            Item[] inventory = new Item[8];
             for (int i = 0; i < items.length; i++){
             inventory = items.setName(i);
             }    */
-       
     }
 
-    public static Map createMap(int noOfRows, int noOfColumns, Item[] items) 
+    public static Map createMap(int noOfRows, int noOfColumns, Item[] items)
             throws GameControlException {
-            
-            System.out.println("create map called");
-                if (noOfRows < 0 || noOfColumns < 0) {
-                    throw new GameControlException("map issue.");
-                }
-                if (items == null ||  items.length < 1) {
-                    throw new GameControlException("other map problem.");
-                }
-                Map map = new Map();
-                map.setRowCount(noOfRows);
-                map.setColumnCount(noOfColumns);
-                
-                Location[][] locations = MapControl.createLocations(noOfRows, noOfColumns);
-                map.setLocations(locations);
-                
-                BuildingScene[] scenes = MapControl.createScenes();
-                Equation[] questions = MapControl.createQuestions();
-                
-                MapControl.assignQuestionsToScenes(questions, scenes);
-                MapControl.assignItemsToScenes(items, scenes);
-                MapControl.assignSceneToLocations(map, scenes);
-                
-                return map;
+
+        System.out.println("create map called");
+        if (noOfRows < 0 || noOfColumns < 0) {
+            throw new GameControlException("map issue.");
+        }
+        if (items == null || items.length < 1) {
+            throw new GameControlException("other map problem.");
+        }
+        Map map = new Map();
+        map.setRowCount(noOfRows);
+        map.setColumnCount(noOfColumns);
+
+        Location[][] locations = MapControl.createLocations(noOfRows, noOfColumns);
+        map.setLocations(locations);
+
+        BuildingScene[] scenes = MapControl.createScenes();
+        Equation[] questions = MapControl.createQuestions();
+
+        MapControl.assignQuestionsToScenes(questions, scenes);
+        MapControl.assignItemsToScenes(items, scenes);
+        MapControl.assignSceneToLocations(map, scenes);
+
+        return map;
     }
 
     public static ArrayList<Item> getSurvivors(Item[] items) {
@@ -169,6 +170,5 @@ public class GameControl {
         }
         return survivors;
     }
-
 
 }
