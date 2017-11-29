@@ -29,13 +29,7 @@ public class StartMinigameView extends View {
     }
 
     public boolean doAction(String[] inputs) {
-        try {
-            MiniGameControl.miniGame1(0, 0, 0);
-            catch (MiniGameControlException e) ;
-                        {
-                            System.out.println(e.getMessage);
-                            return false;
-                        }
+
                         String playersGuess = inputs[0];
                         double base1 = 20;
                         double base2 = 15;
@@ -44,8 +38,8 @@ public class StartMinigameView extends View {
                         double answer;
                         try {
                             answer = MiniGameControl.miniGame1(base1, base2, height, doubledGuess);
-                        } catch (MiniGameControlException e) {
-                            System.out.println(e.getMessage());
+                        } catch (MiniGameControlException message) {
+                            System.out.println(message.getMessage());
                             return false;
                         }
                         if (answer == -1) {
