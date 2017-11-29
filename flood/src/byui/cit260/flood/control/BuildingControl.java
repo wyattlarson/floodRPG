@@ -15,10 +15,10 @@ public class BuildingControl {
     public static double puzzle1 (double a, double b, double c)
          throws BuildingControlException {
        if (a <= 0 || a > 25) {
-           throw new  BuildingControlException ("invalid response.");
+           throw new  BuildingControlException ("First input not within parameters.");
        }
        if (b <= 0 || b > 25) {
-            throw new  BuildingControlException ("invalid second response.");
+            throw new  BuildingControlException ("Second Response not within parameters.");
        }
        if (c <= 0 || c > 36) {
            throw new  BuildingControlException ("invalid third response.");
@@ -29,7 +29,7 @@ public class BuildingControl {
            if (cSquared == check) {
                return cSquared;
            }
-           else return 0;
+           else throw new BuildingControlException("Your answers are wrong.");
         
 }
 }
