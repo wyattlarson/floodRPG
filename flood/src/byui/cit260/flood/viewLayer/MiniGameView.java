@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package byui.cit260.flood.viewLayer;
-
+import byui.cit260.flood.exceptions.MiniGameControlException;
 import java.util.Scanner;
 import static jdk.nashorn.internal.objects.NativeString.trim;
 

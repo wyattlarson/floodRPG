@@ -31,10 +31,13 @@ public abstract class GameMenuView extends View{
         Player player;
            try {
                player = GameControl.savePlayer(playersName);
-           } catch (GameControlException ex) {
-               
-            System.out.println("Could not create player. " + "Enter a different name.");
+           } catch (GameControlException e) 
+           {
+           System.out.println(e.getMessage());
+            return false;
             
+            /*System.out.println("Could not create player. " + "Enter a different name.");
+            */
         }
         System.out.println("================================================="
                 + "\n\tWelcome to the game " + playersName + "."

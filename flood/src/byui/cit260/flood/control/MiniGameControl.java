@@ -5,25 +5,28 @@
  */
 package byui.cit260.flood.control;
 
+import byui.cit260.flood.exceptions.MiniGameControlException;
+
 /**
  *
  * @author Brandon
  */
 public class MiniGameControl {
     
-public static double miniGame1(double base1, double base2, double height, double doubledGuess) {
+public static double miniGame1(double base1, double base2, double height, double doubledGuess) 
+    throws MiniGameControlException {
 	
         if (base1 < 1 || base2 > 50) {
-            return -1;
+            throw new MiniGameControlException ("First response error");
  }
         if (base2 < 1 || base1 > 50) {
-            return -1;
+            throw new MiniGameControlException ("Second response error");
  }
         if (height < 1 || height > 50) {
-            return -1;
+            throw new MiniGameControlException ("Third response error");
  }
         if (doubledGuess < 1 || doubledGuess > 200) {
-            return -1;
+            throw new MiniGameControlException ("Answer incorrect");
  }
         
 	double area = ((base1 + base2) / 2) * height;

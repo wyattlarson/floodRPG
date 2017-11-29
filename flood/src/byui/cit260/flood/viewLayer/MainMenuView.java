@@ -11,6 +11,7 @@ import static jdk.nashorn.internal.objects.NativeString.trim;
 import byui.cit260.flood.control.GameControl;
 import byui.cit260.flood.control.GameControl;
 import byui.cit260.flood.exceptions.GameControlException;
+import byui.cit260.flood.exceptions.MapControlException;
 import flood.Flood;
 import byui.cit260.flood.viewLayer.GameMenuView;
 import byui.cit260.flood.viewLayer.DockMenuView;
@@ -70,7 +71,13 @@ public class MainMenuView extends View {
         GameMenuView gameMenuView = new GameMenuView() {
         };
         gameMenuView.display();
-        int returnValue = GameControl.createNewGame(Flood.getPlayer());
+        int returnValue = 0;
+        try {
+            returnValue = GameControl.createNewGame(Flood.getPlayer());
+        } catch (MapControlException e) {
+            System.out.println(e.getMessage());
+           
+        }
         if (returnValue < 0) {
             System.out.println("ERROR - Failed to create a new game.");
         }

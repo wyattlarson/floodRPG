@@ -21,6 +21,15 @@ public class Game implements Serializable{
     private String savedFile;
     private Item[] items;
     private ArrayList<Item> listOfSurvivors;
+    private ArrayList<Item> inventory;
+
+    public ArrayList<Item> getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(ArrayList<Item> inventory) {
+        this.inventory = inventory;
+    }
     
 //------------------------------Associations------------------------------//
 
