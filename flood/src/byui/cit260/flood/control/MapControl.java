@@ -17,6 +17,10 @@ import byui.cit260.flood.model.Map;
 import byui.cit260.flood.model.QuestionScene;
 import byui.cit260.flood.model.SceneType;
 import java.util.ArrayList;
+import byui.cit260.flood.control.GameControl;
+import byui.cit260.flood.model.Character;
+import byui.cit260.flood.model.Game;
+import flood.Flood;
 
 /**
  *
@@ -133,5 +137,16 @@ public class MapControl {
          locations[4][3].setBuildingScene(scenes[SceneType.water.ordinal()]);
          locations[4][4].setBuildingScene(scenes[SceneType.water.ordinal()]);
     }    
+    
+    public static Location moveCharacter (Character character,  int newRow,  int newColumn) 
+        throws MapControlException {
+       
+        if (character == null){
+             throw new MapControlException ("Actor Error.");
+        }
+       Game game = Flood.getCurrentGame();
+        
+     
+    }
 
-}
+
