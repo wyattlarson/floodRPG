@@ -5,7 +5,11 @@
  */
 package byui.cit260.flood.viewLayer;
 
+import byui.cit260.flood.control.GameControl;
+import byui.cit260.flood.model.Game;
 import byui.cit260.flood.model.Item;
+import byui.cit260.flood.model.ItemType;
+import flood.Flood;
 
 /**
  *
@@ -38,6 +42,7 @@ public class BuildingView extends View {
                 break;
             case "PICKUP PAPER":
                 pickupPaper();
+                break;
             case "OPEN DOOR":
                 openDoor();
                 break;
@@ -73,8 +78,9 @@ public class BuildingView extends View {
     }
     
     public void pickupPaper(){
-        Item paper = new Item();
-        paper.setInInventory(true);
+        Game game = Flood.getCurrentGame();
+        Item[] items = game.getItems();
+        
     }
 
     private void openDoor() {

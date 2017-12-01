@@ -62,7 +62,7 @@ public class DockMenuView extends View {
                 break;
             case "Z":
                 testDoor();
-            case "PS":
+            case "P":
                 printSaved();
                 break;
             case "E":
