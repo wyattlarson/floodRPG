@@ -51,8 +51,8 @@ public class MoveCharacterView extends View {
         System.out.println(e.getMessage());
         return false;
         }
-        String print = newLocation.getBuildingScene().getDescription();
         System.out.println(newLocation.getBuildingScene().getDescription());
+        newLocation.setVisited(true);
         return true;
     }
 }
