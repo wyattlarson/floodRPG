@@ -45,7 +45,8 @@ public class DoorView extends View {
             return false;
         }
         } catch(NumberFormatException e){
-            System.out.println("Invalid Inputs, use numbers.");
+            System.out.println(e.getMessage());
+            return false;
         }
        
         return true;

@@ -9,6 +9,7 @@ import byui.cit260.flood.exceptions.MapControlException;
 import byui.cit260.flood.model.BuildingScene;
 import byui.cit260.flood.model.Equation;
 import byui.cit260.flood.model.EquationType;
+import byui.cit260.flood.model.Game;
 import byui.cit260.flood.model.Item;
 import byui.cit260.flood.model.ItemScene;
 import byui.cit260.flood.model.ItemType;
@@ -16,6 +17,7 @@ import byui.cit260.flood.model.Location;
 import byui.cit260.flood.model.Map;
 import byui.cit260.flood.model.QuestionScene;
 import byui.cit260.flood.model.SceneType;
+import flood.Flood;
 import java.util.ArrayList;
 import byui.cit260.flood.control.GameControl;
 import byui.cit260.flood.model.Character;
@@ -138,15 +140,33 @@ public class MapControl {
          locations[4][4].setBuildingScene(scenes[SceneType.water.ordinal()]);
     }    
     
-    public static Location moveCharacter (Character character,  int newRow,  int newColumn) 
-        throws MapControlException {
-       
+    public static Location moveCharacter(Character character, int newRow, int newColumn)
+        throws MapControlException{
         if (character == null){
-             throw new MapControlException ("Actor Error.");
+            throw new MapControlException("Character Error");
         }
-       Game game = Flood.getCurrentGame();
+        Game game = Flood.getCurrentGame();
+        Map map = game.getMap();
+        Location[][] locations = map.getLocations();
         
-     
+        if (newRow < 1 || newRow > map.getRowCount() || newColumn < 1 || newColumn > map.getColumnCount()){
+            throw new MapControlException("Row or column counts is not within parameters");
+        }
+        
+        int currentRow = character.getLocation().x;
+        int currentColumn = character.getLocation().y;
+        Location oldLocation = locations[currentRow][currentColumn];
+        Location newLocation = locations[newRow][newColumn];
+        
+        oldLocation.setCharacter(null);
+        newLocation.setCharacter(character);
+        
+        character.setRow(newRow);
+        character.setColumn(newColumn);
+        
+        return newLocation;
     }
+
+}
 
 

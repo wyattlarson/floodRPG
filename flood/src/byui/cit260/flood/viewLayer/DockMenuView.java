@@ -6,6 +6,8 @@
 package byui.cit260.flood.viewLayer;
 
 import byui.cit260.flood.control.GameControl;
+import byui.cit260.flood.control.MapControl;
+import byui.cit260.flood.exceptions.MapControlException;
 import byui.cit260.flood.model.Game;
 import byui.cit260.flood.model.Item;
 import byui.cit260.flood.model.Location;
@@ -17,6 +19,9 @@ import byui.cit260.flood.viewLayer.UpgradeBoatMenuView;
 import flood.Flood;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import static sun.audio.AudioPlayer.player;
 /**
  *
  * @author Ryan Call
@@ -59,7 +64,13 @@ public class DockMenuView  extends View {
             break;
             case "M": MiniGameView();
             break;
-            case"X": explore();
+            case"X": {
+            try {
+                explore();
+            } catch (MapControlException ex) {
+                Logger.getLogger(DockMenuView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
             break;
             case"Z": testDoor();
             case"P":printSaved();
@@ -96,9 +107,18 @@ public class DockMenuView  extends View {
         miniGameView.displayMiniGameView();
     }
 
-    public void explore() {
+    public void explore() 
+            throws MapControlException {
         Game game = Flood.getCurrentGame();
         Map map = game.getMap();
+        String[] inputs = new String[2];
+        int intRow= 1;
+        int intColumn = 1;
+                Player player = Flood.getPlayer();
+        byui.cit260.flood.model.Character character = player.getCharacter();
+//        MoveCharacterView.getInputs();
+//        MoveCharacterView.doAction(inputs);
+        MapControl.moveCharacter(character, intRow, intColumn);
         System.out.println("\tMAP OF FLOODED CITY.");
         System.out.println(" |" +" 1"+ "|" +" 2"+ "|"+" 3"+ "|" +" 4"+ "|" +" 5"+"|");
         System.out.println("-------------------------------------");
@@ -111,8 +131,8 @@ public class DockMenuView  extends View {
             }
             System.out.println("|");
         }             
-        /*BuildingView buildingView = new BuildingView();
-        buildingView.display();*/
+        BuildingView buildingView = new BuildingView();
+        buildingView.display();
     }
 
     private void saveGameMenu() {
