@@ -4,19 +4,20 @@
  * and open the template in the editor.
  */
 package byui.cit260.flood.model;
+
 import java.io.Serializable;
 import java.util.Objects;
 import java.util.ArrayList;
 import byui.cit260.flood.model.Character;
+
 /**
  *
  * @author wyatt
  */
 
-public class Game implements Serializable{
+public class Game implements Serializable {
 
 //------------------------------Game Attributes------------------------------//
-
     private int amountSaved;
     private String savedFile;
     private Item[] items;
@@ -30,60 +31,62 @@ public class Game implements Serializable{
     public void setInventory(ArrayList<Item> inventory) {
         this.inventory = inventory;
     }
-    
-//------------------------------Associations------------------------------//
 
+//------------------------------Associations------------------------------//
     //this is the association between the Game class and the Player class
     private Player player;
-            //Player class getter and setter
-            public Player getPlayer() {
-              return player;
-          }
-          public void setPlayer(Player player) {
-              this.player = player;
-          }
-     //this is the association between Game class and the Character class
-          private Character character;
-                public Character getCharacter(){
-                    return character;
-                }
-                public void setCharacter(Character character) {
-                    this.character=character;
-                }
-    
-    //this is the association between the Game class and the Item class
-     
-            //Item class getter and setter
-            public Item[] getItems() {
-                return items;
-            }
-            public void setItems(Item[] items) {
-                this.items = items;
-            }
-            
-     //association between Game and Map class       
-      private Map map;
-                public Map getMap() {
-                    return map;
-                }
-                public void setMap(Map map) {
-                    this.map = map;
-                }
-      
-//------------------------------Public Functions------------------------------//
+    //Player class getter and setter
 
-   //this is the constructor
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+    //this is the association between Game class and the Character class
+    private Character character;
+
+    public Character getCharacter() {
+        return character;
+    }
+
+    public void setCharacter(Character character) {
+        this.character = character;
+    }
+
+    //this is the association between the Game class and the Item class
+    //Item class getter and setter
+    public Item[] getItems() {
+        return items;
+    }
+
+    public void setItems(Item[] items) {
+        this.items = items;
+    }
+
+    //association between Game and Map class       
+    private Map map;
+
+    public Map getMap() {
+        return map;
+    }
+
+    public void setMap(Map map) {
+        this.map = map;
+    }
+
+//------------------------------Public Functions------------------------------//
+    //this is the constructor
     public Game() {
     }
-    
-    
-   
+
 //amount saved getter
     public int getAmountSaved() {
         return amountSaved;
     }
 
-   //amount saved setter
+    //amount saved setter
     public void setAmountSaved(int amountSaved) {
         this.amountSaved = amountSaved;
     }
@@ -92,22 +95,21 @@ public class Game implements Serializable{
     public String getSavedFile() {
         return savedFile;
     }
+
     //savedFile setter
     public void setSavedFile(String savedFile) {
         this.savedFile = savedFile;
     }
-    
-    public ArrayList<Item> getListOfSurvivors(){
+
+    public ArrayList<Item> getListOfSurvivors() {
         return listOfSurvivors;
     }
-    
-    public void setListOfSurvivors(ArrayList<Item> listOfSurvivors){
+
+    public void setListOfSurvivors(ArrayList<Item> listOfSurvivors) {
         this.listOfSurvivors = listOfSurvivors;
     }
 
 //------------------------------Overrides------------------------------//
-
-    
     @Override
     public int hashCode() {
         int hash = 3;
@@ -141,5 +143,5 @@ public class Game implements Serializable{
         }
         return true;
     }
-    
+
 }

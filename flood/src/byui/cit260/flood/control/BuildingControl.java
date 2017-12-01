@@ -5,31 +5,34 @@
  * and open the template in the editor.
  */
 package byui.cit260.flood.control;
+
 import byui.cit260.flood.exceptions.BuildingControlException;
+
 /**
  *
  * @author wyatt
  */
 public class BuildingControl {
-    
-    public static double puzzle1 (double a, double b, double c)
-         throws BuildingControlException {
-       if (a <= 0 || a > 25) {
-           throw new  BuildingControlException ("First input not within parameters.");
-       }
-       if (b <= 0 || b > 25) {
-            throw new  BuildingControlException ("Second Response not within parameters.");
-       }
-       if (c <= 0 || c > 36) {
-           throw new  BuildingControlException ("invalid third response.");
-       }
-       
-      double cSquared = Math.round(c*c);
-      double check = (a*a) + (b*b);
-           if (cSquared == check) {
-               return cSquared;
-           }
-           else throw new BuildingControlException("Your answers are wrong.");
-        
-}
+
+    public static double puzzle1(double a, double b, double c)
+            throws BuildingControlException {
+        if (a <= 0 || a > 25) {
+            throw new BuildingControlException("First input not within parameters.");
+        }
+        if (b <= 0 || b > 25) {
+            throw new BuildingControlException("Second Response not within parameters.");
+        }
+        if (c <= 0 || c > 36) {
+            throw new BuildingControlException("invalid third response.");
+        }
+
+        double cSquared = Math.round(c * c);
+        double check = (a * a) + (b * b);
+        if (cSquared == check) {
+            return cSquared;
+        } else {
+            throw new BuildingControlException("Your answers are wrong.");
+        }
+
+    }
 }

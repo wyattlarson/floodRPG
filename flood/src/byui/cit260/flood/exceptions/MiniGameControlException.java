@@ -10,27 +10,27 @@ package byui.cit260.flood.exceptions;
  * @author Ryan Call
  */
 public class MiniGameControlException extends Exception {
-    
-    public MiniGameControlException () {
-       
+
+    public MiniGameControlException() {
+
     }
-    
-    public MiniGameControlException (String message) {
+
+    public MiniGameControlException(String message) {
         super(message);
     }
-    
-    public MiniGameControlException (String message, Throwable cause) {
+
+    public MiniGameControlException(String message, Throwable cause) {
         super(message, cause);
     }
-    
-    public MiniGameControlException (Throwable cause) {
+
+    public MiniGameControlException(Throwable cause) {
         super(cause);
     }
-    
-    public MiniGameControlException (String message,
-                                                Throwable cause,
-                                                boolean enableSuppression,
-                                                boolean writableStackTrace) {
+
+    public MiniGameControlException(String message,
+            Throwable cause,
+            boolean enableSuppression,
+            boolean writableStackTrace) {
         super(message, cause, enableSuppression, writableStackTrace);
     }
 }

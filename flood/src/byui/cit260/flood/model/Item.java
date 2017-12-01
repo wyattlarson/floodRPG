@@ -4,16 +4,17 @@
  * and open the template in the editor.
  */
 package byui.cit260.flood.model;
+
 import java.io.Serializable;
 import java.util.Objects;
+
 /**
  *
  * @author Brandon
  */
-public class Item implements Serializable{
-    
-//------------------------------Item class Attributes------------------------------//
+public class Item implements Serializable {
 
+//------------------------------Item class Attributes------------------------------//
     private String name;
     private String description;
     private int itemId;
@@ -21,27 +22,31 @@ public class Item implements Serializable{
     
 //------------------------------Associations------------------------------//
 
+//------------------------------Associations------------------------------//
     //this is the association between the Item and Game class
     private Game game;
-                   //getter and setter for Game class and Item class association
-                public Game getGame() {
-                   return game;
-               }
-               public void setGame(Game game) {
-                   this.game = game;
-               }
-               
-      //this is the association between Item and Inventory
-       private Inventory inventory;
-                public Inventory getInventory() {
-                    return inventory;
-                }
-                public void setInventory(Inventory inventory) {
-                    this.inventory = inventory;
-                }
-       
-//------------------------------Public Functions------------------------------//
+    //getter and setter for Game class and Item class association
 
+    public Game getGame() {
+        return game;
+    }
+
+    public void setGame(Game game) {
+        this.game = game;
+    }
+
+    //this is the association between Item and Inventory
+    private Inventory inventory;
+
+    public Inventory getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(Inventory inventory) {
+        this.inventory = inventory;
+    }
+
+//------------------------------Public Functions------------------------------//
     //this is the Item class constructor
     public Item() {
     }
@@ -68,7 +73,7 @@ public class Item implements Serializable{
 
     public void setItemId(int itemId) {
         this.itemId = itemId;
-    }         
+    }
 
     public String getName() {
         return name;
@@ -78,8 +83,7 @@ public class Item implements Serializable{
         this.name = name;
     }
 
- //------------------------------Overrides------------------------------//
-
+    //------------------------------Overrides------------------------------//
     @Override
     public String toString() {
         return "Item{" + "name=" + name + ", description=" + description + ", itemId=" + itemId + ", game=" + game + '}';
@@ -122,6 +126,4 @@ public class Item implements Serializable{
         return true;
     }
 
-   
-       
 }

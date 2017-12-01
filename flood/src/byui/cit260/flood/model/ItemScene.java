@@ -16,15 +16,13 @@ import java.util.ArrayList;
  * @author Brandon
  */
 public class ItemScene extends BuildingScene implements Serializable {
-    
+
     //-------------Item Scene Attributes-------------//
-    
     private Point location;
     private String itemPickup;
     private ArrayList<Item> items = new ArrayList();
-    
-    //-----------------Associations--------------------//
 
+    //-----------------Associations--------------------//
     public ArrayList<Item> getItems() {
         return items;
     }
@@ -33,12 +31,7 @@ public class ItemScene extends BuildingScene implements Serializable {
         this.items = items;
     }
 
-
-    
-    
     //---------------Functions---------------//
-
-    
     /*    public Point getLocation() {
     return location;
     }
@@ -46,7 +39,6 @@ public class ItemScene extends BuildingScene implements Serializable {
     public void setLocation(Point location) {
     this.location = location;
     }*/
-
     public String getItemPickup() {
         return itemPickup;
     }
@@ -56,10 +48,6 @@ public class ItemScene extends BuildingScene implements Serializable {
     }
 
     //--------------toString and Hashcode---------------//
-
-
-    
-    
     @Override
     public int hashCode() {
         int hash = 7;
@@ -69,11 +57,10 @@ public class ItemScene extends BuildingScene implements Serializable {
         return hash;
     }
 
-        @Override
+    @Override
     public String toString() {
         return "ItemScene{" + "location=" + location + ", itemPickup=" + itemPickup + "items=" + items + '}';
     }
- 
 
     @Override
     public boolean equals(Object obj) {
@@ -98,7 +85,5 @@ public class ItemScene extends BuildingScene implements Serializable {
         }
         return true;
     }
-    
-    
-    
+
 }

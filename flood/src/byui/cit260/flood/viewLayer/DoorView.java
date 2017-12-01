@@ -27,6 +27,7 @@ public class DoorView extends View {
 
     @Override
     public boolean doAction(String[] inputs) {
+       
         String a = inputs[0];
         String b = inputs[1];
         String c = "5";

@@ -93,7 +93,8 @@ public class DockMenuView extends View {
         miniGameView.displayMiniGameView();
     }
 
-    public void explore() {
+    public void explore() 
+            throws MapControlException {
         Game game = Flood.getCurrentGame();
         Map map = game.getMap();
         Location[][] locations = map.getLocations();
@@ -115,6 +116,7 @@ public class DockMenuView extends View {
         }
         MoveCharacterView moveCharacterView = new MoveCharacterView();
         moveCharacterView.display();
+
     }
 
     private void saveGameMenu() {
