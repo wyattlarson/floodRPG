@@ -31,16 +31,22 @@ public class StartMinigameView extends View {
     public boolean doAction(String[] inputs) {
 
                         String playersGuess = inputs[0];
-                        double base1 = 20;
+                        try{
+                      double base1 = 20;
                         double base2 = 15;
                         double height = 10;
                         double doubledGuess = Double.parseDouble(playersGuess);
-                        double answer;
                         try {
-                            answer = MiniGameControl.miniGame1(base1, base2, height, doubledGuess);
+                            
+                            double answer = MiniGameControl.miniGame1(base1, base2, height, doubledGuess);
+                            System.out.println("You are correct!");
                         } catch (MiniGameControlException e) {
                             System.out.println(e.getMessage());
                             return false;
+                        }
+                        }
+                        catch(NumberFormatException e){
+                            System.out.println("Invalid inputs, use number.");
                         }
                        return true;
                     }
