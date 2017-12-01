@@ -25,32 +25,31 @@ public class StartMinigameView extends View {
         System.out.println("For the first minigame you must find the area of a trapezoid."
                 + " Base 1 = 20, Base 2 = 15, and Height = 10. What is the area?");
         String name = this.getInput("Enter your guess:");
+        inputs[0] = name;
         return inputs;
     }
 
     public boolean doAction(String[] inputs) {
-        String playersGuess = inputs[0];
-        double base1 = 20;
-        double base2 = 15;
-        double height = 10;
-        double doubledGuess = Double.parseDouble(playersGuess);
-        double answer;
-        try {
-            answer = MiniGameControl.miniGame1(base1, base2, height, doubledGuess);
-        } catch (MiniGameControlException e) {
-            System.out.println(e.getMessage());
-            return false;
-        }
-        if (answer == -1){
-            System.out.println("Guess is outside of parameters. Try again.");
-            return false;
-        } else if (doubledGuess == answer) {
-            System.out.println("You are correct!");
-            return true;
-        } else {
-            System.out.println("You are wrong. Try again");
-            return false;
-        }
-    }
 
-}
+                        String playersGuess = inputs[0];
+                        try{
+                      double base1 = 20;
+                        double base2 = 15;
+                        double height = 10;
+                        double doubledGuess = Double.parseDouble(playersGuess);
+                        try {
+                            
+                            double answer = MiniGameControl.miniGame1(base1, base2, height, doubledGuess);
+                            System.out.println("You are correct!");
+                        } catch (MiniGameControlException e) {
+                            System.out.println(e.getMessage());
+                            return false;
+                        }
+                        }
+                        catch(NumberFormatException e){
+                            System.out.println("Invalid inputs, use number.");
+                        }
+                       return true;
+                    }
+
+        }
