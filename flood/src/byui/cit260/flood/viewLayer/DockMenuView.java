@@ -99,6 +99,7 @@ public class DockMenuView  extends View {
     public void explore() {
         Game game = Flood.getCurrentGame();
         Map map = game.getMap();
+        Location[][] locations = map.getLocations();
         System.out.println("\tMAP OF FLOODED CITY.");
         System.out.println(" |" +" 1"+ "|" +" 2"+ "|"+" 3"+ "|" +" 4"+ "|" +" 5"+"|");
         System.out.println("-------------------------------------");
@@ -106,13 +107,18 @@ public class DockMenuView  extends View {
             System.out.print(i+1);           
             for (int j = 0; j < map.getColumnCount(); j++){
                 System.out.print("|");
-                //Location[][] location = new Location[i][j];
+                Location location = locations[i][j];
+                if (location.isVisited() == true){
+                    System.out.print(location.getLocationSymbol());
+                }
+                else{
                System.out.print("??");
+                }
             }
             System.out.println("|");
         }             
-        /*BuildingView buildingView = new BuildingView();
-        buildingView.display();*/
+        MoveCharacterView moveCharacterView = new MoveCharacterView();
+        moveCharacterView.display();
     }
 
     private void saveGameMenu() {

@@ -9,6 +9,7 @@ import byui.cit260.flood.exceptions.MapControlException;
 import byui.cit260.flood.model.BuildingScene;
 import byui.cit260.flood.model.Equation;
 import byui.cit260.flood.model.EquationType;
+import byui.cit260.flood.model.Game;
 import byui.cit260.flood.model.Item;
 import byui.cit260.flood.model.ItemScene;
 import byui.cit260.flood.model.ItemType;
@@ -16,7 +17,9 @@ import byui.cit260.flood.model.Location;
 import byui.cit260.flood.model.Map;
 import byui.cit260.flood.model.QuestionScene;
 import byui.cit260.flood.model.SceneType;
+import flood.Flood;
 import java.util.ArrayList;
+import byui.cit260.flood.model.Character;
 
 /**
  *
@@ -53,7 +56,7 @@ public class MapControl {
         water.setDescription("An empty flooded area.");
         scenes[SceneType.water.ordinal()] = water;
 
-        BuildingScene building = new BuildingScene();
+        QuestionScene building = new QuestionScene();
         building.setDescription("A flooded building.");
         scenes[SceneType.building.ordinal()] = building;
 
@@ -93,6 +96,7 @@ public class MapControl {
         pythagQuestion[0] = questions[EquationType.pythag.ordinal()];
         door.setEquation(pythagQuestion);
         scenes[SceneType.building.ordinal()] = door;
+        door.setDescription("A flooded building.");
     }
 
     public static void assignItemsToScenes(Item[] items, BuildingScene[] scenes) {
@@ -108,30 +112,83 @@ public class MapControl {
         System.out.println("assignSceneToLoctions called");
          Location[][] locations = map.getLocations();
          locations[0][0].setBuildingScene(scenes[SceneType.dock.ordinal()]);
+         locations[0][0].setLocationSymbol("D ");
+         locations[0][0].setVisited(true);
          locations[0][1].setBuildingScene(scenes[SceneType.water.ordinal()]);
+         locations[0][1].setLocationSymbol("~~");
          locations[0][2].setBuildingScene(scenes[SceneType.water.ordinal()]);
+         locations[0][2].setLocationSymbol("~~");
          locations[0][3].setBuildingScene(scenes[SceneType.water.ordinal()]);
+         locations[0][3].setLocationSymbol("~~");
          locations[0][4].setBuildingScene(scenes[SceneType.water.ordinal()]);
+         locations[0][4].setLocationSymbol("~~");
          locations[1][0].setBuildingScene(scenes[SceneType.water.ordinal()]);
+         locations[1][0].setLocationSymbol("~~");
          locations[1][1].setBuildingScene(scenes[SceneType.building.ordinal()]);
+         locations[1][1].setLocationSymbol("^^");
          locations[1][2].setBuildingScene(scenes[SceneType.water.ordinal()]);
+         locations[1][2].setLocationSymbol("~~");
          locations[1][3].setBuildingScene(scenes[SceneType.water.ordinal()]);
+         locations[1][3].setLocationSymbol("~~");
          locations[1][4].setBuildingScene(scenes[SceneType.building.ordinal()]);
+         locations[1][4].setLocationSymbol("^^");
          locations[2][0].setBuildingScene(scenes[SceneType.water.ordinal()]);
+         locations[2][0].setLocationSymbol("~~");
          locations[2][1].setBuildingScene(scenes[SceneType.building.ordinal()]);
+         locations[2][1].setLocationSymbol("^^");
          locations[2][2].setBuildingScene(scenes[SceneType.water.ordinal()]);
+         locations[2][2].setLocationSymbol("~~");
          locations[2][3].setBuildingScene(scenes[SceneType.water.ordinal()]);
+         locations[2][3].setLocationSymbol("~~");
          locations[2][4].setBuildingScene(scenes[SceneType.water.ordinal()]);
+         locations[2][4].setLocationSymbol("~~");
          locations[3][0].setBuildingScene(scenes[SceneType.water.ordinal()]);
+         locations[3][0].setLocationSymbol("~~");
          locations[3][1].setBuildingScene(scenes[SceneType.water.ordinal()]);
+         locations[3][1].setLocationSymbol("~~");
          locations[3][2].setBuildingScene(scenes[SceneType.water.ordinal()]);
+         locations[3][2].setLocationSymbol("~~");
          locations[3][3].setBuildingScene(scenes[SceneType.building.ordinal()]);
+         locations[3][3].setLocationSymbol("^^");
          locations[3][4].setBuildingScene(scenes[SceneType.building.ordinal()]);
+         locations[3][4].setLocationSymbol("^^");
          locations[4][0].setBuildingScene(scenes[SceneType.water.ordinal()]);
+         locations[4][0].setLocationSymbol("~~");
          locations[4][1].setBuildingScene(scenes[SceneType.water.ordinal()]);
+         locations[4][1].setLocationSymbol("~~");
          locations[4][2].setBuildingScene(scenes[SceneType.building.ordinal()]);
+         locations[4][2].setLocationSymbol("^^");
          locations[4][3].setBuildingScene(scenes[SceneType.water.ordinal()]);
+         locations[4][3].setLocationSymbol("~~");
          locations[4][4].setBuildingScene(scenes[SceneType.water.ordinal()]);
+         locations[4][4].setLocationSymbol("~~");
     }    
+    
+    public static Location moveCharacter(Character character, int newRow, int newColumn)
+        throws MapControlException{
+        if (character == null){
+            throw new MapControlException("Character Error");
+        }
+        Game game = Flood.getCurrentGame();
+        Map map = game.getMap();
+        Location[][] locations = map.getLocations();
+        
+        if (newRow < 0 || newRow > map.getRowCount()-1 || newColumn < 0 || newColumn > map.getColumnCount()-1){
+            throw new MapControlException("Row or column counts is not within parameters");
+        }
+        
+        int currentRow = character.getLocation().x;
+        int currentColumn = character.getLocation().y;
+        Location oldLocation = locations[currentRow][currentColumn];
+        Location newLocation = locations[newRow][newColumn];
+        
+        oldLocation.setCharacter(null);
+        newLocation.setCharacter(character);
+        
+        character.setRow(newRow);
+        character.setColumn(newColumn);
+        
+        return newLocation;
+    }
 
 }

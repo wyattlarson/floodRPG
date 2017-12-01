@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package byui.cit260.flood.model;
+import byui.cit260.flood.model.Location;
 import java.awt.Point;
 
 /**
@@ -21,12 +22,13 @@ public enum Character {
 
 //------------------------------Character Attributes------------------------------//
 
-    private final Point locationId;
+    
     private final String name;
     private final String description; 
+    private final Point location;
     
-    Character(String name, String description, Point locationId) {
-        this.locationId = locationId;
+    Character(String name, String description, Point location) {
+        this.location = location;
         this.name = name;
         this.description = description;
     }
@@ -34,10 +36,16 @@ public enum Character {
 //------------------------------Public Funtions------------------------------//
 
     //There are only getters because there is a set amount of characters to choose.
-    public Point getLocationId() {
-        return locationId;
+    public Point getLocation() {
+        return location;
+    } 
+    public void setRow(int row){
+        this.location.x = row;
     }
-
+    public void setColumn(int column){
+        this.location.y = column;
+    }
+    
     public String getName() {
         return name;
     }
@@ -50,7 +58,7 @@ public enum Character {
 
     @Override
     public String toString() {
-        return "Character{" + "locationId=" + locationId + ", name=" + name + ", description=" + description + '}';
+        return "Character{" + "locationId=" + location + ", name=" + name + ", description=" + description + '}';
     }
     
 }
