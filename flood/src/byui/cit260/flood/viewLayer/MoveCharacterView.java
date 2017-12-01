@@ -33,27 +33,26 @@ public class MoveCharacterView extends View {
     public boolean doAction(String [] inputs) {
         String row = inputs[0];
         String column = inputs[1];
-         int intRow= 0;
-         int intColumn = 0;
-         Location newLocation;
+        int intRow;
+        int intColumn;
         try{
-            intRow = Integer.parseInt(row);
-            intColumn = Integer.parseInt(column);
+            intRow = Integer.parseInt(row)-1;
+            intColumn = Integer.parseInt(column)-1;
         } catch (NumberFormatException e ) {
             System.out.println("The row and column must be a number.");
             return false;
         }
         Player player = Flood.getPlayer();
         Character character = player.getCharacter();
-        
+        Location newLocation;
         try{
         newLocation = MapControl.moveCharacter(character, intRow, intColumn);
         } catch (MapControlException e){
         System.out.println(e.getMessage());
         return false;
         }
-        
-       newLocation.getBuildingScene(); 
+        System.out.println(newLocation.getBuildingScene().getDescription());
+        newLocation.setVisited(true);
         return true;
     }
 }

@@ -111,14 +111,7 @@ public class DockMenuView  extends View {
             throws MapControlException {
         Game game = Flood.getCurrentGame();
         Map map = game.getMap();
-        String[] inputs = new String[2];
-        int intRow= 1;
-        int intColumn = 1;
-                Player player = Flood.getPlayer();
-        byui.cit260.flood.model.Character character = player.getCharacter();
-//        MoveCharacterView.getInputs();
-//        MoveCharacterView.doAction(inputs);
-        MapControl.moveCharacter(character, intRow, intColumn);
+        Location[][] locations = map.getLocations();
         System.out.println("\tMAP OF FLOODED CITY.");
         System.out.println(" |" +" 1"+ "|" +" 2"+ "|"+" 3"+ "|" +" 4"+ "|" +" 5"+"|");
         System.out.println("-------------------------------------");
@@ -126,13 +119,21 @@ public class DockMenuView  extends View {
             System.out.print(i+1);           
             for (int j = 0; j < map.getColumnCount(); j++){
                 System.out.print("|");
-                //Location[][] location = new Location[i][j];
+                Location location = locations[i][j];
+                if (location.isVisited() == true){
+                    System.out.print(location.getLocationSymbol());
+                }
+                else{
                System.out.print("??");
+                }
             }
             System.out.println("|");
         }             
-        BuildingView buildingView = new BuildingView();
-        buildingView.display();
+
+
+        MoveCharacterView moveCharacterView = new MoveCharacterView();
+        moveCharacterView.display();
+
     }
 
     private void saveGameMenu() {
