@@ -25,6 +25,7 @@ public class StartMinigameView extends View {
         System.out.println("For the first minigame you must find the area of a trapezoid."
                 + " Base 1 = 20, Base 2 = 15, and Height = 10. What is the area?");
         String name = this.getInput("Enter your guess:");
+        inputs[0] = name;
         return inputs;
     }
 
