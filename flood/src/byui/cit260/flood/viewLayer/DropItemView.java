@@ -5,22 +5,19 @@
  */
 package byui.cit260.flood.viewLayer;
 
-import java.util.Scanner;
-import static jdk.nashorn.internal.objects.NativeString.trim;
-
 /**
  *
  * @author Ryan Call
  */
-public class DropItemView extends View{
+public class DropItemView extends View {
 
-        public String[] getInputs() {
+    public String[] getInputs() {
         String[] inputs = new String[4];
         System.out.println(
-                        "\n 1 - Flashlight" + 
-                        "\n 2 - Hammer" +
-                        "\n 3 - Floaties" + 
-                        "\n E - Exit Inventory");
+                "\n 1 - Flashlight"
+                + "\n 2 - Hammer"
+                + "\n 3 - Floaties"
+                + "\n E - Exit Inventory");
         String name = this.getInput("Which item would you like to drop?");
         inputs[0] = name;
         return inputs;
@@ -28,17 +25,19 @@ public class DropItemView extends View{
 
     public boolean doAction(String[] inputs) {
         String menuItem = inputs[0];
-       menuItem = menuItem.toUpperCase();
-        switch(menuItem) {
-            case "E": return true;
-            default: System.out.println("Invalid Menu Command.");
-            break;
+        menuItem = menuItem.toUpperCase();
+        switch (menuItem) {
+            case "E":
+                return true;
+            default:
+                System.out.println("Invalid Menu Command.");
+                break;
         }
-        return false;  
+        return false;
     }
 
     private void displayResults() {
-    System.out.println();
+        System.out.println();
     }
-        
-    }
+
+}

@@ -7,8 +7,6 @@ package byui.cit260.flood.viewLayer;
 
 import byui.cit260.flood.control.BuildingControl;
 import byui.cit260.flood.exceptions.BuildingControlException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -33,22 +31,21 @@ public class DoorView extends View {
         String a = inputs[0];
         String b = inputs[1];
         String c = "5";
-        try{
+        try {
             double doubledA = Double.parseDouble(a);
             double doubledB = Double.parseDouble(b);
             double doubledC = Double.parseDouble(c);
-        try {
-            double result = BuildingControl.puzzle1(doubledA, doubledB, doubledC);
-            System.out.println("Your answer equates to:" + result +".  " + "You got the answer right! The door opens.");       
-        } catch (BuildingControlException e) {
-            System.out.println(e.getMessage());
-            return false;
+            try {
+                double result = BuildingControl.puzzle1(doubledA, doubledB, doubledC);
+                System.out.println("Your answer equates to:" + result + ".  " + "You got the answer right! The door opens.");
+            } catch (BuildingControlException e) {
+                System.out.println(e.getMessage());
+                return false;
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid Inputs, use numbers.");
         }
-        } catch(NumberFormatException e){
-            System.out.println(e.getMessage());
-            return false;
-        }
-       
+
         return true;
     }
 }
