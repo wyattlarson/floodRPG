@@ -111,8 +111,8 @@ public class DockMenuView  extends View {
             }
             System.out.println("|");
         }             
-        /*BuildingView buildingView = new BuildingView();
-        buildingView.display();*/
+        MoveCharacterView moveCharacterView = new MoveCharacterView();
+        moveCharacterView.display();
     }
 
     private void saveGameMenu() {

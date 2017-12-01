@@ -18,6 +18,15 @@ public class Location implements Serializable{
     private int column;
     private boolean visited;
     private int amountRemaining;
+    private String description;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
     
 //------------------------------Associations------------------------------//
     //this is the association between the Location class and the Character class

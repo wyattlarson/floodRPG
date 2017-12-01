@@ -56,7 +56,7 @@ public class MapControl {
         water.setDescription("An empty flooded area.");
         scenes[SceneType.water.ordinal()] = water;
 
-        BuildingScene building = new BuildingScene();
+        QuestionScene building = new QuestionScene();
         building.setDescription("A flooded building.");
         scenes[SceneType.building.ordinal()] = building;
 
@@ -96,6 +96,7 @@ public class MapControl {
         pythagQuestion[0] = questions[EquationType.pythag.ordinal()];
         door.setEquation(pythagQuestion);
         scenes[SceneType.building.ordinal()] = door;
+        door.setDescription("A flooded building.");
     }
 
     public static void assignItemsToScenes(Item[] items, BuildingScene[] scenes) {
@@ -146,7 +147,7 @@ public class MapControl {
         Map map = game.getMap();
         Location[][] locations = map.getLocations();
         
-        if (newRow < 1 || newRow > map.getRowCount() || newColumn < 1 || newColumn > map.getColumnCount()){
+        if (newRow < 0 || newRow > map.getRowCount()-1 || newColumn < 0 || newColumn > map.getColumnCount()-1){
             throw new MapControlException("Row or column counts is not within parameters");
         }
         
