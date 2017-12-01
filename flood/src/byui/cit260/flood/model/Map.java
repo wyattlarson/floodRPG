@@ -13,36 +13,39 @@ import java.util.Objects;
  *
  * @author wyatt
  */
-public class Map implements Serializable{
-    
+public class Map implements Serializable {
+
 //------------------------------Location Attributes------------------------------//
-private String description;
-private int rowCount;
-private int columnCount;
-private int currentRow;
-private int currentColumn;
+    private String description;
+    private int rowCount;
+    private int columnCount;
+    private int currentRow;
+    private int currentColumn;
 //------------------------------Associations-----------------------------//
 
 //Association between Map Class and Game Class
-public  ArrayList<Game> games = new ArrayList<Game>();
-                public ArrayList<Game> getGames() {
-                    return games;
-                }
-                public void setGames(ArrayList<Game> games) {
-                    this.games = games;
-                }
-  
+    public ArrayList<Game> games = new ArrayList<Game>();
+
+    public ArrayList<Game> getGames() {
+        return games;
+    }
+
+    public void setGames(ArrayList<Game> games) {
+        this.games = games;
+    }
+
 //Association between Map Class and Location Class
-public Location[][] location;
-                public Location[][] getLocations(){
-                    return location;
-                }
-                public void setLocations(Location[][] location){
-                    this.location = location;
-                }
+    public Location[][] location;
+
+    public Location[][] getLocations() {
+        return location;
+    }
+
+    public void setLocations(Location[][] location) {
+        this.location = location;
+    }
 
 //------------------------------Public Functions-----------------------------//
-
 //costructor
     public Map() {
     }
@@ -136,7 +139,5 @@ public Location[][] location;
         }
         return true;
     }
-
-    
 
 }

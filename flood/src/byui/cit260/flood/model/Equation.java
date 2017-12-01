@@ -4,9 +4,9 @@
  * and open the template in the editor.
  */
 package byui.cit260.flood.model;
+
 import java.io.Serializable;
 import java.util.Objects;
-
 
 /**
  *
@@ -14,20 +14,20 @@ import java.util.Objects;
  */
 public class Equation implements Serializable {
 //------------------------------Equation Attributes------------------------------//
+
     private String question;
     private String Answer;
 //------------------------------Associations------------------------------//
     // associatin between equation scene and question scene//
     private QuestionScene questionScene;
 
-                public QuestionScene getQuestionScene() {
-                    return questionScene;
-                }
-                public void setQuestionScene(QuestionScene questionScene) {
-                    this.questionScene = questionScene;
-                }
-    
+    public QuestionScene getQuestionScene() {
+        return questionScene;
+    }
 
+    public void setQuestionScene(QuestionScene questionScene) {
+        this.questionScene = questionScene;
+    }
 
 //------------------------------Public Functions------------------------------//
 //------------------------------constructor function-------------------------//
@@ -58,6 +58,7 @@ public class Equation implements Serializable {
         return hash;
     }
 //------------------------------Overrides------------------------------//
+
     @Override
     public String toString() {
         return "Equation{" + "question=" + question + ", Answer=" + Answer + ", questionScene=" + questionScene + '}';
@@ -83,6 +84,5 @@ public class Equation implements Serializable {
         }
         return true;
     }
-    
-   
+
 }

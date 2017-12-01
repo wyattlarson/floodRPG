@@ -4,17 +4,20 @@
  * and open the template in the editor.
  */
 package byui.cit260.flood.model;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Objects;
 import byui.cit260.flood.model.Character;
+
 /**
  *
  * @author wyatt
  */
 
 //------------------------------Player Attributes------------------------------//
-public class Player implements Serializable{
+public class Player implements Serializable {
+
     private Character character;
     private String name;
     private String lastDatePlayed;
@@ -23,21 +26,25 @@ public class Player implements Serializable{
     //------------------------------Associations-----------------------------//
     //Association between Game and Player
     private Game games = new Game();
-            public Game getGames() {
-                return games;
-            }
-            public void setGames(Game games) {
-                this.games = games;
-            }
-     //Assoiciation between Player and Character
-            public Character getCharacter() {
-                return character;
-            }
-            public void setCharacter(Character character) {
-                this.character = character;
-            }
-            
-     //------------------------------Public Functions------------------------------//
+
+    public Game getGames() {
+        return games;
+    }
+
+    public void setGames(Game games) {
+        this.games = games;
+    }
+    //Assoiciation between Player and Character
+
+    public Character getCharacter() {
+        return character;
+    }
+
+    public void setCharacter(Character character) {
+        this.character = character;
+    }
+
+    //------------------------------Public Functions------------------------------//
     //Constructor
     public Player() {
     }
@@ -65,7 +72,7 @@ public class Player implements Serializable{
     public void setBestScore(int bestScore) {
         this.bestScore = bestScore;
     }
-    
+
 //------------------------------Overrides------------------------------//
     @Override
     public int hashCode() {

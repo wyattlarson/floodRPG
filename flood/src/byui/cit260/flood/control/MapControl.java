@@ -31,10 +31,10 @@ import flood.Flood;
 public class MapControl {
 
     public static Location[][] createLocations(int rows, int columns)
-        throws MapControlException {
+            throws MapControlException {
         System.out.println("createLocations called");
         if (rows < 1 || columns < 1) {
-            throw new MapControlException ("Map Control Error");
+            throw new MapControlException("Map Control Error");
         }
         Location[][] locations = new Location[rows][columns];
 
@@ -89,11 +89,11 @@ public class MapControl {
     public static void assignQuestionsToScenes(Equation[] questions, BuildingScene[] scenes) {
         System.out.println("assignQuestionsToScenes called");
 
-        QuestionScene miniGame = (QuestionScene)scenes[SceneType.minigame.ordinal()];
+        QuestionScene miniGame = (QuestionScene) scenes[SceneType.minigame.ordinal()];
         Equation[] miniGameQuestions = new Equation[3];
         miniGameQuestions[0] = questions[EquationType.trapArea.ordinal()];
         miniGame.setEquation(miniGameQuestions);
-        
+
         QuestionScene door = (QuestionScene) new QuestionScene();
         Equation[] pythagQuestion = new Equation[1];
         pythagQuestion[0] = questions[EquationType.pythag.ordinal()];
@@ -103,97 +103,95 @@ public class MapControl {
     }
 
     public static void assignItemsToScenes(Item[] items, BuildingScene[] scenes) {
-    System.out.println("assignItemsToScene called");
-    
-    BuildingScene building = (BuildingScene) scenes[SceneType.building.ordinal()];
-    ArrayList<Item>buildingItems = building.getItems();
-    buildingItems.add(items[ItemType.hammer.ordinal()]);
-    building.setItems(buildingItems);
+        System.out.println("assignItemsToScene called");
+
+        BuildingScene building = (BuildingScene) scenes[SceneType.building.ordinal()];
+        ArrayList<Item> buildingItems = building.getItems();
+        buildingItems.add(items[ItemType.hammer.ordinal()]);
+        building.setItems(buildingItems);
     }
 
     public static void assignSceneToLocations(Map map, BuildingScene[] scenes) {
         System.out.println("assignSceneToLoctions called");
-         Location[][] locations = map.getLocations();
-         locations[0][0].setBuildingScene(scenes[SceneType.dock.ordinal()]);
-         locations[0][0].setLocationSymbol("D ");
-         locations[0][0].setVisited(true);
-         locations[0][1].setBuildingScene(scenes[SceneType.water.ordinal()]);
-         locations[0][1].setLocationSymbol("~~");
-         locations[0][2].setBuildingScene(scenes[SceneType.water.ordinal()]);
-         locations[0][2].setLocationSymbol("~~");
-         locations[0][3].setBuildingScene(scenes[SceneType.water.ordinal()]);
-         locations[0][3].setLocationSymbol("~~");
-         locations[0][4].setBuildingScene(scenes[SceneType.water.ordinal()]);
-         locations[0][4].setLocationSymbol("~~");
-         locations[1][0].setBuildingScene(scenes[SceneType.water.ordinal()]);
-         locations[1][0].setLocationSymbol("~~");
-         locations[1][1].setBuildingScene(scenes[SceneType.building.ordinal()]);
-         locations[1][1].setLocationSymbol("^^");
-         locations[1][2].setBuildingScene(scenes[SceneType.water.ordinal()]);
-         locations[1][2].setLocationSymbol("~~");
-         locations[1][3].setBuildingScene(scenes[SceneType.water.ordinal()]);
-         locations[1][3].setLocationSymbol("~~");
-         locations[1][4].setBuildingScene(scenes[SceneType.building.ordinal()]);
-         locations[1][4].setLocationSymbol("^^");
-         locations[2][0].setBuildingScene(scenes[SceneType.water.ordinal()]);
-         locations[2][0].setLocationSymbol("~~");
-         locations[2][1].setBuildingScene(scenes[SceneType.building.ordinal()]);
-         locations[2][1].setLocationSymbol("^^");
-         locations[2][2].setBuildingScene(scenes[SceneType.water.ordinal()]);
-         locations[2][2].setLocationSymbol("~~");
-         locations[2][3].setBuildingScene(scenes[SceneType.water.ordinal()]);
-         locations[2][3].setLocationSymbol("~~");
-         locations[2][4].setBuildingScene(scenes[SceneType.water.ordinal()]);
-         locations[2][4].setLocationSymbol("~~");
-         locations[3][0].setBuildingScene(scenes[SceneType.water.ordinal()]);
-         locations[3][0].setLocationSymbol("~~");
-         locations[3][1].setBuildingScene(scenes[SceneType.water.ordinal()]);
-         locations[3][1].setLocationSymbol("~~");
-         locations[3][2].setBuildingScene(scenes[SceneType.water.ordinal()]);
-         locations[3][2].setLocationSymbol("~~");
-         locations[3][3].setBuildingScene(scenes[SceneType.building.ordinal()]);
-         locations[3][3].setLocationSymbol("^^");
-         locations[3][4].setBuildingScene(scenes[SceneType.building.ordinal()]);
-         locations[3][4].setLocationSymbol("^^");
-         locations[4][0].setBuildingScene(scenes[SceneType.water.ordinal()]);
-         locations[4][0].setLocationSymbol("~~");
-         locations[4][1].setBuildingScene(scenes[SceneType.water.ordinal()]);
-         locations[4][1].setLocationSymbol("~~");
-         locations[4][2].setBuildingScene(scenes[SceneType.building.ordinal()]);
-         locations[4][2].setLocationSymbol("^^");
-         locations[4][3].setBuildingScene(scenes[SceneType.water.ordinal()]);
-         locations[4][3].setLocationSymbol("~~");
-         locations[4][4].setBuildingScene(scenes[SceneType.water.ordinal()]);
-         locations[4][4].setLocationSymbol("~~");
-    }    
-    
+        Location[][] locations = map.getLocations();
+        locations[0][0].setBuildingScene(scenes[SceneType.dock.ordinal()]);
+        locations[0][0].setLocationSymbol("D ");
+        locations[0][0].setVisited(true);
+        locations[0][1].setBuildingScene(scenes[SceneType.water.ordinal()]);
+        locations[0][1].setLocationSymbol("~~");
+        locations[0][2].setBuildingScene(scenes[SceneType.water.ordinal()]);
+        locations[0][2].setLocationSymbol("~~");
+        locations[0][3].setBuildingScene(scenes[SceneType.water.ordinal()]);
+        locations[0][3].setLocationSymbol("~~");
+        locations[0][4].setBuildingScene(scenes[SceneType.water.ordinal()]);
+        locations[0][4].setLocationSymbol("~~");
+        locations[1][0].setBuildingScene(scenes[SceneType.water.ordinal()]);
+        locations[1][0].setLocationSymbol("~~");
+        locations[1][1].setBuildingScene(scenes[SceneType.building.ordinal()]);
+        locations[1][1].setLocationSymbol("^^");
+        locations[1][2].setBuildingScene(scenes[SceneType.water.ordinal()]);
+        locations[1][2].setLocationSymbol("~~");
+        locations[1][3].setBuildingScene(scenes[SceneType.water.ordinal()]);
+        locations[1][3].setLocationSymbol("~~");
+        locations[1][4].setBuildingScene(scenes[SceneType.building.ordinal()]);
+        locations[1][4].setLocationSymbol("^^");
+        locations[2][0].setBuildingScene(scenes[SceneType.water.ordinal()]);
+        locations[2][0].setLocationSymbol("~~");
+        locations[2][1].setBuildingScene(scenes[SceneType.building.ordinal()]);
+        locations[2][1].setLocationSymbol("^^");
+        locations[2][2].setBuildingScene(scenes[SceneType.water.ordinal()]);
+        locations[2][2].setLocationSymbol("~~");
+        locations[2][3].setBuildingScene(scenes[SceneType.water.ordinal()]);
+        locations[2][3].setLocationSymbol("~~");
+        locations[2][4].setBuildingScene(scenes[SceneType.water.ordinal()]);
+        locations[2][4].setLocationSymbol("~~");
+        locations[3][0].setBuildingScene(scenes[SceneType.water.ordinal()]);
+        locations[3][0].setLocationSymbol("~~");
+        locations[3][1].setBuildingScene(scenes[SceneType.water.ordinal()]);
+        locations[3][1].setLocationSymbol("~~");
+        locations[3][2].setBuildingScene(scenes[SceneType.water.ordinal()]);
+        locations[3][2].setLocationSymbol("~~");
+        locations[3][3].setBuildingScene(scenes[SceneType.building.ordinal()]);
+        locations[3][3].setLocationSymbol("^^");
+        locations[3][4].setBuildingScene(scenes[SceneType.building.ordinal()]);
+        locations[3][4].setLocationSymbol("^^");
+        locations[4][0].setBuildingScene(scenes[SceneType.water.ordinal()]);
+        locations[4][0].setLocationSymbol("~~");
+        locations[4][1].setBuildingScene(scenes[SceneType.water.ordinal()]);
+        locations[4][1].setLocationSymbol("~~");
+        locations[4][2].setBuildingScene(scenes[SceneType.building.ordinal()]);
+        locations[4][2].setLocationSymbol("^^");
+        locations[4][3].setBuildingScene(scenes[SceneType.water.ordinal()]);
+        locations[4][3].setLocationSymbol("~~");
+        locations[4][4].setBuildingScene(scenes[SceneType.water.ordinal()]);
+        locations[4][4].setLocationSymbol("~~");
+    }
+
     public static Location moveCharacter(Character character, int newRow, int newColumn)
-        throws MapControlException{
-        if (character == null){
+            throws MapControlException {
+        if (character == null) {
             throw new MapControlException("Character Error");
         }
         Game game = Flood.getCurrentGame();
         Map map = game.getMap();
         Location[][] locations = map.getLocations();
-        
-        if (newRow < 0 || newRow > map.getRowCount()-1 || newColumn < 0 || newColumn > map.getColumnCount()-1){
+
+        if (newRow < 0 || newRow > map.getRowCount() - 1 || newColumn < 0 || newColumn > map.getColumnCount() - 1) {
             throw new MapControlException("Row or column counts is not within parameters");
         }
-        
+
         int currentRow = character.getLocation().x;
         int currentColumn = character.getLocation().y;
         Location oldLocation = locations[currentRow][currentColumn];
         Location newLocation = locations[newRow][newColumn];
-        
+
         oldLocation.setCharacter(null);
         newLocation.setCharacter(character);
-        
+
         character.setRow(newRow);
         character.setColumn(newColumn);
-        
+
         return newLocation;
     }
 
 }
-
-

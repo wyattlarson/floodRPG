@@ -13,15 +13,14 @@ import java.util.Objects;
  *
  * @author wyatt
  */
-public class BuildingScene implements Serializable{
-    
+public class BuildingScene implements Serializable {
+
 //------------------------------BuildingScene Attributes------------------------------//
-private String description;
-private String status;
-private ArrayList <Item> items = new ArrayList<>();
+    private String description;
+    private String status;
+    private ArrayList<Item> items = new ArrayList<>();
 
 //------------------------------Public Functions------------------------------//
-
     //constructor
     public BuildingScene() {
     }
@@ -33,7 +32,6 @@ private ArrayList <Item> items = new ArrayList<>();
     public void setItems(ArrayList<Item> items) {
         this.items = items;
     }
-    
 
     public String getDescription() {
         return description;
@@ -52,7 +50,6 @@ private ArrayList <Item> items = new ArrayList<>();
     }
 
 //------------------------------Overrides------------------------------//
-
     @Override
     public int hashCode() {
         int hash = 7;
@@ -86,7 +83,5 @@ private ArrayList <Item> items = new ArrayList<>();
         }
         return true;
     }
-
-    
 
 }

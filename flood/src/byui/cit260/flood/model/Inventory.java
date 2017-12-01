@@ -12,10 +12,9 @@ import java.util.ArrayList;
  *
  * @author wyatt
  */
-public class Inventory implements Serializable{
-    
-//------------------------------Inventory Attributes------------------------------//
+public class Inventory implements Serializable {
 
+//------------------------------Inventory Attributes------------------------------//
     private int itemQuantity;
     private ArrayList<Item> inventory;
 
@@ -26,30 +25,31 @@ public class Inventory implements Serializable{
     public void setInventory(ArrayList<Item> inventory) {
         this.inventory = inventory;
     }
-    
- //------------------------------Associations------------------------------//
 
+    //------------------------------Associations------------------------------//
 //association between Inventory and Character
     private Character character;
-                public Character getCharacter() {
-                    return character;
-                }
-                public void setCharacter(Character character) {
-                    this.character = character;
-                }
-    
- //association between Inventory and Item
-    
-    private ArrayList<Item> items = new ArrayList<Item>();
-                public ArrayList<Item> getItems() {
-                    return items;
-                }
-                public void setItems(ArrayList<Item> items) {
-                    this.items = items;
-                }
-    
-//------------------------------Public Functions------------------------------//
 
+    public Character getCharacter() {
+        return character;
+    }
+
+    public void setCharacter(Character character) {
+        this.character = character;
+    }
+
+    //association between Inventory and Item
+    private ArrayList<Item> items = new ArrayList<Item>();
+
+    public ArrayList<Item> getItems() {
+        return items;
+    }
+
+    public void setItems(ArrayList<Item> items) {
+        this.items = items;
+    }
+
+//------------------------------Public Functions------------------------------//
     //contsructor function
     public Inventory() {
     }

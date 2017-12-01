@@ -4,36 +4,35 @@
  * and open the template in the editor.
  */
 package byui.cit260.flood.model;
+
 import java.io.Serializable;
 import java.util.Objects;
-
 
 /**
  *
  * @author Ryan Call
  */
 public class QuestionScene extends BuildingScene implements Serializable {
-    
-    //------------------------------QuestionScene Attributes------------------------------//
 
+    //------------------------------QuestionScene Attributes------------------------------//
     private String questionPrompt;
-    
+
     //------------------------------Associations------------------------------//
     //Association between QuestionScene and Equation
-                 private Equation[] equation;
-                public Equation[] getEquation() {
-                    return equation;
-                }
-                public void setEquation(Equation[] equation) {
-                    this.equation = equation;
-                }
+    private Equation[] equation;
 
-    
-    
+    public Equation[] getEquation() {
+        return equation;
+    }
+
+    public void setEquation(Equation[] equation) {
+        this.equation = equation;
+    }
+
 //------------------------------Public Functions------------------------------//
 //constructor function
     public QuestionScene() {
-    
+
     }
 
     public String getQuestionPrompt() {
@@ -45,7 +44,6 @@ public class QuestionScene extends BuildingScene implements Serializable {
     }
 
     //------------------------------Overrides------------------------------//
-
     @Override
     public int hashCode() {
         int hash = 5;
@@ -75,5 +73,5 @@ public class QuestionScene extends BuildingScene implements Serializable {
         }
         return true;
     }
-    
+
 }
