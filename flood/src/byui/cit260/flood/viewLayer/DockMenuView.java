@@ -52,7 +52,7 @@ public class DockMenuView extends View {
                 infoPage();
                 break;
             case "I":
-                InventoryMenuView();
+                printInventory();
                 break;
             case "M":
                 MiniGameView();
@@ -62,7 +62,7 @@ public class DockMenuView extends View {
                 break;
             case "Z":
                 testDoor();
-            case "P":
+            case "PS":
                 printSaved();
                 break;
             case "E":
@@ -86,11 +86,6 @@ public class DockMenuView extends View {
 
     private void infoPage() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private void InventoryMenuView() {
-        InventoryMenuView InventoryMenuView = new InventoryMenuView();
-        InventoryMenuView.display();
     }
 
     private void MiniGameView() {
@@ -134,5 +129,9 @@ public class DockMenuView extends View {
     private void testDoor() {
         BuildingView buildingView = new BuildingView();
         buildingView.display();
+    }
+    public void printInventory() {
+        Game game = Flood.getCurrentGame();
+        System.out.println(game.getInventory());
     }
 }

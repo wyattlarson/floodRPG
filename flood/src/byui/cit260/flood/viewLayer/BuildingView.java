@@ -5,6 +5,8 @@
  */
 package byui.cit260.flood.viewLayer;
 
+import byui.cit260.flood.model.Item;
+
 /**
  *
  * @author wyatt
@@ -34,6 +36,8 @@ public class BuildingView extends View {
             case "READ PAPER":
                 readPaper();
                 break;
+            case "PICKUP PAPER":
+                pickupPaper();
             case "OPEN DOOR":
                 openDoor();
                 break;
@@ -66,6 +70,11 @@ public class BuildingView extends View {
 
     private void readPaper() {
         System.out.println("You read the piece of paper. It says: Find the other side lengths of a triangle with a hypotneus of 25. Remember a^2 + b^2 = c^2. You are finding a and b.");
+    }
+    
+    public void pickupPaper(){
+        Item paper = new Item();
+        paper.setInInventory(true);
     }
 
     private void openDoor() {

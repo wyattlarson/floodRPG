@@ -17,6 +17,7 @@ public class Item implements Serializable{
     private String name;
     private String description;
     private int itemId;
+    private boolean inInventory;
     
 //------------------------------Associations------------------------------//
 
@@ -43,6 +44,14 @@ public class Item implements Serializable{
 
     //this is the Item class constructor
     public Item() {
+    }
+
+    public boolean isInInventory() {
+        return inInventory;
+    }
+
+    public void setInInventory(boolean inInventory) {
+        this.inInventory = inInventory;
     }
     
     public String getDescription() {

@@ -126,19 +126,6 @@ public class GameControl {
         return items;
     }
 
-    public static Inventory createInventory(Item[] items)
-            throws GameControlException {
-
-        System.out.println("Create Inventory Called");
-
-        throw new GameControlException("inventory error.");
-
-        /*            Item[] inventory = new Item[8];
-            for (int i = 0; i < items.length; i++){
-            inventory = items.setName(i);
-            }    */
-    }
-
     public static Map createMap(int noOfRows, int noOfColumns, Item[] items) 
             throws GameControlException, MapControlException {
             
@@ -179,7 +166,7 @@ public class GameControl {
         public static ArrayList<Item> getInventoryItems(Item[] items) {
         ArrayList<Item> inventory = new ArrayList<>();
         for (Item item : items) {
-            if (item.getItemId() == 10) {
+            if (item.isInInventory() == true) {
                 inventory.add(item);
             }
         }
