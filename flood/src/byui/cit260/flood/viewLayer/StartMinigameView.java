@@ -38,7 +38,6 @@ public class StartMinigameView extends View {
                         double height = 10;
                         double doubledGuess = Double.parseDouble(playersGuess);
                         try {
-                            
                             double answer = MiniGameControl.miniGame1(base1, base2, height, doubledGuess);
                             System.out.println("You are correct!");
                         } catch (MiniGameControlException e) {
