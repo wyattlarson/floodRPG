@@ -12,26 +12,25 @@ package byui.cit260.flood.exceptions;
 public class BoatUpgradeException extends Exception {
 
     public BoatUpgradeException() {
-        
+
     }
-        public BoatUpgradeException(String message) {
+
+    public BoatUpgradeException(String message) {
         super(message);
     }
-    
+
     public BoatUpgradeException(String message, Throwable cause) {
         super(message, cause);
     }
-    
+
     public BoatUpgradeException(Throwable cause) {
         super(cause);
     }
-    
+
     public BoatUpgradeException(String message,
-                                                Throwable cause,
-                                                boolean enableSuppression,
-                                                boolean writableStackTrace) {
+            Throwable cause,
+            boolean enableSuppression,
+            boolean writableStackTrace) {
         super(message, cause, enableSuppression, writableStackTrace);
     }
 }
-
-

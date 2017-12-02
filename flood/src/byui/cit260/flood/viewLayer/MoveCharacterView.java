@@ -17,39 +17,41 @@ import flood.Flood;
  * @author wyatt
  */
 public class MoveCharacterView extends View {
+
     public String[] getInputs() {
         String[] inputs = new String[2];
-        
+
         System.out.println("Enter your x then y coordinate to move character.");
-        
+
         String input1 = this.getInput("Enter an x value:");
         inputs[0] = input1;
-        
+
         String input2 = this.getInput("Enter a y value:");
         inputs[1] = input2;
-        
+
         return inputs;
     }
-    public boolean doAction(String [] inputs) {
+
+    public boolean doAction(String[] inputs) {
         String row = inputs[0];
         String column = inputs[1];
         int intRow;
         int intColumn;
-        try{
-            intRow = Integer.parseInt(row)-1;
-            intColumn = Integer.parseInt(column)-1;
-        } catch (NumberFormatException e ) {
+        try {
+            intRow = Integer.parseInt(row) - 1;
+            intColumn = Integer.parseInt(column) - 1;
+        } catch (NumberFormatException e) {
             System.out.println("The row and column must be a number.");
             return false;
         }
         Player player = Flood.getPlayer();
         Character character = player.getCharacter();
         Location newLocation;
-        try{
-        newLocation = MapControl.moveCharacter(character, intRow, intColumn);
-        } catch (MapControlException e){
-        System.out.println(e.getMessage());
-        return false;
+        try {
+            newLocation = MapControl.moveCharacter(character, intRow, intColumn);
+        } catch (MapControlException e) {
+            System.out.println(e.getMessage());
+            return false;
         }
         System.out.println(newLocation.getBuildingScene().getDescription());
         newLocation.setVisited(true);

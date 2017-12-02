@@ -36,22 +36,26 @@ public class UpgradeBoatMenuView extends View {
 
         String length = inputs[0];
         String width = inputs[1];
-        double doubledLength = Double.parseDouble(length);
-        double doubledWidth = Double.parseDouble(width);
-        double result = 0;
         try {
-            result = BoatUpgrade.calcBoatNumofPeople(doubledLength, doubledWidth);
-        } catch (BoatUpgradeException e) {
-            System.out.println(e.getMessage());
-            return false;
+            double doubledLength = Double.parseDouble(length);
+            double doubledWidth = Double.parseDouble(width);
+            double result = 0;
+            try {
+                result = BoatUpgrade.calcBoatNumofPeople(doubledLength, doubledWidth);
+                System.out.println("================================================="
+                        + "\n\tYou have a new boat! "
+                        + "\n\tIt can now hold "
+                        + result
+                        + " people."
+                        + "\n=================================================");
+
+            } catch (BoatUpgradeException e) {
+                System.out.println(e.getMessage());
+                return false;
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("invalid Inputs, use numbers.");
         }
-        
-        System.out.println("================================================="
-                + "\n\tYou have a new boat! "
-                + "\n\tIt can now hold "
-                + result
-                + " people."
-                + "\n=================================================");
         return true;
     }
 }

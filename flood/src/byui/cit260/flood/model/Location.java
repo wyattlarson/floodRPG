@@ -11,8 +11,8 @@ import java.io.Serializable;
  *
  * @author wyatt
  */
-public class Location implements Serializable{
-    
+public class Location implements Serializable {
+
 //------------------------------Location Attributes------------------------------//
     private int row;
     private int column;
@@ -36,42 +36,51 @@ public class Location implements Serializable{
     public void setDescription(String description) {
         this.description = description;
     }
-    
+
 //------------------------------Associations------------------------------//
     //this is the association between the Location class and the Character class
     private Character character;
-                public Character getCharacter() {
-                    return character;
-                }
-                public void setCharacter(Character character) {
-                    this.character = character;
-                }
-          
-      //this is the association between Location and BuildingScene
-                private BuildingScene buildingScene;
-                public BuildingScene getBuildingScene() {
-                    return buildingScene;
-                }
-                public void setBuildingScene(BuildingScene buildingScene) {
-                    this.buildingScene = buildingScene;
-                }
+
+    public Character getCharacter() {
+        return character;
+    }
+
+    public void setCharacter(Character character) {
+        this.character = character;
+    }
+
+    //this is the association between Location and BuildingScene
+    private BuildingScene buildingScene;
+
+    public BuildingScene getBuildingScene() {
+        return buildingScene;
+    }
+
+    public void setBuildingScene(BuildingScene buildingScene) {
+        this.buildingScene = buildingScene;
+    }
+
     //Constructor
     public Location() {
     }
 
 //------------------------------Public Functions------------------------------//
-    public int getRow(){
-    return row;
-}
-    public void setRow(int row){
+    public int getRow() {
+        return row;
+    }
+
+    public void setRow(int row) {
         this.row = row;
     }
-    public int getColumn(){
+
+    public int getColumn() {
         return column;
     }
-    public void setColumn(int column){
+
+    public void setColumn(int column) {
         this.column = column;
     }
+
     public boolean isVisited() {
         return visited;
     }
@@ -87,7 +96,7 @@ public class Location implements Serializable{
     public void setAmountRemaining(int amountRemaining) {
         this.amountRemaining = amountRemaining;
     }
-    
+
 //------------------------------Overrides------------------------------//
     @Override
     public int hashCode() {
@@ -127,5 +136,5 @@ public class Location implements Serializable{
     public void amountRemaining(String _locations_remain) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
 }

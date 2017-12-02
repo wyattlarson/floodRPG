@@ -12,34 +12,31 @@ import byui.cit260.flood.exceptions.MiniGameControlException;
  * @author Brandon
  */
 public class MiniGameControl {
-    
-public static double miniGame1(double base1, double base2, double height, double doubledGuess) 
-    throws MiniGameControlException {
-	
-        if (base1 < 1 || base2 > 50) {
-            throw new MiniGameControlException ("Base 1 must be between 1 and 50");
- }
-        if (base2 < 1 || base1 > 50) {
-            throw new MiniGameControlException ("Base 2 must be between 1 and 50");
- }
-        if (height < 1 || height > 50) {
-            throw new MiniGameControlException ("Height must be between 1 and 50");
- }
-        if (doubledGuess < 1 || doubledGuess > 200) {
-            throw new MiniGameControlException ("Your guess must be between 1 and 200");
- }
-        
-	double area = ((base1 + base2) / 2) * height;
-         if (doubledGuess == area){
-            return doubledGuess;
-        } else throw new MiniGameControlException("Your guess is wrong.");
-        
-}
 
-/**
- * 
- *@author Ryan
- */
+    public static double miniGame1(double base1, double base2, double height, double doubledGuess)
+            throws MiniGameControlException {
+
+        if (base1 < 1 || base2 > 50) {
+            throw new MiniGameControlException("Base 1 must be between 1 and 50");
+        }
+        if (base2 < 1 || base1 > 50) {
+            throw new MiniGameControlException("Base 2 must be between 1 and 50");
+        }
+        if (height < 1 || height > 50) {
+            throw new MiniGameControlException("Height must be between 1 and 50");
+        }
+        if (doubledGuess < 1 || doubledGuess > 200) {
+            throw new MiniGameControlException("Your guess must be between 1 and 200");
+        }
+
+        double area = ((base1 + base2) / 2) * height;
+        if (doubledGuess == area) {
+            return doubledGuess;
+        } else {
+            throw new MiniGameControlException("Your guess is wrong.");
+        }
+
+    }
 
 public static double miniGame2( double doubLen, double doubWid) 
         throws MiniGameControlException{
