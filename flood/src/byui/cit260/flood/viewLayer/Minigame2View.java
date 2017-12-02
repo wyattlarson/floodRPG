@@ -18,29 +18,30 @@ import java.util.logging.Logger;
  *
  * @author Ryan
  */
-public class StartMinigameView extends View {
-
+public class Minigame2View extends View {
+    
     public String[] getInputs() {
-        String[] inputs = new String[1];
-        System.out.println("For the first minigame you must find the area of a trapezoid."
-                + " Base 1 = 20, Base 2 = 15, and Height = 10. What is the area?");
-        String name = this.getInput("Enter your guess:");
-        inputs[0] = name;
+        String[] inputs = new String[2];
+        System.out.println("For the second minigame you must find the length and width of the perimeter of a triangle."
+                + " \nIf the perimeter is 60, what are its lenght and width?");
+        String length = this.getInput("Length guess:");
+        inputs[0] = length;
+        String width = this.getInput("Width guess:");
+        inputs[1] = width;
         return inputs;
     }
 
     public boolean doAction(String[] inputs) {
 
-                        String playersGuess = inputs[0];
+                        String lenGuess = inputs[0];
+                        String widGuess = inputs[1];
                         try{
-                      double base1 = 20;
-                        double base2 = 15;
-                        double height = 10;
-                        double doubledGuess = Double.parseDouble(playersGuess);
+                        double doubLen = Double.parseDouble(lenGuess);
+                        double doubWid = Double.parseDouble(widGuess);
                         try {
-                            double answer = MiniGameControl.miniGame1(base1, base2, height, doubledGuess);
+                            double answer = MiniGameControl.miniGame2(doubLen, doubWid);
                             System.out.println("You are correct!");
-                            startMinigame2();
+                            startMinigame3();
                         } catch (MiniGameControlException e) {
                             System.out.println(e.getMessage());
                             return false;
@@ -50,11 +51,10 @@ public class StartMinigameView extends View {
                             System.out.println("Invalid inputs, use number.");
                         }
                        return true;
-                    }
+                    } 
 
-    private void startMinigame2() {
-        Minigame2View miniGame2View = new Minigame2View();
-        miniGame2View.display();
+   private void startMinigame3() {
+       Minigame3View startMinigame3View = new Minigame3View();
+       startMinigame3View.display();
     }
-
         }
