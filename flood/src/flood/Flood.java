@@ -8,6 +8,8 @@ package flood;
 import byui.cit260.flood.model.Game;
 import byui.cit260.flood.model.Player;
 import byui.cit260.flood.viewLayer.StartProgramView;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 
 /**
  *
@@ -17,6 +19,9 @@ public class Flood {
 
     private static Game currentGame = null;
     private static Player player = null;
+    
+    private static PrintWriter outFIle = null;
+    private static BufferedReader inFile = null;
 
     /**
      * @param args the command line arguments
@@ -48,4 +53,21 @@ public class Flood {
     public static void setPlayer(Player player) {
         Flood.player = player;
     }
+
+    public static PrintWriter getOutFIle() {
+        return outFIle;
+    }
+
+    public static void setOutFIle(PrintWriter outFIle) {
+        Flood.outFIle = outFIle;
+    }
+
+    public static BufferedReader getInFile() {
+        return inFile;
+    }
+
+    public static void setInFile(BufferedReader inFile) {
+        Flood.inFile = inFile;
+    }
+    
 }
