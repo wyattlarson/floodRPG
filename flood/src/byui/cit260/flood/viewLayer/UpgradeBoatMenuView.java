@@ -42,7 +42,7 @@ public class UpgradeBoatMenuView extends View {
             double result = 0;
             try {
                 result = BoatUpgrade.calcBoatNumofPeople(doubledLength, doubledWidth);
-                System.out.println("================================================="
+                this.console.println("================================================="
                         + "\n\tYou have a new boat! "
                         + "\n\tIt can now hold "
                         + result

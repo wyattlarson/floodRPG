@@ -18,7 +18,7 @@ public class StartProgramView extends View {
 
     public String[] getInputs() {
         String[] inputs = new String[1];
-        System.out.println("=============================================================="+
+        this.console.println("=============================================================="+
                                         "\nWelcome to Save Flood Victims!" + 
                                         "\nThank you for your choice to come help save the flood victims."+
                                         "\n==============================================================");
@@ -34,7 +34,7 @@ public class StartProgramView extends View {
             case "S": mainMenu();
             break;
             case "E": return true;
-            default: System.out.println("Invalid command.");
+            default:  ErrorView.display(this.getClass().getName(), "Invalid command.");
             break;
         }
 
@@ -43,7 +43,7 @@ public class StartProgramView extends View {
     }
 
     private void mainMenu() {
-       System.out.println("================================================="
+       this.console.println("================================================="
                 + "\n\tWelcome to the game."
                 + "\n\tWe hope you have a lot of fun!"
                 + "\n=================================================");
