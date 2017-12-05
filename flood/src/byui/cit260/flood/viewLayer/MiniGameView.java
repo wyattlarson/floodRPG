@@ -21,7 +21,7 @@ public class MiniGameView extends View{
          displayResults();
         } while (endView != true);
     }
-        private String[] getInputs() {
+        public String[] getInputs() {
         String[] inputs = new String[4];
         this.console.println("Welcome to the Minigames! there are 3 levels that get progressively harder."
                 + " You will receive a reward for each level you successfully complete." +  
@@ -45,7 +45,7 @@ public class MiniGameView extends View{
         return inputs;
     }
 
-    private boolean doAction(String[] inputs) {
+    public boolean doAction(String[] inputs) {
         String menuItem = inputs[0];
        menuItem = menuItem.toUpperCase();
         switch(menuItem) {
