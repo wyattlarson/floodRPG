@@ -21,7 +21,7 @@ public class DockMenuView extends View {
 
     public String[] getInputs() {
         String[] inputs = new String[8];
-        System.out.println("==========" + "Dock Menu" + "=========="
+        this.console.println("==========" + "Dock Menu" + "=========="
                 + "\n S or Save - Save game"
                 + "\n D or Drop - Drop off passengers"
                 + "\n U or Upgrade - go to boat upgrade menu"
@@ -77,7 +77,7 @@ public class DockMenuView extends View {
             case "E":
                 return true;
             default:
-                System.out.println("Invalid Menu Command.");
+                ErrorView.display(this.getClass().getName(),"Invalid Menu Command.");
                 break;
         }
         return false;
@@ -107,21 +107,21 @@ public class DockMenuView extends View {
         Game game = Flood.getCurrentGame();
         Map map = game.getMap();
         Location[][] locations = map.getLocations();
-        System.out.println("\tMAP OF FLOODED CITY.");
-        System.out.println(" |" + " 1" + "|" + " 2" + "|" + " 3" + "|" + " 4" + "|" + " 5" + "|");
-        System.out.println("-------------------------------------");
+        this.console.println("\tMAP OF FLOODED CITY.");
+        this.console.println(" |" + " 1" + "|" + " 2" + "|" + " 3" + "|" + " 4" + "|" + " 5" + "|");
+        this.console.println("-------------------------------------");
         for (int i = 0; i < map.getRowCount(); i++) {
-            System.out.print(i + 1);
+            this.console.print(i + 1);
             for (int j = 0; j < map.getColumnCount(); j++) {
-                System.out.print("|");
+                this.console.print("|");
                 Location location = locations[i][j];
                 if (location.isVisited() == true) {
-                    System.out.print(location.getLocationSymbol());
+                    this.console.print(location.getLocationSymbol());
                 } else {
-                    System.out.print("??");
+                    this.console.print("??");
                 }
             }
-            System.out.println("|");
+            this.console.println("|");
         }
         MoveCharacterView moveCharacterView = new MoveCharacterView();
         moveCharacterView.display();
@@ -134,7 +134,7 @@ public class DockMenuView extends View {
 
     public void printSaved() {
         Game game = Flood.getCurrentGame();
-        System.out.println(game.getListOfSurvivors());
+        this.console.println(game.getListOfSurvivors());
     }
 
     private void testDoor() {
@@ -143,6 +143,6 @@ public class DockMenuView extends View {
     }
     public void printInventory() {
         Game game = Flood.getCurrentGame();
-        System.out.println(game.getInventory());
+        this.console.println(game.getInventory());
     }
 }
