@@ -22,7 +22,7 @@ public class UpgradeBoatMenuView extends View {
 
     public String[] getInputs() {
         String[] inputs = new String[2];
-        System.out.println("Upgrade your boat, what is the length and width of your boat?");
+        this.console.println("Upgrade your boat, what is the length and width of your boat?");
         String trimmedFirstAnswer = this.getInput("Enter the length of your boat:");
         inputs[0] = trimmedFirstAnswer;
 
@@ -50,11 +50,11 @@ public class UpgradeBoatMenuView extends View {
                         + "\n=================================================");
 
             } catch (BoatUpgradeException e) {
-                System.out.println(e.getMessage());
+                ErrorView.display(this.getClass().getName(), e.getMessage());
                 return false;
             }
         } catch (NumberFormatException e) {
-            System.out.println("invalid Inputs, use numbers.");
+             ErrorView.display(this.getClass().getName(),"invalid Inputs, use numbers.");
         }
         return true;
     }

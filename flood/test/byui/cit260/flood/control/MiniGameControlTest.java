@@ -5,6 +5,7 @@
  */
 package byui.cit260.flood.control;
 
+import byui.cit260.flood.exceptions.MiniGameControlException;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -83,7 +84,7 @@ public class MiniGameControlTest {
      * Test of miniGame2 method, of class MiniGameControl.
      */
     @Test
-    public void testMiniGame2() {
+    public void testMiniGame2() throws MiniGameControlException {
         System.out.println("miniGame2");
         double length = 10.0;
         double width = 20.0;
@@ -93,7 +94,7 @@ public class MiniGameControlTest {
    
     }
     @Test
-        public void testMiniGame2a() {
+        public void testMiniGame2a() throws MiniGameControlException {
         System.out.println("miniGame2");
         double length = -1.0;
         double width = 20.0;
@@ -103,7 +104,7 @@ public class MiniGameControlTest {
    
     }
         @Test
-        public void testMiniGame2b() {
+        public void testMiniGame2b() throws MiniGameControlException {
         System.out.println("miniGame2");
         double length = 10.0;
         double width = -1.0;
@@ -113,7 +114,7 @@ public class MiniGameControlTest {
    
     }
         @Test
-        public void testMiniGame2c() {
+        public void testMiniGame2c() throws MiniGameControlException {
         System.out.println("miniGame2");
         double length = 1.0;
         double width = 30.0;
@@ -123,7 +124,7 @@ public class MiniGameControlTest {
    
     }
         @Test
-        public void testMiniGame2d() {
+        public void testMiniGame2d() throws MiniGameControlException {
         System.out.println("miniGame2");
         double length = 30.0;
         double width = 1.0;
@@ -133,7 +134,7 @@ public class MiniGameControlTest {
    
     }
         @Test
-        public void testMiniGame2e() {
+        public void testMiniGame2e() throws MiniGameControlException {
         System.out.println("miniGame2");
         double length = 30.0;
         double width = 30.0;
@@ -147,7 +148,7 @@ public class MiniGameControlTest {
      * Test of miniGame3 method, of class MiniGameControl.
      */
     @Test
-    public void testMiniGame3() {
+    public void testMiniGame3() throws MiniGameControlException {
         System.out.println("miniGame3");
         double length = 10.0;
         double height = 15.0;
@@ -157,7 +158,7 @@ public class MiniGameControlTest {
  
     }
         @Test
-    public void testMiniGame3a() {
+    public void testMiniGame3a() throws MiniGameControlException {
         System.out.println("miniGame3");
         double length = -1.0;
         double height = 15.0;
@@ -167,7 +168,7 @@ public class MiniGameControlTest {
  
     }
         @Test
-    public void testMiniGame3b() {
+    public void testMiniGame3b() throws MiniGameControlException {
         System.out.println("miniGame3");
         double length = 10.0;
         double height = -1.0;
@@ -175,7 +176,7 @@ public class MiniGameControlTest {
         double result = MiniGameControl.miniGame3(length, height);
     }   
         @Test
-    public void testMiniGame3c() {
+    public void testMiniGame3c() throws MiniGameControlException {
         System.out.println("miniGame3");
         double length = 1.0;
         double height = 30.0;
@@ -185,7 +186,7 @@ public class MiniGameControlTest {
  
     }
         @Test
-    public void testMiniGame3d() {
+    public void testMiniGame3d() throws MiniGameControlException {
         System.out.println("miniGame3");
         double length = 30.0;
         double height = 1.0;
@@ -195,7 +196,7 @@ public class MiniGameControlTest {
  
     }
          @Test
-    public void testMiniGame3e() {
+    public void testMiniGame3e() throws MiniGameControlException {
         System.out.println("miniGame3");
         double length = 30.0;
         double height = 30.0;
