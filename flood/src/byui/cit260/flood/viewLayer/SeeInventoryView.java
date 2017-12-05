@@ -32,6 +32,7 @@ public class SeeInventoryView extends View{
         switch(menuItem) {
             case "E": return true;
             default: this.console.println("Invalid Menu Command.");
+            
             break;
         }
         return false;  

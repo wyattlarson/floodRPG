@@ -14,7 +14,7 @@ public class StartExistingGameView extends View{
  
        public String[] getInputs() {
         String[] inputs = new String[8];
-        System.out.println("=========="+"Saved Games"+ "==========" + 
+        this.console.println("=========="+"Saved Games"+ "==========" + 
                         "\n File 1 - Saved Game");
         
           String menuItem = this.getInput("Load Saved Game:");
@@ -30,7 +30,7 @@ public class StartExistingGameView extends View{
             case "1": loadGame();
             break;
             case "E": return true;
-            default: System.out.println("Invalid Menu Command.");
+            default:  ErrorView.display(this.getClass().getName(), "Invalid Menu Command.");
             break;
         }
         return false;  
