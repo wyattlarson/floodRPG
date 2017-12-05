@@ -12,7 +12,7 @@ import static jdk.nashorn.internal.objects.NativeString.trim;
  *
  * @author Brandon
  */
-public class MiniGameView {
+public class MiniGameView extends View{
     public void displayMiniGameView(){
         boolean endView = false;
         do {
@@ -23,20 +23,20 @@ public class MiniGameView {
     }
         private String[] getInputs() {
         String[] inputs = new String[4];
-        System.out.println("Welcome to the Minigames! there are 3 levels that get progressively harder."
+        this.console.println("Welcome to the Minigames! there are 3 levels that get progressively harder."
                 + " You will receive a reward for each level you successfully complete." +  
                         "\n S - Start" + 
                         "\n E - Exit Minigames");
         boolean valid = false;
         while (valid == false) {
-            System.out.println("Enter a Command: ");
+            this.console.println("Enter a Command: ");
             Scanner inFile; 
             inFile = new Scanner(System.in);
             String name= inFile.nextLine();
             String trimmedName = trim(name);
             //*** changed trimmedName.length < 2 to < 1 for accurate test matrix***//
                 if (trimmedName.length() <1) {
-                System.out.println("You must enter a valid value.");
+                this.console.println("You must enter a valid value.");
                 continue;
             }
             inputs[0] = name;
@@ -52,14 +52,14 @@ public class MiniGameView {
             case "S": startMinigame();
             break;
             case "E": return true;
-            default: System.out.println("Invalid Menu Command.");
+            default: this.console.println("Invalid Menu Command.");
             break;
         }
         return false;  
     }
 
     private void displayResults() {
-    System.out.println();
+    this.console.println();
     }
 
     private void startMinigame() {

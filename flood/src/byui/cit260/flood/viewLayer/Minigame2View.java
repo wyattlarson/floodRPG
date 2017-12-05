@@ -22,7 +22,7 @@ public class Minigame2View extends View {
     
     public String[] getInputs() {
         String[] inputs = new String[2];
-        System.out.println("For the second minigame you must find the length and width of the perimeter of a triangle."
+        this.console.println("For the second minigame you must find the length and width of the perimeter of a triangle."
                 + " \nIf the perimeter is 60, what are its lenght and width?");
         String length = this.getInput("Length guess:");
         inputs[0] = length;
@@ -40,15 +40,15 @@ public class Minigame2View extends View {
                         double doubWid = Double.parseDouble(widGuess);
                         try {
                             double answer = MiniGameControl.miniGame2(doubLen, doubWid);
-                            System.out.println("You are correct!");
+                            this.console.println("You are correct!");
                             startMinigame3();
                         } catch (MiniGameControlException e) {
-                            System.out.println(e.getMessage());
+                            this.console.println(e.getMessage());
                             return false;
                         }
                         }
                         catch(NumberFormatException e){
-                            System.out.println("Invalid inputs, use number.");
+                            this.console.println("Invalid inputs, use number.");
                         }
                        return true;
                     } 

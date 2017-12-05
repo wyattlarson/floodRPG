@@ -17,7 +17,7 @@ public class DoorView extends View {
     @Override
     public String[] getInputs() {
         String[] inputs = new String[2];
-        System.out.println("There is a password on the door.");
+        this.console.println("There is a password on the door.");
         String sideA = this.getInput("Enter your answer for side a:");
         inputs[0] = sideA;
         String sideB = this.getInput("Enter your answer for side b:");
@@ -37,13 +37,13 @@ public class DoorView extends View {
             double doubledC = Double.parseDouble(c);
             try {
                 double result = BuildingControl.puzzle1(doubledA, doubledB, doubledC);
-                System.out.println("Your answer equates to:" + result + ".  " + "You got the answer right! The door opens.");
+                this.console.println("Your answer equates to:" + result + ".  " + "You got the answer right! The door opens.");
             } catch (BuildingControlException e) {
-                System.out.println(e.getMessage());
+                this.console.println(e.getMessage());
                 return false;
             }
         } catch (NumberFormatException e) {
-            System.out.println("Invalid Inputs, use numbers.");
+            this.console.println("Invalid Inputs, use numbers.");
         }
 
         return true;

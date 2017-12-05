@@ -13,7 +13,7 @@ public class DropItemView extends View {
 
     public String[] getInputs() {
         String[] inputs = new String[4];
-        System.out.println(
+        this.console.println(
                 "\n 1 - Flashlight"
                 + "\n 2 - Hammer"
                 + "\n 3 - Floaties"
@@ -30,14 +30,14 @@ public class DropItemView extends View {
             case "E":
                 return true;
             default:
-                System.out.println("Invalid Menu Command.");
+                ErrorView.display(this.getClass().getName(),"Invalid Menu Command.");
                 break;
         }
         return false;
     }
 
     private void displayResults() {
-        System.out.println();
+        this.console.println();
     }
 
 }
