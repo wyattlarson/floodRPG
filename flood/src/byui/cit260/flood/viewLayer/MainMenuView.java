@@ -61,7 +61,7 @@ public class MainMenuView extends View {
             }
             return false;
         } catch (GameControlException ex) {
-            System.out.println("Invalid Menu Command.");
+            ErrorView.display(this.getClass().getName(),"Invalid Menu Command.");
         }
         return false;
     }
@@ -75,11 +75,11 @@ public class MainMenuView extends View {
         try {
             returnValue = GameControl.createNewGame(Flood.getPlayer());
         } catch (MapControlException e) {
-            System.out.println(e.getMessage());
+            this.console.println(e.getMessage());
            
         }
         if (returnValue < 0) {
-            System.out.println("ERROR - Failed to create a new game.");
+            ErrorView.display(this.getClass().getName(),"ERROR - Failed to create a new game.");
         }
          DockMenuView dockMenuView = new DockMenuView();
         dockMenuView.display();
