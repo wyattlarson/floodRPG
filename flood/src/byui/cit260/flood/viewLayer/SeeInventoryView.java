@@ -16,7 +16,7 @@ public class SeeInventoryView extends View{
 
         public String[] getInputs() {
         String[] inputs = new String[8];
-        System.out.println("Inventory" +  
+        this.console.println("Inventory" +  
                         "\n 1 Flashlight" + 
                         "\n 1 Hammer" +
                         "\n 2 Floaties" + 
@@ -31,14 +31,14 @@ public class SeeInventoryView extends View{
        menuItem = menuItem.toUpperCase();
         switch(menuItem) {
             case "E": return true;
-            default: System.out.println("Invalid Menu Command.");
+            default:  ErrorView.display(this.getClass().getName(), "Invalid Menu Command.");
             break;
         }
         return false;  
     }
 
     private void displayResults() {
-    System.out.println();
+    this.console.println();
     }
 
 
