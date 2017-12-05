@@ -5,6 +5,7 @@
  */
 package byui.cit260.flood.control;
 
+import byui.cit260.flood.exceptions.BuildingControlException;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -21,7 +22,7 @@ public class BuildingControlTest {
      * Test of puzzle1 method, of class BuildingControl.
      */
     @Test
-    public void testPuzzle1() {
+    public void testPuzzle1() throws BuildingControlException {
         System.out.println("puzzle Test: 1");
         double a = 1;
         double b = 1;
@@ -31,7 +32,7 @@ public class BuildingControlTest {
         assertEquals(expResult, result, 0.0);
     }
         @Test
-    public void testPuzzle2() {
+    public void testPuzzle2() throws BuildingControlException {
         System.out.println("puzzle Test: 2");
         double a = 10;
         double b = 0;
@@ -41,7 +42,7 @@ public class BuildingControlTest {
         assertEquals(expResult, result, 0.0);
     }
         @Test
-    public void testPuzzle3() {
+    public void testPuzzle3() throws BuildingControlException {
         System.out.println("puzzle Test: 3");
         double a = 25;
         double b = 25;
@@ -51,7 +52,7 @@ public class BuildingControlTest {
         assertEquals(expResult, result, 0.0);
     }
         @Test
-    public void testPuzzle4() {
+    public void testPuzzle4() throws BuildingControlException {
         System.out.println("puzzle Test: 4");
         double a = 2;
         double b = 1;
@@ -61,7 +62,7 @@ public class BuildingControlTest {
         assertEquals(expResult, result, 0.0);
     }
         @Test
-    public void testPuzzle5() {
+    public void testPuzzle5() throws BuildingControlException {
         System.out.println("puzzle Test: 5");
         double a = 3;
         double b = 4;
@@ -71,7 +72,7 @@ public class BuildingControlTest {
         assertEquals(expResult, result, 0.0);
     }
             @Test
-    public void testPuzzle6() {
+    public void testPuzzle6() throws BuildingControlException {
         System.out.println("puzzle Test: 6");
         double a = 0;
         double b = 10;
@@ -81,7 +82,7 @@ public class BuildingControlTest {
         assertEquals(expResult, result, 0.0);
     }
             @Test
-    public void testPuzzle7() {
+    public void testPuzzle7() throws BuildingControlException {
         System.out.println("puzzle Test: 7");
         double a = 5;
         double b = 5;
@@ -91,7 +92,7 @@ public class BuildingControlTest {
         assertEquals(expResult, result, 0.0);
     }
             @Test
-    public void testPuzzle8() {
+    public void testPuzzle8() throws BuildingControlException {
         System.out.println("puzzle Test: 8");
         double a = 25;
         double b = 25;
