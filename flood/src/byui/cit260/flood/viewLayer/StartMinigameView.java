@@ -22,7 +22,7 @@ public class StartMinigameView extends View {
 
     public String[] getInputs() {
         String[] inputs = new String[1];
-        System.out.println("For the first minigame you must find the area of a trapezoid."
+        this.console.println("For the first minigame you must find the area of a trapezoid."
                 + " Base 1 = 20, Base 2 = 15, and Height = 10. What is the area?");
         String name = this.getInput("Enter your guess:");
         inputs[0] = name;
@@ -39,15 +39,15 @@ public class StartMinigameView extends View {
                         double doubledGuess = Double.parseDouble(playersGuess);
                         try {
                             double answer = MiniGameControl.miniGame1(base1, base2, height, doubledGuess);
-                            System.out.println("You are correct!");
+                            this.console.println("You are correct!");
                             startMinigame2();
                         } catch (MiniGameControlException e) {
-                            System.out.println(e.getMessage());
+                            this.console.println(e.getMessage());
                             return false;
                         }
                         }
                         catch(NumberFormatException e){
-                            System.out.println("Invalid inputs, use number.");
+                            this.console.println("Invalid inputs, use number.");
                         }
                        return true;
                     }
