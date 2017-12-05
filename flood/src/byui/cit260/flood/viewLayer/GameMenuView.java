@@ -17,7 +17,7 @@ public abstract class GameMenuView extends View {
 
     public String[] getInputs() {
         String[] inputs = new String[4];
-        System.out.println("Welcome to your new game");
+        this.console.println("Welcome to your new game");
         String name = this.getInput("Enter your player name: ");
         inputs[0] = name;
 
@@ -31,13 +31,10 @@ public abstract class GameMenuView extends View {
         try {
             player = GameControl.savePlayer(playersName);
         } catch (GameControlException e) {
-            System.out.println(e.getMessage());
+            this.console.println(e.getMessage());
             return false;
-
-            /*System.out.println("Could not create player. " + "Enter a different name.");
-             */
         }
-        System.out.println("================================================="
+        this.console.println("================================================="
                 + "\n\tWelcome to the game " + playersName + "."
                 + "\n\tGood Luck!"
                 + "\n=================================================");

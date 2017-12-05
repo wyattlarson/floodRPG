@@ -16,7 +16,7 @@ public class HelpMenuView extends View {
     @Override
     public String[] getInputs() {
         String[] inputs = new String[8];
-        System.out.println("==========" + "\bHELP MENU"
+        this.console.println("==========" + "\bHELP MENU"
                 + "=========="
                 + "\n 1 - Universal Command Help"
                 + "\n 2 - Dock Menu Help"
@@ -30,7 +30,7 @@ public class HelpMenuView extends View {
             String menuCommand = this.getInput("Enter a Command: ");
             String trimmedCommand = trim(menuCommand);
             if (trimmedCommand.length() < 1) {
-                System.out.println("You must enter a valid value.");
+                ErrorView.display(this.getClass().getName(),"You must enter a valid value.");
                 continue;
             }
             inputs[0] = trimmedCommand;
@@ -62,21 +62,21 @@ public class HelpMenuView extends View {
             case "E":
                 return true;
             default:
-                System.out.println("Invalid Menu Command.");
+                ErrorView.display(this.getClass().getName(),"Invalid Menu Command.");
                 break;
         }
         return false;
     }
 
     private void universalHelpMenu() {
-        System.out.println("Universal Commands Help"
+        this.console.println("Universal Commands Help"
                 + "\n Q - Quit, lets user promptly quit game."
                 + "\n H - Help, lets you access this menu at anytime."
                 + "\n I - Inventory, opens your inventory.");
     }
 
     private void dockHelpMenu() {
-        System.out.println("Dock Menu Commands"
+        this.console.println("Dock Menu Commands"
                 + "\n S - Save, save game."
                 + "\n D - Drop, drops off passengers at the dock."
                 + "\n B - Boat, access boat menu to upgrade boat."
@@ -86,20 +86,20 @@ public class HelpMenuView extends View {
     }
 
     private void boatMenuHelp() {
-        System.out.println("Boat Menu Help"
+        this.console.println("Boat Menu Help"
                 + "\n U - Upgrade, Upgrade boat."
                 + "\n G - Gas, refuel.");
     }
 
     private void exploreMapHelp() {
-        System.out.println("Explore Map Help"
+        this.console.println("Explore Map Help"
                 + "\n M - Movement help, you can move any compass direction."
                 + "\n L - Look, see a description of your surroundings."
                 + "\n R - Return, return to dock and opens dock menu.");
     }
 
     private void buildingHelp() {
-        System.out.println("Building Help"
+        this.console.println("Building Help"
                 + "\n L - Look, see a short description of your surroundings."
                 + "\n P - Pickup, pickup item or survivors."
                 + "\n E - Exit, exit building to your boat.");
