@@ -75,7 +75,6 @@ public class GameControl {
     }
 
     public static Item[] createItems() {
-        System.out.println("create items called");
         Item[] items = new Item[8];
 
         Item engine = new Item();
@@ -131,7 +130,6 @@ public class GameControl {
     public static Map createMap(int noOfRows, int noOfColumns, Item[] items) 
             throws GameControlException, MapControlException {
 
-        System.out.println("create map called");
         if (noOfRows < 0 || noOfColumns < 0) {
             throw new GameControlException("map issue.");
         }

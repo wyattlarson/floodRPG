@@ -32,7 +32,6 @@ public class MapControl {
 
     public static Location[][] createLocations(int rows, int columns)
             throws MapControlException {
-        System.out.println("createLocations called");
         if (rows < 1 || columns < 1) {
             throw new MapControlException("Map Control Error");
         }
@@ -75,7 +74,6 @@ public class MapControl {
     }
 
     public static Equation[] createQuestions() {
-        System.out.println("createQuestions called");
         Equation[] questions = new Equation[5];
 
         Equation trapArea = new Equation();
@@ -87,7 +85,6 @@ public class MapControl {
     }
 
     public static void assignQuestionsToScenes(Equation[] questions, BuildingScene[] scenes) {
-        System.out.println("assignQuestionsToScenes called");
 
         QuestionScene miniGame = (QuestionScene) scenes[SceneType.minigame.ordinal()];
         Equation[] miniGameQuestions = new Equation[3];
@@ -103,7 +100,6 @@ public class MapControl {
     }
 
     public static void assignItemsToScenes(Item[] items, BuildingScene[] scenes) {
-        System.out.println("assignItemsToScene called");
 
         BuildingScene building = (BuildingScene) scenes[SceneType.building.ordinal()];
         ArrayList<Item> buildingItems = building.getItems();
@@ -112,7 +108,6 @@ public class MapControl {
     }
 
     public static void assignSceneToLocations(Map map, BuildingScene[] scenes) {
-        System.out.println("assignSceneToLoctions called");
         Location[][] locations = map.getLocations();
         locations[0][0].setBuildingScene(scenes[SceneType.dock.ordinal()]);
         locations[0][0].setLocationSymbol("D ");

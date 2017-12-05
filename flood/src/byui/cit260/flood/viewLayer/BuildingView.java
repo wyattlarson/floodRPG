@@ -20,7 +20,7 @@ public class BuildingView extends View {
     @Override
     public String[] getInputs() {
         String[] inputs = new String[1];
-        System.out.println("You have entered the red flooded building. Type H for a list of commands.");
+        this.console.println("You have entered the red flooded building. Type H for a list of commands.");
         String command = this.getInput("Enter a command:");
         inputs[0] = command;
         return inputs;
@@ -49,14 +49,14 @@ public class BuildingView extends View {
             case "E":
                 return true;
             default:
-                System.out.println("Invalid Menu Command.");
+                ErrorView.display(this.getClass().getName(), "Invalid Menu Command.");
                 break;
         }
         return false;
     }
 
     private void look() {
-        System.out.println("You see a piece of paper on a table, and a door on the far side of the room.");
+        this.console.println("You see a piece of paper on a table, and a door on the far side of the room.");
     }
 
     private void help() {

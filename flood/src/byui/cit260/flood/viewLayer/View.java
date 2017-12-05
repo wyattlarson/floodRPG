@@ -5,6 +5,9 @@
  */
 package byui.cit260.flood.viewLayer;
 
+import flood.Flood;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import java.util.Scanner;
 import static jdk.nashorn.internal.objects.NativeString.trim;
 
@@ -13,6 +16,9 @@ import static jdk.nashorn.internal.objects.NativeString.trim;
  * @author wyatt
  */
 public abstract class View implements ViewInterface {
+
+    protected final BufferedReader keyboard = Flood.getInFile();
+    protected final PrintWriter console = Flood.getOutFile();
 
     public View() {
     }
@@ -33,19 +39,23 @@ public abstract class View implements ViewInterface {
     @Override
     public String getInput(String promptMessage) {
         boolean valid = false;
-        while (valid == false) {
-            System.out.println(promptMessage);
-            Scanner inFile;
-            inFile = new Scanner(System.in);
-            String value = inFile.nextLine();
-            value = trim(value);
-            //*** changed trimmedName.length < 2 to < 1 for accurate test matrix***//
-            if (value.length() < 1) {
-                System.out.println("You must enter a valid value.");
-                continue;
+        String selection = null;
+        try {
+            while (valid == false) {
+                System.out.println(promptMessage);
+
+                selection = keyboard.readLine();
+                selection = selection.trim();
+                //*** changed trimmedName.length < 2 to < 1 for accurate test matrix***//
+                if (selection.length() < 1) {
+                    System.out.println("You must enter a valid value.");
+                    continue;
+                }
+                break;
             }
-            return value;
+        } catch (Exception e) {
+            System.out.println("Error reading input: " + e.getMessage());
         }
-        return null;
+        return selection;
     }
 }

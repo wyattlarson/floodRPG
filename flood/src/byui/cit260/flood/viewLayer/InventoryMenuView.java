@@ -23,7 +23,7 @@ public class InventoryMenuView extends View{
     @Override
     public String[] getInputs() {
         String[] inputs = new String[4];
-        System.out.println("Inventory Menu" + 
+        this.console.println("Inventory Menu" + 
                 "\n S- See items in your inventory " + 
                 "\n D - Drop items" + 
                 "\n U - Use an item" + 
@@ -45,7 +45,7 @@ public class InventoryMenuView extends View{
             case "U": useItem();
             break;
             case "E": return true;
-            default: System.out.println("Invalid Menu Command.");
+            default: ErrorView.display(this.getClass().getName(), "Invalid Menu Command.");
             break;
         }
         return false;

@@ -9,7 +9,11 @@ import byui.cit260.flood.model.Game;
 import byui.cit260.flood.model.Player;
 import byui.cit260.flood.viewLayer.StartProgramView;
 import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -20,22 +24,48 @@ public class Flood {
     private static Game currentGame = null;
     private static Player player = null;
     
-    private static PrintWriter outFIle = null;
+    private static PrintWriter outFile = null;
     private static BufferedReader inFile = null;
+    
+    private static PrintWriter logFile = null;
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         try {
+            Flood.inFile = new BufferedReader(new InputStreamReader(System.in));
+            
+            Flood.outFile = new PrintWriter(System.out, true);
+            
+            //open log file
+            String filePath = "log.txt.";
+            Flood.logFile = new PrintWriter(filePath);
+            
             StartProgramView startProgramView = new StartProgramView();
             startProgramView.display();
         } catch (Throwable te) {
-            System.out.println("Something went wrong. Game error.");
-            StartProgramView startProgramView = new StartProgramView();
-            startProgramView.display();
+            System.out.println("Exception: " + te.toString() + 
+                                                "\nCause: " + te.getCause() + 
+                                                "\nMessage: " + te.getMessage());
+            te.printStackTrace();;
         }
-
+        finally {
+            try {
+                if (Flood.inFile != null)
+                Flood.inFile.close();
+                
+                if (Flood.outFile != null)
+                Flood.outFile.close();
+                
+                if (Flood.logFile != null)
+                    Flood.logFile.close();
+            } catch (IOException ex) {
+                System.out.println("Error closing Files");
+                return;
+            }
+            
+        }
     }
 
     public static Game getCurrentGame() {
@@ -55,11 +85,11 @@ public class Flood {
     }
 
     public static PrintWriter getOutFIle() {
-        return outFIle;
+        return outFile;
     }
 
     public static void setOutFIle(PrintWriter outFIle) {
-        Flood.outFIle = outFIle;
+        Flood.outFile = outFIle;
     }
 
     public static BufferedReader getInFile() {
@@ -68,6 +98,22 @@ public class Flood {
 
     public static void setInFile(BufferedReader inFile) {
         Flood.inFile = inFile;
+    }
+
+    public static PrintWriter getOutFile() {
+        return outFile;
+    }
+
+    public static void setOutFile(PrintWriter outFile) {
+        Flood.outFile = outFile;
+    }
+
+    public static PrintWriter getLogFile() {
+        return logFile;
+    }
+
+    public static void setLogFile(PrintWriter logFile) {
+        Flood.logFile = logFile;
     }
     
 }
