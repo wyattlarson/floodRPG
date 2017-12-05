@@ -42,19 +42,19 @@ public abstract class View implements ViewInterface {
         String selection = null;
         try {
             while (valid == false) {
-                System.out.println(promptMessage);
+                this.console.println(promptMessage);
 
                 selection = keyboard.readLine();
                 selection = selection.trim();
                 //*** changed trimmedName.length < 2 to < 1 for accurate test matrix***//
                 if (selection.length() < 1) {
-                    System.out.println("You must enter a valid value.");
+                    this.console.println("You must enter a valid value.");
                     continue;
                 }
                 break;
             }
         } catch (Exception e) {
-            System.out.println("Error reading input: " + e.getMessage());
+            this.console.println("Error reading input: " + e.getMessage());
         }
         return selection;
     }

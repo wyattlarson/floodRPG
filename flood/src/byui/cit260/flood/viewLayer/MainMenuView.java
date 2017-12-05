@@ -56,7 +56,7 @@ public class MainMenuView extends View {
                 case "E":
                     return true;
                 default:
-                    System.out.println("Invalid Menu Command.");
+                    ErrorView.display(this.getClass().getName(), "Invalid Menu Command.");
                     break;
             }
             return false;

@@ -60,7 +60,7 @@ public class BuildingView extends View {
     }
 
     private void help() {
-        System.out.println("Building Menu Commands"
+        this.console.println("Building Menu Commands"
                 + "\n Look - Look around you."
                 + "\n H - List of available commands."
                 + "\n B - Boat, access boat menu to upgrade boat."
@@ -74,7 +74,7 @@ public class BuildingView extends View {
     }
 
     private void readPaper() {
-        System.out.println("You read the piece of paper. It says: Find the other side lengths of a triangle with a hypotneus of 25. Remember a^2 + b^2 = c^2. You are finding a and b.");
+        this.console.println("You read the piece of paper. It says: Find the other side lengths of a triangle with a hypotneus of 25. Remember a^2 + b^2 = c^2. You are finding a and b.");
     }
     
     public void pickupPaper(){
