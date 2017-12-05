@@ -22,7 +22,7 @@ public class Minigame3View extends View {
     
     public String[] getInputs() {
         String[] inputs = new String[2];
-        System.out.println(""
+        this.console.println(""
                 + " \n what are its lenght and height?");
         String length = this.getInput("Length guess:");
         inputs[0] = length;
@@ -40,14 +40,14 @@ public class Minigame3View extends View {
                         double doubHei = Double.parseDouble(HeiGuess);
                         try {
                             double answer = MiniGameControl.miniGame3(doubLen, doubHei);
-                            System.out.println("You are correct!");
+                            this.console.println("You are correct!");
                         } catch (MiniGameControlException e) {
-                            System.out.println(e.getMessage());
+                            this.console.println(e.getMessage());
                             return false;
                         }
                         }
                         catch(NumberFormatException e){
-                            System.out.println("Invalid inputs, use number.");
+                            ErrorView.display(this.getClass().getName(),"Invalid inputs, use number.");
                         }
                        return true;
                     } 
