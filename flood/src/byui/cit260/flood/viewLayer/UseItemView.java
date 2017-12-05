@@ -16,7 +16,7 @@ public class UseItemView extends View {
 
         public String[] getInputs() {
         String[] inputs = new String[4];
-        System.out.println(
+        this.console.println(
                         "\n 1 - Flashlight" + 
                         "\n 2 - Hammer" +
                         "\n 3 - Floaties" + 
@@ -31,14 +31,14 @@ public class UseItemView extends View {
        menuItem = menuItem.toUpperCase();
         switch(menuItem) {
             case "E": return true;
-            default: System.out.println("Invalid Menu Command.");
+            default: this.console.println("Invalid Menu Command.");
             break;
         }
         return false;  
     }
 
     private void displayResults() {
-    System.out.println("it works");
+    this.console.println("it works");
     }
         
     }
