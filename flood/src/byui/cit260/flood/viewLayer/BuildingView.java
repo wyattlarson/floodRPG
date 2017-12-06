@@ -10,6 +10,7 @@ import byui.cit260.flood.model.Game;
 import byui.cit260.flood.model.Item;
 import byui.cit260.flood.model.ItemType;
 import flood.Flood;
+import java.util.ArrayList;
 
 /**
  *
@@ -81,7 +82,13 @@ public class BuildingView extends View {
     public void pickupPaper(){
         Game game = Flood.getCurrentGame();
         Item[] items = game.getItems();
-        
+        ArrayList<Item> inventory = new ArrayList<>();
+        for (Item item : items) {
+            if (item.getName() == "Paper") {
+                inventory.add(item);
+            }
+        }
+        game.setInventory(inventory);
     }
 
     private void openDoor() {

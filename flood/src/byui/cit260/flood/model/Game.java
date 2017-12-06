@@ -103,13 +103,12 @@ public class Game implements Serializable {
     public int hashCode() {
         int hash = 3;
         hash = 23 * hash + (int) (Double.doubleToLongBits(this.amountSaved) ^ (Double.doubleToLongBits(this.amountSaved) >>> 32));
-        hash = 23 * hash + Objects.hashCode(this.savedFile);
         return hash;
     }
 
     @Override
     public String toString() {
-        return "Game{" + "amountSaved=" + amountSaved + ", savedFile=" + savedFile + '}';
+        return "Game{" + "amountSaved=" + amountSaved + '}';
     }
 
     @Override
@@ -125,9 +124,6 @@ public class Game implements Serializable {
         }
         final Game other = (Game) obj;
         if (Double.doubleToLongBits(this.amountSaved) != Double.doubleToLongBits(other.amountSaved)) {
-            return false;
-        }
-        if (!Objects.equals(this.savedFile, other.savedFile)) {
             return false;
         }
         return true;
