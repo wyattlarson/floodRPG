@@ -81,6 +81,7 @@ public class BuildingView extends View {
         Game game = Flood.getCurrentGame();
         Item[] items = game.getItems();
         
+        
     }
 
     private void openDoor() {
