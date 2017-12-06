@@ -65,6 +65,7 @@ public class BuildingView extends View {
                 + "\n H - List of available commands."
                 + "\n B - Boat, access boat menu to upgrade boat."
                 + "\n E - Exit building."
+                +"\n Pickup Paper - Pick up the piece of paper."
                 + "\n Read Paper - Read the piece of paper"
                 + "\n Open Door - Try to open the door.");
     }
