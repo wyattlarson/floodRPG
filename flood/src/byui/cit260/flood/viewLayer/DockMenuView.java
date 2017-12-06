@@ -5,6 +5,7 @@
  */
 package byui.cit260.flood.viewLayer;
 
+import byui.cit260.flood.control.GameControl;
 import byui.cit260.flood.exceptions.MapControlException;
 import byui.cit260.flood.model.Game;
 import byui.cit260.flood.model.Location;
@@ -43,7 +44,7 @@ public class DockMenuView extends View {
         menuItem = menuItem.toUpperCase();
         switch (menuItem) {
             case "S":
-                saveGameMenu();
+                saveGame();
                 break;
             case "U":
                 upgradeBoatMenu();
@@ -128,8 +129,15 @@ public class DockMenuView extends View {
 
     }
 
-    private void saveGameMenu() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private void saveGame() {
+        this.console.println("\n\nEnter the filepath for file where the game is to be saved.");
+        String filePath = this.getInput("-->");
+        
+        try{
+            GameControl.saveGame(Flood.getCurrentGame(), filePath);
+        } catch(Exception ex) {
+            ErrorView.display("MainMenuView", ex.getMessage());
+        }
     }
 
     public void printSaved() {

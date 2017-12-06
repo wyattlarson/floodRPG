@@ -22,6 +22,10 @@ import byui.cit260.flood.model.Equation;
 import byui.cit260.flood.model.Inventory;
 import java.util.Arrays;
 import byui.cit260.flood.control.MapControl;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
 /**
  *
@@ -171,6 +175,30 @@ public class GameControl {
             }
         }
         return inventory;
+    }
+    
+    public static void saveGame (Game game, String filepath)
+            throws GameControlException {
+        try( FileOutputStream fops = new FileOutputStream(filepath)) {
+            ObjectOutputStream output = new ObjectOutputStream(fops);
+            
+            output.writeObject(game);
+        } catch (Exception e){
+            throw new GameControlException(e.getMessage());
+        }
+    }
+    
+    public static void loadGame(String filepath)
+            throws GameControlException {
+        Game game = null;
+        
+        try( FileInputStream fips = new FileInputStream(filepath)) {
+            ObjectInputStream input = new ObjectInputStream(fips);
+            game = (Game) input.readObject();
+        } catch(Exception e) {
+            throw new GameControlException(e.getMessage());
+        }
+        Flood.setCurrentGame(game);
     }
 
 }

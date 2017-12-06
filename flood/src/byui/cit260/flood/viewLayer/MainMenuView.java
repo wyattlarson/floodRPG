@@ -86,8 +86,16 @@ public class MainMenuView extends View {
     }
 
     private void restartGame() {
-        StartExistingGameView startExistingGameView = new StartExistingGameView();
-        startExistingGameView.display();
+        String promptMessage = "\n\nEnter the file path for the file you want to load.";
+        String filePath = this.getInput(promptMessage);
+        
+        try {
+            GameControl.loadGame(filePath);
+        } catch (Exception ex) {
+            ErrorView.display("MainMenuView",ex.getMessage());
+        }
+        DockMenuView dockMenuView = new DockMenuView();
+        dockMenuView.display();
     }
 
     private void getHelp() {
