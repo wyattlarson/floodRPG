@@ -42,10 +42,5 @@ public class SeeInventoryView extends View{
     this.console.println();
     }
 
-
-
-
-
-
         
     }
