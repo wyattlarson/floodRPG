@@ -17,5 +17,14 @@ public enum ItemType {
     rope,
     nails,
     gasoline,
-    fred;
+    fred,
+    susan,
+    brian,
+    taylor,
+    derrick,
+    ryan,
+    brandon,
+    wyatt,
+    jackson,
+    emma;
 }

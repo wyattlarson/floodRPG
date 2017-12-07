@@ -67,11 +67,11 @@ public class GameControl {
         }
         game.setMap(map);
 
-        ArrayList<Item> survivors = new ArrayList<>();
+        ArrayList<String> survivors = new ArrayList<>();
         survivors = GameControl.getSurvivors(items);
         game.setListOfSurvivors(survivors);
 
-        ArrayList<Item> inventory = new ArrayList<>();
+        ArrayList<String> inventory = new ArrayList<>();
         inventory = GameControl.getInventoryItems(items);
         game.setInventory(inventory);
 
@@ -79,7 +79,7 @@ public class GameControl {
     }
 
     public static Item[] createItems() {
-        Item[] items = new Item[8];
+        Item[] items = new Item[17];
 
         Item engine = new Item();
         engine.setName("Engine Parts");
@@ -128,6 +128,60 @@ public class GameControl {
         fred.setDescription("A stranded survivor of the flood. Get them to safety.");
         fred.setItemId(3);
         items[ItemType.fred.ordinal()] = fred;
+        
+        Item susan = new Item();
+        susan.setName("Susan");
+        susan.setDescription("A stranded survivor of the flood. Get them to safety.");
+        susan.setItemId(3);
+        items[ItemType.susan.ordinal()] = susan;
+        
+        Item brian = new Item();
+        brian.setName("Brian");
+        brian.setDescription("A stranded survivor of the flood. Get them to safety.");
+        brian.setItemId(3);
+        items[ItemType.brian.ordinal()] = brian;
+        
+        Item taylor = new Item();
+        taylor.setName("Taylor");
+        taylor.setDescription("A stranded survivor of the flood. Get them to safety.");
+        taylor.setItemId(3);
+        items[ItemType.taylor.ordinal()] = taylor;
+        
+        Item derrick = new Item();
+        derrick.setName("Derrick");
+        derrick.setDescription("A stranded survivor of the flood. Get them to safety.");
+        derrick.setItemId(3);
+        items[ItemType.derrick.ordinal()] = derrick;
+        
+        Item ryan = new Item();
+        ryan.setName("Ryan");
+        ryan.setDescription("A stranded survivor of the flood. Get them to safety.");
+        ryan.setItemId(3);
+        items[ItemType.ryan.ordinal()] = ryan;
+        
+        Item brandon = new Item();
+        brandon.setName("Brandon");
+        brandon.setDescription("A stranded survivor of the flood. Get them to safety.");
+        brandon.setItemId(3);
+        items[ItemType.brandon.ordinal()] = brandon;
+        
+        Item wyatt = new Item();
+        wyatt.setName("Wyatt");
+        wyatt.setDescription("A stranded survivor of the flood. Get them to safety.");
+        wyatt.setItemId(3);
+        items[ItemType.wyatt.ordinal()] = wyatt;
+        
+        Item jackson = new Item();
+        jackson.setName("Jackson");
+        jackson.setDescription("A stranded survivor of the flood. Get them to safety.");
+        jackson.setItemId(3);
+        items[ItemType.jackson.ordinal()] = jackson;
+        
+        Item emma = new Item();
+        emma.setName("Emma");
+        emma.setDescription("A stranded survivor of the flood. Get them to safety.");
+        emma.setItemId(3);
+        items[ItemType.emma.ordinal()] = emma;
         return items;
     }
 
@@ -157,21 +211,21 @@ public class GameControl {
         return map;
     }
 
-    public static ArrayList<Item> getSurvivors(Item[] items) {
-        ArrayList<Item> survivors = new ArrayList<>();
+        public static ArrayList<String> getSurvivors(Item[] items) {
+        ArrayList<String> survivors = new ArrayList<>();
         for (Item item : items) {
             if (item.getItemId() == 3) {
-                survivors.add(item);
+                survivors.add(item.getName());
             }
         }
         return survivors;
     }
 
-    public static ArrayList<Item> getInventoryItems(Item[] items) {
-        ArrayList<Item> inventory = new ArrayList<>();
+    public static ArrayList<String> getInventoryItems(Item[] items) {
+        ArrayList<String> inventory = new ArrayList<>();
         for (Item item : items) {
             if (item.isInInventory() == true) {
-                inventory.add(item);
+                inventory.add(item.getName());
             }
         }
         return inventory;

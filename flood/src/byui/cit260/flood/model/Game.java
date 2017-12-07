@@ -20,8 +20,8 @@ public class Game implements Serializable {
 //------------------------------Game Attributes------------------------------//
     private int amountSaved;
     private Item[] items;
-    private ArrayList<Item> listOfSurvivors;
-    private ArrayList<Item> inventory;
+    private ArrayList<String> listOfSurvivors;
+    private ArrayList<String> inventory;
 
 //------------------------------Associations------------------------------//
     //this is the association between the Game class and the Player class
@@ -82,19 +82,19 @@ public class Game implements Serializable {
         this.amountSaved = amountSaved;
     }
 
-    public ArrayList<Item> getListOfSurvivors() {
+    public ArrayList<String> getListOfSurvivors() {
         return listOfSurvivors;
     }
 
-    public void setListOfSurvivors(ArrayList<Item> listOfSurvivors) {
+    public void setListOfSurvivors(ArrayList<String> listOfSurvivors) {
         this.listOfSurvivors = listOfSurvivors;
     }
   
-    public ArrayList<Item> getInventory() {
+    public ArrayList<String> getInventory() {
         return inventory;
     }
 
-    public void setInventory(ArrayList<Item> inventory) {
+    public void setInventory(ArrayList<String> inventory) {
         this.inventory = inventory;
     }
 
