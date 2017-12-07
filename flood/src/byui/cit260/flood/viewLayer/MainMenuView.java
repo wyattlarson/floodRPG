@@ -68,7 +68,8 @@ public class MainMenuView extends View {
 
     private void startNewGame() throws GameControlException {
         // creates new game with player 
-        GameMenuView gameMenuView = new GameMenuView() {
+        GameMenuView gameMenuView = new GameMenuView(){
+            
         };
         gameMenuView.display();
         int returnValue = 0;

@@ -93,7 +93,6 @@ public class BuildingView extends View {
         }
         game.setInventory(inventory);
     }
-
     private void openDoor() {
         DoorView doorView = new DoorView();
         doorView.display();
