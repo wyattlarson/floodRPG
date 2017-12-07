@@ -31,7 +31,7 @@ public class MoveCharacterView extends View {
             this.console.print(i + 1);
             for (int j = 0; j < map.getColumnCount(); j++) {
                 this.console.print("|");
-                Location location = locations[i][j];
+                Location location = locations[j][i];
                 if (location.isVisited() == true) {
                     this.console.print(location.getLocationSymbol());
                 } else {
@@ -56,8 +56,8 @@ public class MoveCharacterView extends View {
     }
 
     public boolean doAction(String[] inputs) {
-        String row = inputs[1];
-        String column = inputs[0];
+        String row = inputs[0];
+        String column = inputs[1];
         int intRow;
         int intColumn;
         try {
@@ -110,14 +110,72 @@ public class MoveCharacterView extends View {
             waterView.display();
         }
         else if (newLocation.getRow()+1==3 && newLocation.getColumn()+1==2){
-            WaterView waterView = new WaterView();
-            waterView.display();
+            //insert new building view
         }
         else if (newLocation.getRow()+1==4 && newLocation.getColumn()+1==2){
             WaterView waterView = new WaterView();
             waterView.display();
         }
-        
+        else if (newLocation.getRow()+1==5 && newLocation.getColumn()+1==2){
+            WaterView waterView = new WaterView();
+            waterView.display();
+        }
+        else if (newLocation.getRow()+1==1 && newLocation.getColumn()+1==3){
+            WaterView waterView = new WaterView();
+            waterView.display();
+        }
+        else if (newLocation.getRow()+1==2 && newLocation.getColumn()+1==3){
+            WaterView waterView = new WaterView();
+            waterView.display();
+        }
+        else if (newLocation.getRow()+1==3 && newLocation.getColumn()+1==3){
+            WaterView waterView = new WaterView();
+            waterView.display();
+        }
+        else if (newLocation.getRow()+1==4 && newLocation.getColumn()+1==3){
+            WaterView waterView = new WaterView();
+            waterView.display();
+        }
+        else if (newLocation.getRow()+1==5 && newLocation.getColumn()+1==3){
+           //insert building view
+        }
+        else if (newLocation.getRow()+1==1 && newLocation.getColumn()+1==4){
+            WaterView waterView = new WaterView();
+            waterView.display();
+        }
+        else if (newLocation.getRow()+1==2 && newLocation.getColumn()+1==4){
+            WaterView waterView = new WaterView();
+            waterView.display();
+        }
+        else if (newLocation.getRow()+1==3 && newLocation.getColumn()+1==4){
+            WaterView waterView = new WaterView();
+            waterView.display();
+        }
+        else if (newLocation.getRow()+1==4 && newLocation.getColumn()+1==4){
+            //new building view
+        }
+        else if (newLocation.getRow()+1==5 && newLocation.getColumn()+1==4){
+            WaterView waterView = new WaterView();
+            waterView.display();
+        }
+        else if (newLocation.getRow()+1==1 && newLocation.getColumn()+1==5){
+            WaterView waterView = new WaterView();
+            waterView.display();
+        }
+        else if (newLocation.getRow()+1==2 && newLocation.getColumn()+1==5){
+            //new building view
+        }
+        else if (newLocation.getRow()+1==3 && newLocation.getColumn()+1==5){
+            WaterView waterView = new WaterView();
+            waterView.display();
+        }
+        else if (newLocation.getRow()+1==4 && newLocation.getColumn()+1==5){
+            //display new building view
+        }
+        else if (newLocation.getRow()+1==5 && newLocation.getColumn()+1==5){
+            WaterView waterView = new WaterView();
+            waterView.display();
+        }
         return true;
     }
 }
