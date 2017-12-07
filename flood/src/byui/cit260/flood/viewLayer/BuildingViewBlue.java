@@ -54,7 +54,7 @@ public class BuildingViewBlue extends View {
     }
 
     private void look() {
-        this.console.println("You see a piece of paper on a table, and a door on the far side of the room.");
+        this.console.println("You see some nails on the floor, and a door on the far side of the room.");
     }
 
     private void help() {
@@ -79,6 +79,7 @@ public class BuildingViewBlue extends View {
             if (item.getName() == "Nails") {
                 inventory.add(item.getName());
                 item.setInInventory(true);
+                this.console.println(item.getName()+" was added to your inventory.\n");
             }
         }
         game.setInventory(inventory);

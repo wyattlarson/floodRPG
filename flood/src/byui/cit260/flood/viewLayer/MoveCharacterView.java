@@ -138,7 +138,8 @@ public class MoveCharacterView extends View {
             waterView.display();
         }
         else if (newLocation.getRow()+1==5 && newLocation.getColumn()+1==3){
-           //insert building view
+           BuildingViewPurple buildingViewPurple = new BuildingViewPurple();
+           buildingViewPurple.display();
         }
         else if (newLocation.getRow()+1==1 && newLocation.getColumn()+1==4){
             WaterView waterView = new WaterView();
@@ -153,7 +154,8 @@ public class MoveCharacterView extends View {
             waterView.display();
         }
         else if (newLocation.getRow()+1==4 && newLocation.getColumn()+1==4){
-            //new building view
+            BuildingViewGreen buildingViewGreen = new BuildingViewGreen();
+            buildingViewGreen.display();
         }
         else if (newLocation.getRow()+1==5 && newLocation.getColumn()+1==4){
             WaterView waterView = new WaterView();
@@ -164,7 +166,8 @@ public class MoveCharacterView extends View {
             waterView.display();
         }
         else if (newLocation.getRow()+1==2 && newLocation.getColumn()+1==5){
-            //new building view
+            BuildingViewOrange buildingViewOrange = new BuildingViewOrange();
+            buildingViewOrange.display();
         }
         else if (newLocation.getRow()+1==3 && newLocation.getColumn()+1==5){
             WaterView waterView = new WaterView();
