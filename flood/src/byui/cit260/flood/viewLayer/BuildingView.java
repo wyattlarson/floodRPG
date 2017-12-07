@@ -21,7 +21,7 @@ public class BuildingView extends View {
     @Override
     public String[] getInputs() {
         String[] inputs = new String[1];
-        this.console.println("You have entered the red flooded building. Type H for a list of commands.");
+        this.console.println("You have entered the RED flooded building. Type H for a list of commands.");
         String command = this.getInput("Enter a command:");
         inputs[0] = command;
         return inputs;

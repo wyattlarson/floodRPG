@@ -174,7 +174,8 @@ public class MoveCharacterView extends View {
             waterView.display();
         }
         else if (newLocation.getRow()+1==4 && newLocation.getColumn()+1==5){
-            //display new building view
+            BuildingViewBlack buildingViewBlack = new BuildingViewBlack();
+            buildingViewBlack.display();
         }
         else if (newLocation.getRow()+1==5 && newLocation.getColumn()+1==5){
             WaterView waterView = new WaterView();
