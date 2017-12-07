@@ -79,7 +79,6 @@ public class DockMenuView extends View {
                 return true;
             default:
                 ErrorView.display(this.getClass().getName(),"Invalid Menu Command.");
-                break;
         }
         return false;
     }
