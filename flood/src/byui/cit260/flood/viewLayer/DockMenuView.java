@@ -8,9 +8,11 @@ package byui.cit260.flood.viewLayer;
 import byui.cit260.flood.control.GameControl;
 import byui.cit260.flood.exceptions.MapControlException;
 import byui.cit260.flood.model.Game;
+import byui.cit260.flood.model.Item;
 import byui.cit260.flood.model.Location;
 import byui.cit260.flood.model.Map;
 import flood.Flood;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -151,6 +153,11 @@ public class DockMenuView extends View {
     }
     public void printInventory() {
         Game game = Flood.getCurrentGame();
+        Item[] items = game.getItems();
+        
+        ArrayList<String> inventory = new ArrayList<>();
+        inventory = GameControl.getInventoryItems(items);
+        game.setInventory(inventory);
         this.console.println(game.getInventory());
     }
 }

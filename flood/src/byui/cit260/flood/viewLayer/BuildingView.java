@@ -82,10 +82,11 @@ public class BuildingView extends View {
     public void pickupPaper(){
         Game game = Flood.getCurrentGame();
         Item[] items = game.getItems();
-        ArrayList<Item> inventory = new ArrayList<>();
+        ArrayList<String> inventory = new ArrayList<>();
         for (Item item : items) {
             if (item.getName() == "Paper") {
-                inventory.add(item);
+                inventory.add(item.getName());
+                item.setInInventory(true);
             }
         }
         game.setInventory(inventory);
