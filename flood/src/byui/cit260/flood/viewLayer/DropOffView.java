@@ -17,12 +17,14 @@ import java.util.ArrayList;
  * @author wyatt
  */
 public class DropOffView extends View {
-Game game = Flood.getCurrentGame();
-ArrayList<String> inventory = game.getInventory();
+
+    Game game = Flood.getCurrentGame();
+    ArrayList<String> inventory = game.getInventory();
+
     @Override
     public String[] getInputs() {
         String[] inputs = new String[1];
-        this.console.println("You are about to drop off survivors.");
+        this.console.println("You are about to drop off survivors. You have saved "+game.getAmountSaved()+" people so far!");
         String command = this.getInput("Enter the name of the passanger you want to drop off or E to exit:");
         inputs[0] = command;
         return inputs;
@@ -45,6 +47,10 @@ ArrayList<String> inventory = game.getInventory();
                 ErrorView.display(this.getClass().getName(), "Invalid Menu Command.");
                 break;
         }
+        if (game.getAmountSaved()>=10){
+            EndView endView = new EndView();
+            endView.display();
+        }
         return false;
     }
 
@@ -53,13 +59,18 @@ ArrayList<String> inventory = game.getInventory();
         Item[] items = game.getItems();
         ArrayList<String> saved = new ArrayList<>();
         for (Item item : items) {
-            if (item.isInInventory() == true && item.getName()=="Fred"){
+            if (item.isInInventory() == true && item.getName() == "Fred") {
                 saved.add(item.getName());
+                game.setAmountSaved(game.getAmountSaved()+1);
                 item.setInInventory(false);
+                this.console.println("Fred is saved! Fred is removed from your inventory.\n");
+                break;
             }
-          //  else this.console.println("Fred is not in your inventory.");
-         //   break;
+            if (item.isInInventory() == false && item.getName() == "Fred") {
+                this.console.println("Fred is not in your inventory.");
+            }
         }
+
     }
 
     private void help() {
@@ -68,23 +79,9 @@ ArrayList<String> inventory = game.getInventory();
                 + "\n H - List of available commands."
                 + "\n B - Boat, access boat menu to upgrade boat."
                 + "\n E - Exit building."
-                +"\n Pickup Paper - Pick up the piece of paper."
+                + "\n Pickup Paper - Pick up the piece of paper."
                 + "\n Read Paper - Read the piece of paper"
                 + "\n Open Door - Try to open the door.");
-    }
-    
-    public void pickupPaper(){
-        Game game = Flood.getCurrentGame();
-        Item[] items = game.getItems();
-        ArrayList<String> inventory = new ArrayList<>();
-        for (Item item : items) {
-            if (item.getName() == "Paper") {
-                inventory.add(item.getName());
-                item.setInInventory(true);
-                this.console.println(item.getName()+" was added to your inventory.\n");
-            }
-        }
-        game.setInventory(inventory);
     }
 
 }
