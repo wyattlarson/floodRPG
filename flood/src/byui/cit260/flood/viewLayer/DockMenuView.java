@@ -106,29 +106,9 @@ public class DockMenuView extends View {
     }
 
     public void explore() 
-            throws MapControlException {
-        Game game = Flood.getCurrentGame();
-        Map map = game.getMap();
-        Location[][] locations = map.getLocations();
-        this.console.println("\tMAP OF FLOODED CITY.");
-        this.console.println(" |" + " 1" + "|" + " 2" + "|" + " 3" + "|" + " 4" + "|" + " 5" + "|");
-        this.console.println("-------------------------------------");
-        for (int i = 0; i < map.getRowCount(); i++) {
-            this.console.print(i + 1);
-            for (int j = 0; j < map.getColumnCount(); j++) {
-                this.console.print("|");
-                Location location = locations[i][j];
-                if (location.isVisited() == true) {
-                    this.console.print(location.getLocationSymbol());
-                } else {
-                    this.console.print("??");
-                }
-            }
-            this.console.println("|");
-        }
+        throws MapControlException {
         MoveCharacterView moveCharacterView = new MoveCharacterView();
         moveCharacterView.display();
-
     }
 
     private void saveGame() {

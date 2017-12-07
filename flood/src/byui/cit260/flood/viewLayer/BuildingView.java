@@ -48,7 +48,7 @@ public class BuildingView extends View {
                 openDoor();
                 break;
             case "E":
-                return true;
+                exitBuilding();
             default:
                 ErrorView.display(this.getClass().getName(), "Invalid Menu Command.");
                 break;
@@ -71,8 +71,9 @@ public class BuildingView extends View {
                 + "\n Open Door - Try to open the door.");
     }
 
-    private boolean exitBuilding() {
-        return true;
+    private void exitBuilding() {
+        MoveCharacterView moveCharacterView = new MoveCharacterView();
+        moveCharacterView.display();
     }
 
     private void readPaper() {
