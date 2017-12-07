@@ -74,6 +74,10 @@ public class GameControl {
         ArrayList<String> inventory = new ArrayList<>();
         inventory = GameControl.getInventoryItems(items);
         game.setInventory(inventory);
+        
+        ArrayList<String> saved = new ArrayList<>();
+        saved = GameControl.survivorsSaved(items);
+        game.setAmountSaved(saved.size());
 
         return 1;
     }
@@ -230,6 +234,18 @@ public class GameControl {
         }
         return inventory;
     }
+    
+     public static ArrayList<String> survivorsSaved(Item[] items) {
+         Game game = Flood.getCurrentGame();
+        
+        ArrayList<String> saved = new ArrayList<>();
+        for (Item item : items) {
+            if (item.isSaved() == true) {
+                saved.add(item.getName());
+            }
+        }
+        return saved;
+    }   
     
     public static void saveGame (Game game, String filepath)
             throws GameControlException {
