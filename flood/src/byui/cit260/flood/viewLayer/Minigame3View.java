@@ -61,7 +61,7 @@ public class Minigame3View extends View {
             if (item.getName() == "GoldKey") {
                 inventory.add(item.getName());
                 item.setInInventory(true);
-                this.console.println(item.getName()+" was added to your inventory.\n");
+                this.console.println("Golden key was added to your inventory.\n");
             }
         }
         game.setInventory(inventory);
