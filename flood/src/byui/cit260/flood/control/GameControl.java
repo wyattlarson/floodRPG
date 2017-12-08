@@ -191,7 +191,7 @@ public class GameControl {
         emma.setName("GoldKey");
         emma.setDescription("A golden key! it may help you unlock a building.");
         emma.setItemId(3);
-        items[ItemType.emma.ordinal()] = emma;
+        items[ItemType.goldKey.ordinal()] = goldKey;
         return items;
     }
 
