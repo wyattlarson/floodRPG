@@ -58,10 +58,7 @@ public class DoorView extends View {
             return false;
         }
     }
-    catch (NumberFormatException e
-
-    
-        ) {
+    catch (NumberFormatException e ) {
             this.console.println("Invalid Inputs, use numbers.");
     }
 

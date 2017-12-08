@@ -173,7 +173,7 @@ public class MiniGameControlTest {
         double length = 10.0;
         double height = -1.0;
         double expResult = -1.0;
-        double result = MiniGameControl.miniGame3(length, height);
+        double result = MiniGameControl.miniGame3(xDoub);
     }   
         @Test
     public void testMiniGame3c() throws MiniGameControlException {
