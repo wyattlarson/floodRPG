@@ -6,7 +6,9 @@
 package byui.cit260.flood.viewLayer;
 
 import byui.cit260.flood.control.BuildingControl;
+import byui.cit260.flood.control.GameControl;
 import byui.cit260.flood.exceptions.BuildingControlException;
+import byui.cit260.flood.exceptions.GameControlException;
 import byui.cit260.flood.model.Game;
 import byui.cit260.flood.model.Item;
 import flood.Flood;
@@ -43,29 +45,19 @@ public class DoorView extends View {
                 double result = BuildingControl.puzzle1(doubledA, doubledB, doubledC);
                 this.console.println("Your answer equates to:" + result + ".  " + "You got the answer right! The door opens.");
                 this.console.println("Fred was behind the door! You put him on your boat, take him back to the dock!");
-                Game game = Flood.getCurrentGame();
-                Item[] items = game.getItems();
-                ArrayList<String> inventory = new ArrayList<>();
-                for (Item item : items) {
-                    if (item.getName() == "Fred") {
-                        inventory.add(item.getName());
-                        item.setInInventory(true);
-                    }
+                try {
+                    GameControl.addItemToInventory("Fred");
+                } catch (GameControlException ex) {
+                    ErrorView.display("BuildingViewGreen", ex.getMessage());
                 }
-                game.setInventory(inventory);
-        } catch (BuildingControlException e) {
-            this.console.println(e.getMessage());
-            return false;
-        }
-    }
-    catch (NumberFormatException e
-
-    
-        ) {
+            } catch (BuildingControlException e) {
+                this.console.println(e.getMessage());
+                return false;
+            }
+        } catch (NumberFormatException e) {
             this.console.println("Invalid Inputs, use numbers.");
-    }
+        }
 
-
-return true;
+        return true;
     }
 }
