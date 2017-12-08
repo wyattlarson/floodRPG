@@ -236,8 +236,6 @@ public class GameControl {
     }
     
      public static ArrayList<String> survivorsSaved(Item[] items) {
-         Game game = Flood.getCurrentGame();
-        
         ArrayList<String> saved = new ArrayList<>();
         for (Item item : items) {
             if (item.isSaved() == true) {
@@ -265,6 +263,8 @@ public class GameControl {
         try( FileInputStream fips = new FileInputStream(filepath)) {
             ObjectInputStream input = new ObjectInputStream(fips);
             game = (Game) input.readObject();
+            Flood.setCurrentGame(game);
+            Flood.setPlayer(game.getPlayer());
         } catch(Exception e) {
             throw new GameControlException(e.getMessage());
         }
