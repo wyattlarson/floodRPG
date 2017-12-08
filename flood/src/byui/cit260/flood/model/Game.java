@@ -19,18 +19,9 @@ public class Game implements Serializable {
 
 //------------------------------Game Attributes------------------------------//
     private int amountSaved;
-    private String savedFile;
     private Item[] items;
-    private ArrayList<Item> listOfSurvivors;
-    private ArrayList<Item> inventory;
-
-    public ArrayList<Item> getInventory() {
-        return inventory;
-    }
-
-    public void setInventory(ArrayList<Item> inventory) {
-        this.inventory = inventory;
-    }
+    private ArrayList<String> listOfSurvivors;
+    private ArrayList<String> inventory;
 
 //------------------------------Associations------------------------------//
     //this is the association between the Game class and the Player class
@@ -91,22 +82,20 @@ public class Game implements Serializable {
         this.amountSaved = amountSaved;
     }
 
-    //savedFile getter
-    public String getSavedFile() {
-        return savedFile;
-    }
-
-    //savedFile setter
-    public void setSavedFile(String savedFile) {
-        this.savedFile = savedFile;
-    }
-
-    public ArrayList<Item> getListOfSurvivors() {
+    public ArrayList<String> getListOfSurvivors() {
         return listOfSurvivors;
     }
 
-    public void setListOfSurvivors(ArrayList<Item> listOfSurvivors) {
+    public void setListOfSurvivors(ArrayList<String> listOfSurvivors) {
         this.listOfSurvivors = listOfSurvivors;
+    }
+  
+    public ArrayList<String> getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(ArrayList<String> inventory) {
+        this.inventory = inventory;
     }
 
 //------------------------------Overrides------------------------------//
@@ -114,13 +103,12 @@ public class Game implements Serializable {
     public int hashCode() {
         int hash = 3;
         hash = 23 * hash + (int) (Double.doubleToLongBits(this.amountSaved) ^ (Double.doubleToLongBits(this.amountSaved) >>> 32));
-        hash = 23 * hash + Objects.hashCode(this.savedFile);
         return hash;
     }
 
     @Override
     public String toString() {
-        return "Game{" + "amountSaved=" + amountSaved + ", savedFile=" + savedFile + '}';
+        return "Game{" + "amountSaved=" + amountSaved + '}';
     }
 
     @Override
@@ -136,9 +124,6 @@ public class Game implements Serializable {
         }
         final Game other = (Game) obj;
         if (Double.doubleToLongBits(this.amountSaved) != Double.doubleToLongBits(other.amountSaved)) {
-            return false;
-        }
-        if (!Objects.equals(this.savedFile, other.savedFile)) {
             return false;
         }
         return true;

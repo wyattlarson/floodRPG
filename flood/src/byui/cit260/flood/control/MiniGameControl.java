@@ -53,16 +53,17 @@ public static double miniGame2( double doubLen, double doubWid)
     
 }
     
-public static double miniGame3( double doubLen, double doubHei)
+public static double miniGame3( double xDoub)
         throws MiniGameControlException{
-    if (doubLen<1 || doubLen>30){
-        throw new MiniGameControlException("Length must be between 1 and 30.");
+    if (xDoub < 1 || xDoub > 30){
+        throw new MiniGameControlException("x must be between 1 and 30.");
     }
-    if (doubHei<1 || doubHei>30){
-        throw new MiniGameControlException("Height must be between 1 and 30.");
-    }
-    double area = (Math.pow(doubLen,2)+(2*doubLen)* Math.sqrt((Math.pow(doubLen,2)/4)+Math.pow(doubHei,2)));
-    
-    return area;
+       double d = 3 * 3 - 4 * 1 * -4;
+       double root1 = ( - 3 + Math.sqrt(d))/(2*1);
+       double root2 = (-3 - Math.sqrt(d))/(2*1);
+       
+       if (xDoub == root1 || xDoub == root2){
+           return xDoub;
+       } else throw new MiniGameControlException("Your guess is wrong.");
 }
 }

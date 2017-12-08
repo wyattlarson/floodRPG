@@ -16,12 +16,12 @@ import java.util.ArrayList;
  *
  * @author wyatt
  */
-public class BuildingView extends View {
+public class BuildingViewGreen extends View {
 
     @Override
     public String[] getInputs() {
         String[] inputs = new String[1];
-        this.console.println("You have entered the RED flooded building. Type H for a list of commands.");
+        this.console.println("You have entered the GREEN flooded building. Type H for a list of commands.");
         String command = this.getInput("Enter a command:");
         inputs[0] = command;
         return inputs;
@@ -38,11 +38,11 @@ public class BuildingView extends View {
             case "H":
                 help();
                 break;
-            case "READ PAPER":
-                readPaper();
+            case "PICKUP HAMMER":
+                pickupHammer();
                 break;
-            case "PICKUP PAPER":
-                pickupPaper();
+                case "PICKUP ROPE":
+                pickupRope();
                 break;
             case "OPEN DOOR":
                 openDoor();
@@ -57,17 +57,16 @@ public class BuildingView extends View {
     }
 
     private void look() {
-        this.console.println("You see a piece of paper on a table, and a door on the far side of the room.");
+        this.console.println("You see a hammer and some rope on a table, and a door on the far side of the room.");
     }
 
     private void help() {
         this.console.println("Building Menu Commands"
                 + "\n Look - Look around you."
                 + "\n H - List of available commands."
-                + "\n B - Boat, access boat menu to upgrade boat."
                 + "\n E - Exit building."
-                +"\n Pickup Paper - Pick up the piece of paper."
-                + "\n Read Paper - Read the piece of paper"
+                +"\n Pickup Hammer - Pick up the hammer."
+                +"\n Pickup Rope - Pick up the rope."
                 + "\n Open Door - Try to open the door.");
     }
 
@@ -75,17 +74,13 @@ public class BuildingView extends View {
         MoveCharacterView moveCharacterView = new MoveCharacterView();
         moveCharacterView.display();
     }
-
-    private void readPaper() {
-        this.console.println("You read the piece of paper. It says: Find the other side lengths of a triangle with a hypotneus of 25. Remember a^2 + b^2 = c^2. You are finding a and b.");
-    }
     
-    public void pickupPaper(){
+    public void pickupHammer(){
         Game game = Flood.getCurrentGame();
         Item[] items = game.getItems();
         ArrayList<String> inventory = new ArrayList<>();
         for (Item item : items) {
-            if (item.getName() == "Paper") {
+            if (item.getName() == "Hammer") {
                 inventory.add(item.getName());
                 item.setInInventory(true);
                 this.console.println(item.getName()+" was added to your inventory.\n");
@@ -93,6 +88,21 @@ public class BuildingView extends View {
         }
         game.setInventory(inventory);
     }
+        public void pickupRope(){
+        Game game = Flood.getCurrentGame();
+        Item[] items = game.getItems();
+        ArrayList<String> inventory = new ArrayList<>();
+        for (Item item : items) {
+            if (item.getName() == "Rope") {
+                inventory.add(item.getName());
+                item.setInInventory(true);
+                this.console.println(item.getName()+" was added to your inventory.\n");
+            }
+        }
+        game.setInventory(inventory);
+    }
+    
+
     private void openDoor() {
         DoorView doorView = new DoorView();
         doorView.display();

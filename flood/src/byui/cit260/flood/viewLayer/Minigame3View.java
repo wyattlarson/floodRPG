@@ -22,25 +22,21 @@ public class Minigame3View extends View {
     
     public String[] getInputs() {
         String[] inputs = new String[2];
-        this.console.println(""
-                + " \n what are its lenght and height?");
-        String length = this.getInput("Length guess:");
+        this.console.println("Using the Quadratic equation,"
+                + " \n Solve for x if a = 1, b = 3, c = -4?");
+        String length = this.getInput("x:");
         inputs[0] = length;
-        String height = this.getInput("Height guess:");
-        inputs[1] = height;
         return inputs;
     }
 
     public boolean doAction(String[] inputs) {
 
-                        String lenGuess = inputs[0];
-                        String HeiGuess = inputs[1];
+                        String xGuess = inputs[0];
                         try{
-                        double doubLen = Double.parseDouble(lenGuess);
-                        double doubHei = Double.parseDouble(HeiGuess);
+                        double xDoub = Double.parseDouble(xGuess);
                         try {
-                            double answer = MiniGameControl.miniGame3(doubLen, doubHei);
-                            this.console.println("You are correct!");
+                            double answer = MiniGameControl.miniGame3(xDoub);
+                            this.console.println("You are correct! You have received a Golden Key");
                         } catch (MiniGameControlException e) {
                             this.console.println(e.getMessage());
                             return false;

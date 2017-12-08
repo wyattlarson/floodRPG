@@ -5,11 +5,14 @@
  */
 package byui.cit260.flood.viewLayer;
 
+import byui.cit260.flood.control.GameControl;
 import byui.cit260.flood.exceptions.MapControlException;
 import byui.cit260.flood.model.Game;
+import byui.cit260.flood.model.Item;
 import byui.cit260.flood.model.Location;
 import byui.cit260.flood.model.Map;
 import flood.Flood;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -25,7 +28,7 @@ public class DockMenuView extends View {
                 + "\n S or Save - Save game"
                 + "\n D or Drop - Drop off passengers"
                 + "\n U or Upgrade - go to boat upgrade menu"
-                + "\n G or Gas - fill up gas tank"
+                + "\n D or Drop Off Survivors - takes surivors out of inventory and places them in the arms of paramedics and loved ones."
                 + "\n X or Explore - Leave dock to explore map. Access Explore menu."
                 + "\n P - Print a list of people who need to be saved."
                 + "\n Info - list boat level, passenger list, passengers saved, and current gas level"
@@ -43,13 +46,13 @@ public class DockMenuView extends View {
         menuItem = menuItem.toUpperCase();
         switch (menuItem) {
             case "S":
-                saveGameMenu();
+                saveGame();
                 break;
             case "U":
                 upgradeBoatMenu();
                 break;
-            case "G":
-                gasFillUp();
+            case "D":
+                dropOffSurvivors();
                 break;
             case "Info":
                 infoPage();
@@ -69,8 +72,6 @@ public class DockMenuView extends View {
             }
         }
                 break;
-            case "Z":
-                testDoor();
             case "P":
                 printSaved();
                 break;
@@ -78,7 +79,6 @@ public class DockMenuView extends View {
                 return true;
             default:
                 ErrorView.display(this.getClass().getName(),"Invalid Menu Command.");
-                break;
         }
         return false;
     }
@@ -87,10 +87,6 @@ public class DockMenuView extends View {
         UpgradeBoatMenuView upgradeBoatMenuView = new UpgradeBoatMenuView();
         upgradeBoatMenuView.display();
 
-    }
-
-    private void gasFillUp() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     private void infoPage() {
@@ -103,33 +99,20 @@ public class DockMenuView extends View {
     }
 
     public void explore() 
-            throws MapControlException {
-        Game game = Flood.getCurrentGame();
-        Map map = game.getMap();
-        Location[][] locations = map.getLocations();
-        this.console.println("\tMAP OF FLOODED CITY.");
-        this.console.println(" |" + " 1" + "|" + " 2" + "|" + " 3" + "|" + " 4" + "|" + " 5" + "|");
-        this.console.println("-------------------------------------");
-        for (int i = 0; i < map.getRowCount(); i++) {
-            this.console.print(i + 1);
-            for (int j = 0; j < map.getColumnCount(); j++) {
-                this.console.print("|");
-                Location location = locations[i][j];
-                if (location.isVisited() == true) {
-                    this.console.print(location.getLocationSymbol());
-                } else {
-                    this.console.print("??");
-                }
-            }
-            this.console.println("|");
-        }
+        throws MapControlException {
         MoveCharacterView moveCharacterView = new MoveCharacterView();
         moveCharacterView.display();
-
     }
 
-    private void saveGameMenu() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private void saveGame() {
+        this.console.println("\n\nEnter the filepath for file where the game is to be saved.");
+        String filePath = this.getInput("-->");
+        
+        try{
+            GameControl.saveGame(Flood.getCurrentGame(), filePath);
+        } catch(Exception ex) {
+            ErrorView.display("MainMenuView", ex.getMessage());
+        }
     }
 
     public void printSaved() {
@@ -137,12 +120,17 @@ public class DockMenuView extends View {
         this.console.println(game.getListOfSurvivors());
     }
 
-    private void testDoor() {
-        BuildingView buildingView = new BuildingView();
-        buildingView.display();
-    }
     public void printInventory() {
         Game game = Flood.getCurrentGame();
+        Item[] items = game.getItems();
+        
+        ArrayList<String> inventory = new ArrayList<>();
+        inventory = GameControl.getInventoryItems(items);
+        game.setInventory(inventory);
         this.console.println(game.getInventory());
+    }
+        private void dropOffSurvivors() {
+        DropOffView dropOffView = new DropOffView();
+        dropOffView.display();
     }
 }
