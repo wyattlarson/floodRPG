@@ -6,11 +6,14 @@
 package byui.cit260.flood.viewLayer;
 
 import byui.cit260.flood.control.GameControl;
+import byui.cit260.flood.exceptions.GameControlException;
 import byui.cit260.flood.model.Game;
 import byui.cit260.flood.model.Item;
 import byui.cit260.flood.model.ItemType;
 import flood.Flood;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -39,10 +42,10 @@ public class BuildingViewGreen extends View {
                 help();
                 break;
             case "PICKUP HAMMER":
-                pickupHammer();
+                pickup("Hammer");
                 break;
                 case "PICKUP ROPE":
-                pickupRope();
+                pickup("Rope");
                 break;
             case "OPEN DOOR":
                 openDoor();
@@ -51,7 +54,7 @@ public class BuildingViewGreen extends View {
                 exitBuilding();
             default:
                 ErrorView.display(this.getClass().getName(), "Invalid Menu Command.");
-                break;
+              return true;             
         }
         return false;
     }
@@ -75,33 +78,13 @@ public class BuildingViewGreen extends View {
         moveCharacterView.display();
     }
     
-    public void pickupHammer(){
-        Game game = Flood.getCurrentGame();
-        Item[] items = game.getItems();
-        ArrayList<String> inventory = new ArrayList<>();
-        for (Item item : items) {
-            if (item.getName() == "Hammer") {
-                inventory.add(item.getName());
-                item.setInInventory(true);
-                this.console.println(item.getName()+" was added to your inventory.\n");
-            }
+    public void pickup(String itemName){
+        try {
+            GameControl.addItemToInventory(itemName);
+        } catch (GameControlException ex) {
+            ErrorView.display("BuildingViewGreen", ex.getMessage());
         }
-        game.setInventory(inventory);
     }
-        public void pickupRope(){
-        Game game = Flood.getCurrentGame();
-        Item[] items = game.getItems();
-        ArrayList<String> inventory = new ArrayList<>();
-        for (Item item : items) {
-            if (item.getName() == "Rope") {
-                inventory.add(item.getName());
-                item.setInInventory(true);
-                this.console.println(item.getName()+" was added to your inventory.\n");
-            }
-        }
-        game.setInventory(inventory);
-    }
-    
 
     private void openDoor() {
         DoorView doorView = new DoorView();
