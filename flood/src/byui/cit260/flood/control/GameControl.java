@@ -82,7 +82,7 @@ public class GameControl {
     }
 
     public static Item[] createItems() {
-        Item[] items = new Item[17];
+        Item[] items = new Item[18];
 
         Item engine = new Item();
         engine.setName("Engine Parts");
@@ -185,6 +185,12 @@ public class GameControl {
         emma.setDescription("A stranded survivor of the flood. Get them to safety.");
         emma.setItemId(3);
         items[ItemType.emma.ordinal()] = emma;
+        
+        Item goldKey = new Item();
+        emma.setName("GoldKey");
+        emma.setDescription("A golden key! it may help you unlock a building.");
+        emma.setItemId(3);
+        items[ItemType.goldKey.ordinal()] = goldKey;
         return items;
     }
 
