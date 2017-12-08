@@ -55,8 +55,8 @@ public static double miniGame2( double doubLen, double doubWid)
     
 public static double miniGame3( double xDoub)
         throws MiniGameControlException{
-    if (xDoub < 1 || xDoub > 30){
-        throw new MiniGameControlException("x must be between 1 and 30.");
+    if (xDoub < -30 || xDoub > 30){
+        throw new MiniGameControlException("x must be between -30 and 30.");
     }
        double d = 3 * 3 - 4 * 1 * -4;
        double root1 = ( - 3 + Math.sqrt(d))/(2*1);

@@ -11,6 +11,10 @@ import byui.cit260.flood.control.GameControl;
 import byui.cit260.flood.model.Player;
 import byui.cit260.flood.control.MiniGameControl;
 import byui.cit260.flood.exceptions.MiniGameControlException;
+import byui.cit260.flood.model.Game;
+import byui.cit260.flood.model.Item;
+import flood.Flood;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -37,6 +41,7 @@ public class Minigame3View extends View {
                         try {
                             double answer = MiniGameControl.miniGame3(xDoub);
                             this.console.println("You are correct! You have received a Golden Key");
+                            pickUpKey();
                         } catch (MiniGameControlException e) {
                             this.console.println(e.getMessage());
                             return false;
@@ -48,5 +53,20 @@ public class Minigame3View extends View {
                        return true;
                     } 
 
-  
+    private void pickUpKey() {
+        Game game = Flood.getCurrentGame();
+        Item[] items = game.getItems();
+        ArrayList<String> inventory = new ArrayList<>();
+        for (Item item : items) {
+            if (item.getName() == "GoldKey") {
+                inventory.add(item.getName());
+                item.setInInventory(true);
+                this.console.println(item.getName()+" was added to your inventory.\n");
+            }
         }
+        game.setInventory(inventory);
+    }
+    }
+
+  
+        

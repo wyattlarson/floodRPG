@@ -17,6 +17,7 @@ public enum ItemType {
     rope,
     nails,
     gasoline,
+    goldKey,
     fred,
     susan,
     brian,
