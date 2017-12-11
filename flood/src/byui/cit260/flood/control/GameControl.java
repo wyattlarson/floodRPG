@@ -256,7 +256,7 @@ public class GameControl {
           Item[] items = Flood.getCurrentGame().getItems();
           Game game = Flood.getCurrentGame();
          ArrayList<Item> saved = Flood.getCurrentGame().getNamesOfSaved();
-         for (Item item : saved) {
+         for (Item item : items) {
             if (item.getName().toUpperCase().equals(name.toUpperCase())&& item.isInInventory()==true) {
                 saved.add(item);
                 game.setAmountSaved(game.getAmountSaved()+1);
@@ -264,7 +264,7 @@ public class GameControl {
                 return;
             }
         }
-    throw new GameControlException("Item not found. Invalid item.");
+    throw new GameControlException("Person not found. Go out and save them!!!!");
      }
     
     public static void saveGame (Game game, String filepath)
