@@ -27,7 +27,7 @@ public class DropOffView extends View {
     @Override
     public String[] getInputs() {
         String[] inputs = new String[1];
-        this.console.println("You are about to drop off survivors. You have saved "+game.getAmountSaved()+" people so far!");
+        this.console.println("You are about to drop off survivors. You have saved " + game.getAmountSaved() + " people so far!");
         String command = this.getInput("Enter the name of the passanger you want to drop off or E to exit:");
         inputs[0] = command;
         return inputs;
@@ -43,8 +43,16 @@ public class DropOffView extends View {
                 break;
             case "BRIAN":
                 dropOff("Brian");
-                case"SUSAN":
-                    dropOff("Susan");
+                break;
+            case "SUSAN":
+                dropOff("Susan");
+                break;
+            case "WYATT":
+                dropOff("Wyatt");
+                break;
+            case "EMMA":
+                dropOff("Emma");
+                break;
             case "H":
                 help();
                 break;
@@ -54,7 +62,7 @@ public class DropOffView extends View {
                 ErrorView.display(this.getClass().getName(), "Invalid Menu Command.");
                 break;
         }
-        if (game.getAmountSaved()>=10){
+        if (game.getAmountSaved() >= 10) {
             EndView endView = new EndView();
             endView.display();
         }
@@ -65,7 +73,7 @@ public class DropOffView extends View {
         try {
             GameControl.dropOff(name);
         } catch (GameControlException ex) {
-            ErrorView.display("DropOffView",ex.getMessage());
+            ErrorView.display("DropOffView", ex.getMessage());
         }
     }
 
