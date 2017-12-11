@@ -121,13 +121,10 @@ public class DockMenuView extends View {
     }
 
     public void printInventory() {
-        Game game = Flood.getCurrentGame();
-        Item[] items = game.getItems();
-        
-        ArrayList<String> inventory = new ArrayList<>();
-        inventory = GameControl.getInventoryItems(items);
-        game.setInventory(inventory);
-        this.console.println(game.getInventory());
+      ArrayList <Item> inventory = Flood.getCurrentGame().getInventory();   
+        for (Item item : inventory) {
+            this.console.println(item.getName());
+        }
     }
         private void dropOffSurvivors() {
         DropOffView dropOffView = new DropOffView();

@@ -71,8 +71,7 @@ public class GameControl {
         survivors = GameControl.getSurvivors(items);
         game.setListOfSurvivors(survivors);
 
-        ArrayList<String> inventory = new ArrayList<>();
-        inventory = GameControl.getInventoryItems(items);
+        ArrayList<Item> inventory = new ArrayList<>();
         game.setInventory(inventory);
         
         ArrayList<String> saved = new ArrayList<>();
@@ -230,16 +229,6 @@ public class GameControl {
         }
         return survivors;
     }
-
-    public static ArrayList<String> getInventoryItems(Item[] items) {
-        ArrayList<String> inventory = new ArrayList<>();
-        for (Item item : items) {
-            if (item.isInInventory() == true) {
-                inventory.add(item.getName());
-            }
-        }
-        return inventory;
-    }
     
      public static ArrayList<String> survivorsSaved(Item[] items) {
         ArrayList<String> saved = new ArrayList<>();
@@ -250,6 +239,19 @@ public class GameControl {
         }
         return saved;
     }   
+     
+     public static void addItemToInventory(String itemName) throws GameControlException {
+         Item[] items = Flood.getCurrentGame().getItems();
+         ArrayList<Item> inventory = Flood.getCurrentGame().getInventory();
+         for (Item item : items) {
+            if (item.getName().toUpperCase().equals(itemName.toUpperCase())) {
+                inventory.add(item);
+                item.setInInventory(true);
+                return;
+            }
+        }
+    throw new GameControlException("Item not found. Invalid item.");
+}
     
     public static void saveGame (Game game, String filepath)
             throws GameControlException {
@@ -274,7 +276,6 @@ public class GameControl {
         } catch(Exception e) {
             throw new GameControlException(e.getMessage());
         }
-        Flood.setCurrentGame(game);
     }
 
 }

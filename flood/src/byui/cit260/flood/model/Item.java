@@ -18,7 +18,7 @@ public class Item implements Serializable {
     private String name;
     private String description;
     private int itemId;
-    private boolean inInventory;
+    private boolean inInventory = false;
     private boolean saved;
     
 //------------------------------Associations------------------------------//

@@ -6,6 +6,7 @@
 package byui.cit260.flood.viewLayer;
 
 import byui.cit260.flood.control.GameControl;
+import byui.cit260.flood.exceptions.GameControlException;
 import byui.cit260.flood.model.Game;
 import byui.cit260.flood.model.Item;
 import byui.cit260.flood.model.ItemType;
@@ -81,17 +82,11 @@ public class BuildingView extends View {
     }
     
     public void pickupPaper(){
-        Game game = Flood.getCurrentGame();
-        Item[] items = game.getItems();
-        ArrayList<String> inventory = new ArrayList<>();
-        for (Item item : items) {
-            if (item.getName() == "Paper") {
-                inventory.add(item.getName());
-                item.setInInventory(true);
-                this.console.println(item.getName()+" was added to your inventory.\n");
-            }
+         try {
+            GameControl.addItemToInventory("Paper");
+        } catch (GameControlException ex) {
+            ErrorView.display("BuildingViewGreen", ex.getMessage());
         }
-        game.setInventory(inventory);
     }
     private void openDoor() {
         DoorView doorView = new DoorView();
