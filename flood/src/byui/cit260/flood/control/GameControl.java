@@ -187,9 +187,9 @@ public class GameControl {
         items[ItemType.emma.ordinal()] = emma;
         
         Item goldKey = new Item();
-        emma.setName("GoldKey");
-        emma.setDescription("A golden key! it may help you unlock a building.");
-        emma.setItemId(3);
+        goldKey.setName("GoldKey");
+        goldKey.setDescription("A golden key! it may help you unlock a building.");
+        goldKey.setItemId(9);
         items[ItemType.goldKey.ordinal()] = goldKey;
         return items;
     }
@@ -252,6 +252,20 @@ public class GameControl {
         }
     throw new GameControlException("Item not found. Invalid item.");
 }
+     public static void dropOff (String name) throws GameControlException{
+          Item[] items = Flood.getCurrentGame().getItems();
+          Game game = Flood.getCurrentGame();
+         ArrayList<Item> saved = Flood.getCurrentGame().getNamesOfSaved();
+         for (Item item : saved) {
+            if (item.getName().toUpperCase().equals(name.toUpperCase())&& item.isInInventory()==true) {
+                saved.add(item);
+                game.setAmountSaved(game.getAmountSaved()+1);
+                item.setInInventory(false);
+                return;
+            }
+        }
+    throw new GameControlException("Item not found. Invalid item.");
+     }
     
     public static void saveGame (Game game, String filepath)
             throws GameControlException {

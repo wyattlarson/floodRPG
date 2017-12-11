@@ -19,6 +19,7 @@ public class Game implements Serializable {
 
 //------------------------------Game Attributes------------------------------//
     private int amountSaved;
+    private ArrayList<Item> namesOfSaved = new ArrayList<>();
     private Item[] items;
     private ArrayList<String> listOfSurvivors;
     private ArrayList<Item> inventory;
@@ -81,6 +82,15 @@ public class Game implements Serializable {
     public void setAmountSaved(int amountSaved) {
         this.amountSaved = amountSaved;
     }
+
+    public ArrayList<Item> getNamesOfSaved() {
+        return namesOfSaved;
+    }
+
+    public void setNamesOfSaved(ArrayList<Item> namesOfSaved) {
+        this.namesOfSaved = namesOfSaved;
+    }
+
 
     public ArrayList<String> getListOfSurvivors() {
         return listOfSurvivors;

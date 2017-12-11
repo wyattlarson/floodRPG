@@ -6,11 +6,14 @@
 package byui.cit260.flood.viewLayer;
 
 import byui.cit260.flood.control.GameControl;
+import byui.cit260.flood.exceptions.GameControlException;
 import byui.cit260.flood.model.Game;
 import byui.cit260.flood.model.Item;
 import byui.cit260.flood.model.ItemType;
 import flood.Flood;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -19,7 +22,7 @@ import java.util.ArrayList;
 public class DropOffView extends View {
 
     Game game = Flood.getCurrentGame();
-    ArrayList<String> inventory = game.getInventory();
+    ArrayList<Item> inventory = game.getInventory();
 
     @Override
     public String[] getInputs() {
@@ -36,7 +39,7 @@ public class DropOffView extends View {
         menuItem = menuItem.toUpperCase();
         switch (menuItem) {
             case "FRED":
-                fred();
+                dropOff("Fred");
                 break;
             case "H":
                 help();
@@ -54,23 +57,12 @@ public class DropOffView extends View {
         return false;
     }
 
-    private void fred() {
-        Game game = Flood.getCurrentGame();
-        Item[] items = game.getItems();
-        ArrayList<String> saved = new ArrayList<>();
-        for (Item item : items) {
-            if (item.isInInventory() == true && item.getName() == "Fred") {
-                saved.add(item.getName());
-                game.setAmountSaved(game.getAmountSaved()+1);
-                item.setInInventory(false);
-                this.console.println("Fred is saved! Fred is removed from your inventory.\n");
-                break;
-            }
-            if (item.isInInventory() == false && item.getName() == "Fred") {
-                this.console.println("Fred is not in your inventory.");
-            }
+    private void dropOff(String name) {
+        try {
+            GameControl.dropOff(name);
+        } catch (GameControlException ex) {
+            ErrorView.display("DropOffView",ex.getMessage());
         }
-
     }
 
     private void help() {
