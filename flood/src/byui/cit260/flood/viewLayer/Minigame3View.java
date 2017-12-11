@@ -56,10 +56,10 @@ public class Minigame3View extends View {
     private void pickUpKey() {
         Game game = Flood.getCurrentGame();
         Item[] items = game.getItems();
-        ArrayList<String> inventory = new ArrayList<>();
+        ArrayList<Item> inventory = new ArrayList<>();
         for (Item item : items) {
             if (item.getName() == "GoldKey") {
-                inventory.add(item.getName());
+                //inventory.add(item.getName());
                 item.setInInventory(true);
                 this.console.println("Golden key was added to your inventory.\n");
             }
