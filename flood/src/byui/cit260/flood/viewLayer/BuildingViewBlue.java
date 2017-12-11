@@ -84,18 +84,17 @@ public class BuildingViewBlue extends View {
         Item[] items = Flood.getCurrentGame().getItems();
         Game game = Flood.getCurrentGame();
         for (Item item : items) {
-            if (item.getName().toUpperCase().equals("GoldKey") && item.isInInventory() == true) {
+            if (item.getName().toUpperCase().equals("GOLDKEY") && item.isInInventory() == true) {
                 this.console.println("You were able to open door, you found Wyatt and Emma! You put them on your boat.");
                 try {
                     GameControl.addItemToInventory("Wyatt");
                     GameControl.addItemToInventory("Emma");
+                    return;
                 } catch (GameControlException ex) {
                     ErrorView.display("BuildingViewBlue", ex.getMessage());
                 }
-            } else {
-                this.console.println("You don't have the right key in your inventory! Go find the Golden Key in the MiniGames!");
             }
         }
-
+        this.console.println("You don't have the right key in your inventory! Go find the Golden Key in the MiniGames!");
     }
 }
