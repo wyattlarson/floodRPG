@@ -6,6 +6,7 @@
 package byui.cit260.flood.viewLayer;
 
 import byui.cit260.flood.control.GameControl;
+import byui.cit260.flood.exceptions.GameControlException;
 import byui.cit260.flood.model.Game;
 import byui.cit260.flood.model.Item;
 import byui.cit260.flood.model.ItemType;
@@ -68,8 +69,27 @@ public class BuildingViewBlack extends View {
     }
 
     private void openDoor() {
-        DoorView doorView = new DoorView();
-        doorView.display();
+         this.console.println("There are series of wires, and you must cut the correct wire to open the door. There is a blue, green and red wire. Which do you cut?");
+        String command = this.getInput("Enter a command:");
+        command = command.toUpperCase();
+        switch(command){
+            case "GREEN": this.console.println("wrong wire!");
+                break;
+            case "RED": doorView();
+                break;
+            case "BLUE": this.console.println("wrong wire, try again.");
+                break;
+        }
+    }
+        
+     private void doorView(){
+        this.console.println("You cut the right wire! You open the door and find Susan and Brian. You put them on your boat.");
+        try{
+            GameControl.addItemToInventory("Susan");
+            GameControl.addItemToInventory("Brian");
+        } catch (GameControlException ex) {
+              ErrorView.display("BuildingViewBlack", ex.getMessage());
+        }
     }
 
 }
