@@ -261,6 +261,9 @@ public class GameControl {
                 saved.add(item);
                 game.setAmountSaved(game.getAmountSaved()+1);
                 item.setInInventory(false);
+                ArrayList<Item> inventory = Flood.getCurrentGame().getInventory();
+                inventory.remove(item);
+                Flood.getCurrentGame().setInventory(inventory);
                 return;
             }
         }
