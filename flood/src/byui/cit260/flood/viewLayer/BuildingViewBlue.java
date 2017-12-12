@@ -63,7 +63,7 @@ public class BuildingViewBlue extends View {
                 + "\n Look - Look around you."
                 + "\n H - List of available commands."
                 + "\n E - Exit building."
-                +"\n Pickup Nails - Pick up the nails."
+                + "\n Pickup Nails - Pick up the nails."
                 + "\n Open Door - Try to open the door.");
     }
 
@@ -71,8 +71,8 @@ public class BuildingViewBlue extends View {
         MoveCharacterView moveCharacterView = new MoveCharacterView();
         moveCharacterView.display();
     }
-    
-    public void pickup(String itemName){
+
+    public void pickup(String itemName) {
         try {
             GameControl.addItemToInventory(itemName);
         } catch (GameControlException ex) {
@@ -81,20 +81,21 @@ public class BuildingViewBlue extends View {
     }
 
     private void openDoor() {
-               Item[] items = Flood.getCurrentGame().getItems();
+        Item[] items = Flood.getCurrentGame().getItems();
         Game game = Flood.getCurrentGame();
-        for(Item item : items){
-          if(item.getName().toUpperCase().equals("GoldKey")&&item.isInInventory()== true){
-        this.console.println("You were able to open door, you found Wyatt and Emma! You put them on your boat.");
-        try{
-            GameControl.addItemToInventory("Wyatt");
-            GameControl.addItemToInventory("Emma");
-        } catch (GameControlException ex) {
-              ErrorView.display("BuildingViewBlue", ex.getMessage());
+        for (Item item : items) {
+            if (item.getName().toUpperCase().equals("GOLDKEY") && item.isInInventory() == true) {
+                this.console.println("You were able to open door, you found Wyatt and Emma! You put them on your boat.");
+                try {
+                    GameControl.addItemToInventory("Wyatt");
+                    GameControl.addItemToInventory("Emma");
+                    return;
+                } catch (GameControlException ex) {
+                    ErrorView.display("BuildingViewBlue", ex.getMessage());
+                }
+            }
         }
-    }else 
-              this.console.println("You don't have the right key in your inventory! Go find the Golden Key in the MiniGames!");
+        this.console.println("You don't have the right key in your inventory! Go find the Golden Key in the MiniGames!");
     }
 
-}
 }
