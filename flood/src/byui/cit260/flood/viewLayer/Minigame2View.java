@@ -19,7 +19,7 @@ import java.util.logging.Logger;
  * @author Ryan
  */
 public class Minigame2View extends View {
-    
+
     public String[] getInputs() {
         String[] inputs = new String[2];
         this.console.println("For the second minigame you must find the length and width of the perimeter of a triangle."
@@ -32,29 +32,28 @@ public class Minigame2View extends View {
     }
 
     public boolean doAction(String[] inputs) {
-
-                        String lenGuess = inputs[0];
-                        String widGuess = inputs[1];
-                        try{
-                        double doubLen = Double.parseDouble(lenGuess);
-                        double doubWid = Double.parseDouble(widGuess);
-                        try {
-                            double answer = MiniGameControl.miniGame2(doubLen, doubWid);
-                            this.console.println("You are correct!");
-                            startMinigame3();
-                        } catch (MiniGameControlException e) {
-                            this.console.println(e.getMessage());
-                            return false;
-                        }
-                        }
-                        catch(NumberFormatException e){
-                            this.console.println("Invalid inputs, use number.");
-                        }
-                       return true;
-                    } 
-
-   private void startMinigame3() {
-       Minigame3View startMinigame3View = new Minigame3View();
-       startMinigame3View.display();
-    }
+// the answer is 10 then 20
+        String lenGuess = inputs[0];
+        String widGuess = inputs[1];
+        try {
+            double doubLen = Double.parseDouble(lenGuess);
+            double doubWid = Double.parseDouble(widGuess);
+            try {
+                double answer = MiniGameControl.miniGame2(doubLen, doubWid);
+                this.console.println("You are correct!");
+                startMinigame3();
+            } catch (MiniGameControlException e) {
+                this.console.println(e.getMessage());
+                return false;
+            }
+        } catch (NumberFormatException e) {
+            this.console.println("Invalid inputs, use number.");
         }
+        return true;
+    }
+
+    private void startMinigame3() {
+        Minigame3View startMinigame3View = new Minigame3View();
+        startMinigame3View.display();
+    }
+}

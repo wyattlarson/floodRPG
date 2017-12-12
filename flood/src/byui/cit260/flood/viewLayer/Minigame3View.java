@@ -35,7 +35,7 @@ public class Minigame3View extends View {
     }
 
     public boolean doAction(String[] inputs) {
-
+// the answer 1 or -4
         String xGuess = inputs[0];
         try {
             double xDoub = Double.parseDouble(xGuess);

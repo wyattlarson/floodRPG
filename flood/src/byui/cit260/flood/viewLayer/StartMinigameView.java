@@ -30,31 +30,30 @@ public class StartMinigameView extends View {
     }
 
     public boolean doAction(String[] inputs) {
-
-                        String playersGuess = inputs[0];
-                        try{
-                      double base1 = 20;
-                        double base2 = 15;
-                        double height = 10;
-                        double doubledGuess = Double.parseDouble(playersGuess);
-                        try {
-                            double answer = MiniGameControl.miniGame1(base1, base2, height, doubledGuess);
-                            this.console.println("You are correct!");
-                            startMinigame2();
-                        } catch (MiniGameControlException e) {
-                            this.console.println(e.getMessage());
-                            return false;
-                        }
-                        }
-                        catch(NumberFormatException e){
-                            this.console.println("Invalid inputs, use number.");
-                        }
-                       return true;
-                    }
+//the answer is 175
+        String playersGuess = inputs[0];
+        try {
+            double base1 = 20;
+            double base2 = 15;
+            double height = 10;
+            double doubledGuess = Double.parseDouble(playersGuess);
+            try {
+                double answer = MiniGameControl.miniGame1(base1, base2, height, doubledGuess);
+                this.console.println("You are correct!");
+                startMinigame2();
+            } catch (MiniGameControlException e) {
+                this.console.println(e.getMessage());
+                return false;
+            }
+        } catch (NumberFormatException e) {
+            this.console.println("Invalid inputs, use number.");
+        }
+        return true;
+    }
 
     private void startMinigame2() {
         Minigame2View miniGame2View = new Minigame2View();
         miniGame2View.display();
     }
 
-        }
+}
