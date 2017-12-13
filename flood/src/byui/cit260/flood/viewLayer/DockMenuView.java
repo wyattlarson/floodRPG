@@ -159,8 +159,8 @@ public class DockMenuView extends View {
     private void exportBuildingScene() {
 ExportBuildingDescriptionView eix = new ExportBuildingDescriptionView();
 eix.display();    
-
-    public void exportBuilding() {
+    }
+    private void exportBuildings() {
         ExportBuildingView ebv = new ExportBuildingView();
         ebv.display();
 

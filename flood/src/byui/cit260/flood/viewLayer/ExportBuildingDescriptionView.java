@@ -45,9 +45,8 @@ public class ExportBuildingDescriptionView extends View {
             for (int j = 0; j < map.getColumnCount(); j++) {
                 Location location = locations[i][j]; 
                   if (location.isVisited() == true){
-                     
-                 
-       out.printf("%n%-20s%7s", location.getBuildingScene()
+                      
+                out.printf("%n%-20d%-20d%-20s",location.getBuildingScene()
                                                                         , location.getBuildingScene().getDescription()
                                                                                                         ,location.getBuildingScene().getStatus());
                                                                                                                 }
