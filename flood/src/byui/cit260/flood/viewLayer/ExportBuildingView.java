@@ -43,14 +43,18 @@ public class ExportBuildingView extends View{
         Map map = Flood.getCurrentGame().getMap();
         try (PrintWriter out = new PrintWriter(filepath)) {
             out.println("\n\n=======Buildings=======");
-            out.printf("%n%-20s%10s", "Building","Location");
-            out.printf("%n%-20s%10s", "-----------","------------");
+            out.printf("%n%-20s%10s%20s", "Row","Column", "Description");
+            out.printf("%n%-20s%10s%20s", "-----------","------------", "------------");
             
-            for (Location[] location : locations) {
-                out.printf("%n%-20s%7s", map.getRowCount()
-                                       , map.getColumnCount());
+        for (int i = 0; i < map.getRowCount(); i++) {
+            for (int j = 0; j < map.getColumnCount(); j++) {
+                Location location = locations[j][i];
+                out.printf("%n%-20d%-20d%-20s", location.getRow(),
+                                          location.getColumn(),
+                                          location.getBuildingScene().getDescription());
             }
-            this.console.println("=======Items export was successfull=======");
+        }
+            this.console.println("=======Building export successful=======");
         }catch (IOException e){
             try {
                 throw new GameControlException(e.getMessage());
