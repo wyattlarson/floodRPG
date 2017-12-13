@@ -259,7 +259,7 @@ public class GameControl {
          for (Item item : items) {
             if (item.getName().toUpperCase().equals(name.toUpperCase())&& item.isInInventory()==true) {
                 saved.add(item);
-                game.setAmountSaved(game.getAmountSaved()+1);
+                game.setAmountSaved(game.getAmountSaved()+10);
                 item.setInInventory(false);
                 return;
             }
