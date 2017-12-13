@@ -33,7 +33,8 @@ public class DockMenuView extends View {
                 + "\n P - Print a list of people who need to be saved."
                 + "\n Info - list boat level, passenger list, passengers saved, and current gas level"
                 + "\n M - Enter the Minigames menu"
-                + "\n I - Inventory");
+                + "\n I - Inventory"
+                + "\n Export Items - Export a list of the games items");
 
         String menuItem = this.getInput("Enter a menu item:");
         inputs[0] = menuItem;
@@ -59,6 +60,9 @@ public class DockMenuView extends View {
                 break;
             case "I":
                 printInventory();
+                break;
+            case "EXPORT ITEMS":
+                exportItems();
                 break;
             case "M":
                 MiniGameView();
@@ -125,6 +129,11 @@ public class DockMenuView extends View {
         for (Item item : inventory) {
             this.console.println(item.getName());
         }
+    }
+    
+    public void exportItems() {
+        ExportItemsView eix = new ExportItemsView();
+        eix.display();
     }
         private void dropOffSurvivors() {
         DropOffView dropOffView = new DropOffView();
