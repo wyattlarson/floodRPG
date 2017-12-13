@@ -60,6 +60,9 @@ public class DockMenuView extends View {
             case "I":
                 printInventory();
                 break;
+            case "EI":
+                exportInventory();
+                break;
             case "M":
                 MiniGameView();
                 break;
@@ -125,6 +128,11 @@ public class DockMenuView extends View {
         for (Item item : inventory) {
             this.console.println(item.getName());
         }
+    }
+    
+    public void exportInventory() {
+        ExportInventoryView eix = new ExportInventoryView();
+        eix.display();
     }
         private void dropOffSurvivors() {
         DropOffView dropOffView = new DropOffView();
