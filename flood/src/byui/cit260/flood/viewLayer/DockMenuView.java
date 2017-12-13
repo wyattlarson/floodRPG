@@ -71,6 +71,9 @@ public class DockMenuView extends View {
                 case "EXPORT VIEW":
                 exportBuildingScene();
                 break; 
+            case "EXPORT BUILDINGS":
+                exportBuildings();
+                break;
             case "M":
                 MiniGameView();
                 break;
@@ -147,6 +150,7 @@ public class DockMenuView extends View {
         dropOffView.display();
     }
 
+
     private void exportSurvivors() {
         ExportSurvivorsView eix = new ExportSurvivorsView();
         eix.display();
@@ -155,5 +159,10 @@ public class DockMenuView extends View {
     private void exportBuildingScene() {
 ExportBuildingDescriptionView eix = new ExportBuildingDescriptionView();
 eix.display();    
+
+    public void exportBuilding() {
+        ExportBuildingView ebv = new ExportBuildingView();
+        ebv.display();
+
     }
 }
