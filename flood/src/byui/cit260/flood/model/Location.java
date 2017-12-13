@@ -20,6 +20,7 @@ public class Location implements Serializable {
     private int amountRemaining;
     private String description;
     private String locationSymbol;
+    public boolean getBuildingScene;
 
     public String getLocationSymbol() {
         return locationSymbol;
