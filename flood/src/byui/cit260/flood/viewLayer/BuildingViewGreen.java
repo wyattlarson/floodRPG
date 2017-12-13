@@ -44,7 +44,7 @@ public class BuildingViewGreen extends View {
             case "PICKUP HAMMER":
                 pickup("Hammer");
                 break;
-                case "PICKUP ROPE":
+            case "PICKUP ROPE":
                 pickup("Rope");
                 break;
             case "OPEN DOOR":
@@ -54,7 +54,7 @@ public class BuildingViewGreen extends View {
                 exitBuilding();
             default:
                 ErrorView.display(this.getClass().getName(), "Invalid Menu Command.");
-              return true;             
+                return true;
         }
         return false;
     }
@@ -68,8 +68,8 @@ public class BuildingViewGreen extends View {
                 + "\n Look - Look around you."
                 + "\n H - List of available commands."
                 + "\n E - Exit building."
-                +"\n Pickup Hammer - Pick up the hammer."
-                +"\n Pickup Rope - Pick up the rope."
+                + "\n Pickup Hammer - Pick up the hammer."
+                + "\n Pickup Rope - Pick up the rope."
                 + "\n Open Door - Try to open the door.");
     }
 
@@ -77,8 +77,8 @@ public class BuildingViewGreen extends View {
         MoveCharacterView moveCharacterView = new MoveCharacterView();
         moveCharacterView.display();
     }
-    
-    public void pickup(String itemName){
+
+    public void pickup(String itemName) {
         try {
             GameControl.addItemToInventory(itemName);
         } catch (GameControlException ex) {
@@ -87,8 +87,28 @@ public class BuildingViewGreen extends View {
     }
 
     private void openDoor() {
-        DoorView doorView = new DoorView();
-        doorView.display();
+        this.console.println("The door is jammed and you must use a hammer to break it down! To use hammer type: hammer");
+        String command = this.getInput("Enter a command:");
+        command = command.toUpperCase();
+       if("HAMMER".equals(command)){
+        Item[] items = Flood.getCurrentGame().getItems();
+        Game game = Flood.getCurrentGame();
+        for (Item item : items) {
+            if (item.getName().toUpperCase().equals("HAMMER") && item.isInInventory() == true) {
+                this.console.println("You broke down the door, you found Taylor and Derrick! You put them on your boat.");
+                try {
+                    GameControl.addItemToInventory("Taylor");
+                    GameControl.addItemToInventory("Derrick");
+                    return;
+                } catch (GameControlException ex) {
+                    ErrorView.display("BuildingViewGreen", ex.getMessage());
+                }
+            }
+        }
+        this.console.println("You don't have the hammer in your inventory! It's in the room!");
     }
-
+       this.console.println("incorrect command");
+  return;
+  
+}
 }

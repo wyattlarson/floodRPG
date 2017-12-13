@@ -82,8 +82,23 @@ public class BuildingViewOrange extends View {
     
 
     private void openDoor() {
-        DoorView doorView = new DoorView();
-        doorView.display();
+         this.console.println("The door has a digital lock, to know what letters to plug in solve the following puzzle?"
+                + "\n Guess the next three letters in the series GTNTL");
+         // The answer is ITS Its the first letter of every word in the sentence.
+        String command = this.getInput("Enter an answer:");
+        command = command.toUpperCase();
+        if ("ITS".equals(command)) {
+            this.console.println("You were able to open door, you found Jackson! You put him on your boat.");
+            try {
+                GameControl.addItemToInventory("Jackson");
+
+                return;
+            } catch (GameControlException ex) {
+                ErrorView.display("BuildingViewOrange", ex.getMessage());
+            }
+        }
+        this.console.println("Wrong answer, try again.");
+
     }
 
 }

@@ -97,4 +97,5 @@ public class BuildingViewBlue extends View {
         }
         this.console.println("You don't have the right key in your inventory! Go find the Golden Key in the MiniGames!");
     }
+
 }

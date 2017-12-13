@@ -53,6 +53,21 @@ public class DropOffView extends View {
             case "EMMA":
                 dropOff("Emma");
                 break;
+            case "JACKSON":
+                dropOff("Jackson");
+                break;
+            case "TAYLOR":
+                dropOff("taylor");
+                break;
+            case "DERRICK":
+                dropOff("Derrick");
+                break;
+            case "RYAN":
+                dropOff("Ryan");
+                break;
+            case "BRANDON":
+                dropOff("Brandon");
+                break;
             case "H":
                 help();
                 break;

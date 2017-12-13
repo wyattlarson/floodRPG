@@ -21,7 +21,10 @@ public class EndView extends View {
     @Override
     public String[] getInputs() {
         String[] inputs = new String[1];
-        this.console.println("YOU SAVED ALL 10 SURVIVORS");
+        this.console.println("============================================="
+                + "\n\tYOU SAVED ALL 10 SURVIVORS!!!!!"
+                + "\n\tYou will be forever remembered as the hero of the people!"
+                + "\n=============================================");
         String command = this.getInput("Press S to start a new or existing game!");
         inputs[0] = command;
         return inputs;

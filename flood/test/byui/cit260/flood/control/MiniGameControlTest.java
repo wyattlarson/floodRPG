@@ -150,61 +150,20 @@ public class MiniGameControlTest {
     @Test
     public void testMiniGame3() throws MiniGameControlException {
         System.out.println("miniGame3");
-        double length = 10.0;
-        double height = 15.0;
-        double expResult = 416.0;
-        double result = MiniGameControl.miniGame3(length, height);
+        double xDoub = 1;
+        double result = MiniGameControl.miniGame3(xDoub);
        
  
     }
         @Test
     public void testMiniGame3a() throws MiniGameControlException {
         System.out.println("miniGame3");
-        double length = -1.0;
-        double height = 15.0;
-        double expResult = -1.0;
-        double result = MiniGameControl.miniGame3(length, height);
-       
- 
-    }
-        @Test
-    public void testMiniGame3b() throws MiniGameControlException {
-        System.out.println("miniGame3");
-        double length = 10.0;
-        double height = -1.0;
-        double expResult = -1.0;
+        double xDoub = -4.0;
         double result = MiniGameControl.miniGame3(xDoub);
-    }   
-        @Test
-    public void testMiniGame3c() throws MiniGameControlException {
-        System.out.println("miniGame3");
-        double length = 1.0;
-        double height = 30.0;
-        double expResult = 61.0;
-        double result = MiniGameControl.miniGame3(length, height);
        
  
     }
-        @Test
-    public void testMiniGame3d() throws MiniGameControlException {
-        System.out.println("miniGame3");
-        double length = 30.0;
-        double height = 1.0;
-        double expResult = 1802.0;
-        double result = MiniGameControl.miniGame3(length, height);
-       
- 
-    }
-         @Test
-    public void testMiniGame3e() throws MiniGameControlException {
-        System.out.println("miniGame3");
-        double length = 30.0;
-        double height = 30.0;
-        double expResult = 2912.0;
-        double result = MiniGameControl.miniGame3(length, height);
-       
- 
-    }
+
 
     private static class MiniGame1 {
 
