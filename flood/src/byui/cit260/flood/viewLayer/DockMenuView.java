@@ -34,7 +34,8 @@ public class DockMenuView extends View {
                 + "\n Info - list boat level, passenger list, passengers saved, and current gas level"
                 + "\n M - Enter the Minigames menu"
                 + "\n I - Inventory"
-                + "\n Export Items - Export a list of the games items");
+                + "\n Export Items - Export a list of the games items"
+                + "\n Export Survivors - list of survivors");
 
         String menuItem = this.getInput("Enter a menu item:");
         inputs[0] = menuItem;
@@ -64,6 +65,12 @@ public class DockMenuView extends View {
             case "EXPORT ITEMS":
                 exportItems();
                 break;
+            case "EXPORT SURVIVORS":
+                exportSurvivors();
+                break;
+                case "EXPORT VIEW":
+                exportBuildingScene();
+                break; 
             case "EXPORT BUILDINGS":
                 exportBuildings();
                 break;
@@ -141,8 +148,19 @@ public class DockMenuView extends View {
         dropOffView.display();
     }
 
+
+    private void exportSurvivors() {
+        ExportSurvivorsView eix = new ExportSurvivorsView();
+        eix.display();
+    }
+
+    private void exportBuildingScene() {
+ExportBuildingDescriptionView eix = new ExportBuildingDescriptionView();
+eix.display();    
+    }
     private void exportBuildings() {
         ExportBuildingView ebv = new ExportBuildingView();
         ebv.display();
+
     }
 }
