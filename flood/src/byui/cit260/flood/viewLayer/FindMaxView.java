@@ -25,7 +25,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author wyattlarson
+ * @author Brandon Flores
  */
 public class FindMaxView extends View{
     
