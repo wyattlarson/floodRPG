@@ -68,9 +68,6 @@ public class DockMenuView extends View {
             case "EXPORT SURVIVORS":
                 exportSurvivors();
                 break;
-                case "EXPORT VIEW":
-                exportBuildingScene();
-                break; 
             case "EXPORT BUILDINGS":
                 exportBuildings();
                 break;
@@ -160,10 +157,7 @@ public class DockMenuView extends View {
         eix.display();
     }
 
-    private void exportBuildingScene() {
-ExportBuildingDescriptionView eix = new ExportBuildingDescriptionView();
-eix.display();    
-    }
+
     private void exportBuildings() {
         ExportBuildingView ebv = new ExportBuildingView();
         ebv.display();

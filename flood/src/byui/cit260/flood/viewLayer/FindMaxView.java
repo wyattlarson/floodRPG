@@ -31,7 +31,9 @@ public class FindMaxView extends View{
     
     public String[] getInputs(){
         String[] inputs = new String[1];
-        String answer = this. getInput("\nFind the item with the highest ID?");
+        String answer = this. getInput("\nFind the item with the highest ID?" +
+                                       "\nY - yes" +
+                                       "\nN - no");
         inputs[0] = answer;
         return inputs;
     }
@@ -54,7 +56,7 @@ public class FindMaxView extends View{
         String maxId = GameControl.FindMaxId();
         
         this.console.print("The item with the highes Id is:" 
-                           + "\n" + maxId);
+                           + "\n" + maxId + "\n");
         
     }
     
