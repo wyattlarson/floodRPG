@@ -10,7 +10,7 @@ import static jdk.nashorn.internal.objects.NativeString.trim;
 
 /**
  *
- * @author Ryan Call
+ * @author Brandon
  */
 public class UseItemView extends View {
 
