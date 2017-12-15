@@ -35,7 +35,8 @@ public class DockMenuView extends View {
                 + "\n M - Enter the Minigames menu"
                 + "\n I - Inventory"
                 + "\n Export Items - Export a list of the games items"
-                + "\n Export Survivors - list of survivors; showing if they are saved or still need saving.");
+                + "\n Export Survivors - list of survivors; showing if they are saved or still need saving."
+                + "\n Find Max - Find the item with the highest Id");
 
         String menuItem = this.getInput("Enter a menu item:");
         inputs[0] = menuItem;
