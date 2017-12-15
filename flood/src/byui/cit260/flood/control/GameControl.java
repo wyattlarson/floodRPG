@@ -297,6 +297,15 @@ public class GameControl {
             throw new GameControlException(e.getMessage());
         }
     }
-    
+    public static Item FindMaxId(){
+        Item[] items = Flood.getCurrentGame().getItems();
+        Item maxList = items[0];
+        for (Item item : items){
+      //      if (item > maxList){
+      //          maxList = item;
+          //  }
+      //  }
+      //  return maxList;
+    }
 
-}
+//}

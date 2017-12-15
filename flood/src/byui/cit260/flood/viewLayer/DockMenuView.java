@@ -77,6 +77,9 @@ public class DockMenuView extends View {
             case "M":
                 MiniGameView();
                 break;
+            case "FIND MAX":
+                 findMaxItem();
+                 break;
             case "X":
         {
             try {
@@ -162,5 +165,10 @@ eix.display();
         ExportBuildingView ebv = new ExportBuildingView();
         ebv.display();
 
+    }
+
+    private void findMaxItem() {
+         FindMaxView fmv = new FindMaxView();
+         fmv.display();
     }
 }
