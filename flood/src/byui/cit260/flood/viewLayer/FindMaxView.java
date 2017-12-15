@@ -55,13 +55,12 @@ public class FindMaxView extends View{
         return true;
     }
 
-    public boolean MaxId() {
+    public void MaxId() {
         Item[] items = Flood.getCurrentGame().getItems();
         String maxId = GameControl.FindMaxId();
         
         this.console.print("The item with the highest Id is:" 
                            + "\n" + maxId + "\n");
-        return false;
         
     }
     
