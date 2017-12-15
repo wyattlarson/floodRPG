@@ -129,9 +129,7 @@ public class DockMenuView extends View {
 
     public void printInventory() {
       ArrayList <Item> inventory = Flood.getCurrentGame().getInventory();   
-        for (Item item : inventory) {
-            this.console.println(item.getName());
-        }
+      
     }
     
     public void exportItems() {
