@@ -74,6 +74,7 @@ public class GameControl {
         ArrayList<Item> inventory = new ArrayList<>();
         game.setInventory(inventory);
         
+        
         ArrayList<String> saved = new ArrayList<>();
         saved = GameControl.survivorsSaved(items);
         game.setAmountSaved(saved.size());
@@ -296,5 +297,6 @@ public class GameControl {
             throw new GameControlException(e.getMessage());
         }
     }
+    
 
 }
