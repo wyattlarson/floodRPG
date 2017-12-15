@@ -296,5 +296,19 @@ public class GameControl {
             throw new GameControlException(e.getMessage());
         }
     }
+    public static boolean itemSearch(String searchItem){
+        Item [] items = Flood.getCurrentGame().getItems();
+        
+        for(Item searchItems: items) {
+            searchItems.isInInventory();
+            if(searchItems.isInInventory() == true){
+              
+             return searchItems.isInInventory()== true;
+            }
+        }
+ 
+        return false;
+    }
+    }
 
-}
+

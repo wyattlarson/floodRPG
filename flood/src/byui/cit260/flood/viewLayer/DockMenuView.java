@@ -35,7 +35,7 @@ public class DockMenuView extends View {
                 + "\n M - Enter the Minigames menu"
                 + "\n I - Inventory"
                 + "\n Export Items - Export a list of the games items"
-                + "\n Export Survivors - list of survivors");
+                + "\n Export Survivors - list of survivors; showing if they are saved or still need saving.");
 
         String menuItem = this.getInput("Enter a menu item:");
         inputs[0] = menuItem;
@@ -77,6 +77,9 @@ public class DockMenuView extends View {
             case "M":
                 MiniGameView();
                 break;
+            case "SEARCH":
+                itemSearch();
+            break;
             case "X":
         {
             try {
@@ -165,4 +168,8 @@ eix.display();
         ebv.display();
 
     }
+
+    private void itemSearch() {
+  ItemSearchView ItemSearchView = new ItemSearchView();
+        ItemSearchView.display();    }
 }
