@@ -297,15 +297,38 @@ public class GameControl {
             throw new GameControlException(e.getMessage());
         }
     }
-    public static Item FindMaxId(){
+
+    public static String FindMaxId(){
         Item[] items = Flood.getCurrentGame().getItems();
-        Item maxList = items[0];
+        int maxList = items[0].getItemId();
+        String itemName = new String();
         for (Item item : items){
-      //      if (item > maxList){
-      //          maxList = item;
-          //  }
-      //  }
-      //  return maxList;
+            if (item.getItemId() > maxList){
+                maxList = item.getItemId();
+            }
+        }
+        for (Item item : items){
+            if (item.getItemId() == maxList){
+                itemName = item.getName();
+            }
+        }
+        return itemName;
+       }
+
+    public static boolean itemSearch(String searchItem){
+        Item [] items = Flood.getCurrentGame().getItems();
+        
+        for(Item searchItems: items) {
+            searchItems.isInInventory();
+            if(searchItems.isInInventory() == true){
+              
+             return searchItems.isInInventory()== true;
+            }
+        }
+ 
+        return false;
     }
 
-//}
+    }
+
+

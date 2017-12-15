@@ -15,34 +15,37 @@ import java.io.PrintWriter;
  *
  * @author Ryan Call
  */
-public class ExportSurvivorsView extends View{
-        
-    public String[] getInputs(){
+public class ExportSurvivorsView extends View {
+
+    public String[] getInputs() {
         String[] inputs = new String[1];
         this.console.println("\n\nEnter the filepath for the building inventory to be saved to.");
-        String filePath = this. getInput("-->");
+        String filePath = this.getInput("-->");
         inputs[0] = filePath;
         return inputs;
     }
+
     @Override
-    public boolean doAction
-       (String[] inputs) {
+    public boolean doAction(String[] inputs) {
         String filepath = inputs[0];
         Item[] items = Flood.getCurrentGame().getItems();
         try (PrintWriter out = new PrintWriter(filepath)) {
-            out.println("\n\n=======Building Descriptions In The Game=======");
-            out.printf("%n%-20s%10s", "Name","Description");
-            out.printf("%n%-20s%10s", "-----------","------------");
-            
+            out.println("\n\n=======Current Survivor Update List=======");
+            out.printf("%n%-20s%-20s%10s", "NAME", "STATUS", "DESCRIPTION");
+            out.printf("%n%-20s%-20s%10s", "-----------", "------------", "------------");
+
             for (Item item : items) {
-                if(item.getItemId() == 3 ){
-                out.printf("%n%-20s%7s", item.getName()
-                                                                        , item.getDescription());
-            }
+                if (item.getItemId() == 3) {
+                    out.printf("%n%-20s%-20s%20s",
+                             item.getName(),
+                             item.isInInventory(),
+                            item.getDescription());
+
+                }
             }
             this.console.println("=======Items export was successfull=======");
-           
-        }catch (IOException e){
+
+        } catch (IOException e) {
             try {
                 throw new GameControlException(e.getMessage());
             } catch (GameControlException ex) {
@@ -50,5 +53,5 @@ public class ExportSurvivorsView extends View{
         }
         return true;
     }
-    
+
 }

@@ -49,9 +49,13 @@ public class FindMaxView extends View{
         return true;
     }
 
-    public Item MaxId() {
-        Item maxId = GameControl.FindMaxId();
-        return maxId;
+    public void MaxId() {
+        Item[] items = Flood.getCurrentGame().getItems();
+        String maxId = GameControl.FindMaxId();
+        
+        this.console.print("The item with the highes Id is:" 
+                           + "\n" + maxId);
+        
     }
     
 }
