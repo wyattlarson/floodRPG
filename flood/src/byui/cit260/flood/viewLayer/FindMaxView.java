@@ -43,10 +43,10 @@ public class FindMaxView extends View{
         String answer = inputs[0];
         answer = answer.toUpperCase();
          switch (answer){
-                 case "YES":
+                 case "Y":
                      MaxId();
                      break;
-                 case "NO":
+                 case "N":
                      return true;
                  default:
                      this.console.print("Invalid Command");
@@ -55,12 +55,13 @@ public class FindMaxView extends View{
         return true;
     }
 
-    public void MaxId() {
+    public boolean MaxId() {
         Item[] items = Flood.getCurrentGame().getItems();
         String maxId = GameControl.FindMaxId();
         
         this.console.print("The item with the highest Id is:" 
                            + "\n" + maxId + "\n");
+        return false;
         
     }
     
